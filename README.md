@@ -1,4 +1,6 @@
-# Fraud-Spike Investigator
+# RIXO
+
+Risk Intelligence & eXecution Operations
 
 ## AI Risk Investigation & Governed Response for Razorpay
 
