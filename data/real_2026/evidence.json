@@ -1,0 +1,722 @@
+{
+  "rct-20260104-20": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260104-20",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-04T20:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 70,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 157784.18999999997,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-04T20:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 1,
+      "fraud_rate": 0.014285714285714285,
+      "fraud_amount_usd": 149081.06,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260108-03": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260108-03",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-08T03:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 83,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 152054.05,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-08T03:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 0,
+      "fraud_rate": 0.0,
+      "fraud_amount_usd": NaN,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260123-14": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260123-14",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-23T14:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 80,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 144824.69999999995,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-23T14:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 1,
+      "fraud_rate": 0.0125,
+      "fraud_amount_usd": 104061.36,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260113-09": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260113-09",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-13T09:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 91,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 122117.52,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-13T09:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 1,
+      "fraud_rate": 0.01098901098901099,
+      "fraud_amount_usd": 107654.21,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260110-19": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260110-19",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-10T19:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 83,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 117363.56999999999,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-10T19:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 1,
+      "fraud_rate": 0.012048192771084338,
+      "fraud_amount_usd": 107647.97,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260121-04": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260121-04",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-21T04:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 86,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 115560.46999999997,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-21T04:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 1,
+      "fraud_rate": 0.011627906976744186,
+      "fraud_amount_usd": 107275.61,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260103-02": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260103-02",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-03T02:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 98,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 102844.34,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-03T02:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 1,
+      "fraud_rate": 0.01020408163265306,
+      "fraud_amount_usd": 75535.53,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260120-17": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260120-17",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-20T17:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 73,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 92330.24000000002,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-20T17:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 1,
+      "fraud_rate": 0.0136986301369863,
+      "fraud_amount_usd": 79927.19,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260101-03": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260101-03",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-01T03:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 83,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 92101.46,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-01T03:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 1,
+      "fraud_rate": 0.012048192771084338,
+      "fraud_amount_usd": 81050.56,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260109-02": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260109-02",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-09T02:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 70,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 90223.07000000002,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-09T02:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 1,
+      "fraud_rate": 0.014285714285714285,
+      "fraud_amount_usd": 79844.49,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260127-04": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260127-04",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-27T04:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 77,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 87253.09999999999,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-27T04:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 2,
+      "fraud_rate": 0.025974025974025976,
+      "fraud_amount_usd": 67600.97,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260119-11": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260119-11",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-19T11:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 72,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 81075.9,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-19T11:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 0,
+      "fraud_rate": 0.0,
+      "fraud_amount_usd": NaN,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260103-15": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260103-15",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-03T15:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 69,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 74238.2,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-03T15:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 1,
+      "fraud_rate": 0.014492753623188406,
+      "fraud_amount_usd": 61688.33,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260112-12": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260112-12",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-12T12:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 65,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 72072.97,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-12T12:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 3,
+      "fraud_rate": 0.046153846153846156,
+      "fraud_amount_usd": 51604.06,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260107-15": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260107-15",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-07T15:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 70,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 69119.77,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-07T15:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 1,
+      "fraud_rate": 0.014285714285714285,
+      "fraud_amount_usd": 52707.07,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260114-06": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260114-06",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-14T06:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 60,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 67547.70000000001,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-14T06:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 2,
+      "fraud_rate": 0.03333333333333333,
+      "fraud_amount_usd": 17656.27,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260109-11": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260109-11",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-09T11:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 69,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 63228.85999999999,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-09T11:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 1,
+      "fraud_rate": 0.014492753623188406,
+      "fraud_amount_usd": 56829.5,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260126-17": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260126-17",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-26T17:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 85,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 62857.47000000001,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-26T17:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 1,
+      "fraud_rate": 0.011764705882352941,
+      "fraud_amount_usd": 40073.98,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260109-17": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260109-17",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-09T17:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 80,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 60335.08,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-09T17:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 2,
+      "fraud_rate": 0.025,
+      "fraud_amount_usd": 52733.240000000005,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  },
+  "rct-20260123-00": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "anomaly_id": "rct-20260123-00",
+    "kind": "Amount concentration",
+    "hour_start": "2026-01-23T00:00:00",
+    "live_evidence": {
+      "transaction_count": {
+        "value": 83,
+        "label": "OBSERVED",
+        "source": "January collection timestamp hour"
+      },
+      "amount_usd": {
+        "value": 58668.26000000001,
+        "label": "OBSERVED",
+        "source": "amount"
+      },
+      "temporal_window": {
+        "value": "2026-01-23T00:00:00",
+        "label": "OBSERVED",
+        "source": "timestamp"
+      }
+    },
+    "evaluation_overlay": {
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 0,
+      "fraud_rate": 0.0,
+      "fraud_amount_usd": NaN,
+      "note": "is_fraud was not used to detect this anomaly."
+    },
+    "source_dataset_model_output": {
+      "used": false,
+      "note": "Source CNN-LSTM probability, risk, confidence, and recommendation are excluded."
+    }
+  }
+}

@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Inter", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-canvas: #f7f9fc;
+  --color-panel: #ffffff;
+  --color-raised: #eef4ff;
+  --color-line: #e2e8f0;
+  --color-ink: #172033;
+  --color-navy: #172b4d;
+  --color-mute: #425466;
+  --color-brass: #2563eb;
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-danger: #dc2626;
+  --color-warning: #d97706;
+  --color-success: #16a34a;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 10px;
+}
+
+.table-wrap table {
+  min-width: 720px;
+}
+
+main h1 {
+  color: #172b4d;
+}
+
+main .border.border-line,
+main header.border,
+main section.border,
+main article.border,
+main li.border {
+  border-radius: 10px;
+}
+
+main .table-wrap.border {
+  background: var(--color-panel);
+}
+
+main thead {
+  background: #eef4ff;
+}
+
+main tbody tr {
+  background: #ffffff;
+}
+
+main tbody tr:hover {
+  background: #eef4ff;
+}
+
+main input,
+main select,
+main textarea {
+  border-radius: 8px;
+  min-height: 40px;
+  background: #ffffff;
+}
+
+button.bg-ink,
+label.bg-ink,
+button.bg-brass,
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  padding-inline: 16px;
+}
+
+button.bg-ink:hover:not(:disabled),
+label.bg-ink:hover,
+button.bg-brass:hover:not(:disabled),
+.btn-primary:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+button.bg-ink:disabled,
+button.bg-brass:disabled,
+.btn-primary:disabled {
+  opacity: 0.5;
+}
+
+.btn-secondary,
+button.border.border-line.bg-panel {
+  min-height: 40px;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.rixo-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(23, 43, 77, 0.04);
+}
+
+.rixo-kicker {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #425466;
+}
+
+.rixo-loop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.45rem;
+  margin: 0;
+}
+
+.rixo-loop-arrow {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.rixo-workflow-step {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  border-radius: 6px;
+  background: #eef4ff;
+  color: #1d4ed8;
+  padding: 0.15rem 0.45rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.rixo-workflow-step-review {
+  background: #fff7ed;
+  color: #d97706;
+}
+
+.rixo-workflow-step-complete {
+  background: #ecfdf3;
+  color: #16a34a;
+}
+
+.rixo-workflow-step-action {
+  background: #eef4ff;
+  color: #2563eb;
+}
+
+.rixo-workflow-step-blocked {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+@media (max-width: 767px) {
+  button.bg-ink,
+  label.bg-ink,
+  button.bg-brass,
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}

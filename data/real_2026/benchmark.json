@@ -1,0 +1,126 @@
+{
+  "world": "RECENT PUBLIC DATA",
+  "dataset": "2026 ONLINE BANKING FRAUD DATA",
+  "amount_currency": "USD",
+  "source": {
+    "zenodo": "https://zenodo.org/records/20359708",
+    "doi": "10.5281/zenodo.20359708"
+  },
+  "collection": "January 2026 rows with test_date present",
+  "measurements": {
+    "total_transactions": {
+      "value": 56962,
+      "source": "january collection row count"
+    },
+    "labelled_fraud_transactions": {
+      "value": 98,
+      "source": "is_fraud == 1 (delayed ground truth)"
+    },
+    "fraud_transaction_rate": {
+      "value": 0.0017204452090867595,
+      "source": "labelled_fraud_transactions / total_transactions"
+    },
+    "total_amount_usd": {
+      "value": 12107485.969999999,
+      "source": "sum(amount) on January collection"
+    },
+    "labelled_fraud_amount_usd": {
+      "value": 2371116.05,
+      "source": "sum(amount) where is_fraud == 1"
+    },
+    "temporal_coverage_hours": {
+      "value": 744,
+      "source": "unique hour_start from timestamp"
+    },
+    "unique_ip_addresses": {
+      "value": 56962,
+      "source": "ip_address nunique; January IPs are one-per-row"
+    }
+  },
+  "hourly_buckets": 744,
+  "coverage": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "collection_rows": 56962,
+    "export_rows": 57394,
+    "observed": {
+      "transaction_id": {
+        "non_null": 56962,
+        "coverage": 1.0
+      },
+      "amount": {
+        "non_null": 56962,
+        "coverage": 1.0
+      },
+      "is_fraud": {
+        "non_null": 56962,
+        "coverage": 1.0
+      },
+      "timestamp": {
+        "non_null": 56962,
+        "coverage": 1.0
+      },
+      "ip_address": {
+        "non_null": 56962,
+        "coverage": 1.0
+      }
+    },
+    "source_model_output_present": {
+      "fraud_probability": true,
+      "risk_level": true,
+      "confidence": true,
+      "recommendation": true
+    },
+    "source_model_outputs_excluded_from_analysis": true,
+    "unavailable": {
+      "account_identity": {
+        "available": false,
+        "reason": "No account identifiers are provided."
+      },
+      "device_identity": {
+        "available": false,
+        "reason": "No device identifiers are provided."
+      },
+      "merchant_identity": {
+        "available": false,
+        "reason": "No merchant identifiers are provided."
+      },
+      "sku_identity": {
+        "available": false,
+        "reason": "No SKU or product codes are provided. v1\u2013v28 are opaque PCA features."
+      },
+      "payment_outcome": {
+        "available": false,
+        "reason": "No success / failed / declined payment status is provided."
+      },
+      "source_latency": {
+        "available": false,
+        "reason": "Described in the source README; not present in this CSV export."
+      }
+    },
+    "notes": [
+      "Primary coverage is the January collection (test_date present).",
+      "Source-model outputs may exist in the file and are not analysis inputs."
+    ]
+  },
+  "not_calculated": [
+    "precision / recall / F1 against is_fraud",
+    "PR-AUC",
+    "source CNN-LSTM probability as our prediction",
+    "money saved",
+    "fraud stopped",
+    "live production detection"
+  ],
+  "source_model_outputs_excluded": [
+    "fraud_probability",
+    "risk_level",
+    "confidence",
+    "recommendation"
+  ],
+  "notes": [
+    "Classifier metrics are omitted because this adapter has no independent predictive score.",
+    "Source CNN-LSTM probability is not used as our prediction.",
+    "Amounts are USD as documented by the source README."
+  ]
+}

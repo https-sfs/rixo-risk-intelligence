@@ -1,0 +1,607 @@
+{
+  "world": "RECENT PUBLIC DATA",
+  "dataset": "2026 ONLINE BANKING FRAUD DATA",
+  "count": 20,
+  "anomalies": [
+    {
+      "anomaly_id": "rct-20260104-20",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-04T20:00:00",
+      "transactions": 70,
+      "amount_usd": 157784.18999999997,
+      "amount_currency": "USD",
+      "live_score": 28.265483770277267,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 1,
+        "fraud_amount_usd": 149081.06,
+        "fraud_rate": 0.014285714285714285
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260108-03",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-08T03:00:00",
+      "transactions": 83,
+      "amount_usd": 152054.05,
+      "amount_currency": "USD",
+      "live_score": 27.15511434998513,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 0,
+        "fraud_amount_usd": NaN,
+        "fraud_rate": 0.0
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260123-14",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-23T14:00:00",
+      "transactions": 80,
+      "amount_usd": 144824.69999999995,
+      "amount_currency": "USD",
+      "live_score": 25.75423249219648,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 1,
+        "fraud_amount_usd": 104061.36,
+        "fraud_rate": 0.0125
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260113-09",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-13T09:00:00",
+      "transactions": 91,
+      "amount_usd": 122117.52,
+      "amount_currency": "USD",
+      "live_score": 21.35410295032327,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 1,
+        "fraud_amount_usd": 107654.21,
+        "fraud_rate": 0.01098901098901099
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260110-19",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-10T19:00:00",
+      "transactions": 83,
+      "amount_usd": 117363.56999999999,
+      "amount_currency": "USD",
+      "live_score": 20.43289671354758,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 1,
+        "fraud_amount_usd": 107647.97,
+        "fraud_rate": 0.012048192771084338
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260121-04",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-21T04:00:00",
+      "transactions": 86,
+      "amount_usd": 115560.46999999997,
+      "amount_currency": "USD",
+      "live_score": 20.083497379198196,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 1,
+        "fraud_amount_usd": 107275.61,
+        "fraud_rate": 0.011627906976744186
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260103-02",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-03T02:00:00",
+      "transactions": 98,
+      "amount_usd": 102844.34,
+      "amount_currency": "USD",
+      "live_score": 17.619403675299246,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 1,
+        "fraud_amount_usd": 75535.53,
+        "fraud_rate": 0.01020408163265306
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260120-17",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-20T17:00:00",
+      "transactions": 73,
+      "amount_usd": 92330.24000000002,
+      "amount_currency": "USD",
+      "live_score": 15.58201277003452,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 1,
+        "fraud_amount_usd": 79927.19,
+        "fraud_rate": 0.0136986301369863
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260101-03",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-01T03:00:00",
+      "transactions": 83,
+      "amount_usd": 92101.46,
+      "amount_currency": "USD",
+      "live_score": 15.537680464720085,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 1,
+        "fraud_amount_usd": 81050.56,
+        "fraud_rate": 0.012048192771084338
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260109-02",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-09T02:00:00",
+      "transactions": 70,
+      "amount_usd": 90223.07000000002,
+      "amount_currency": "USD",
+      "live_score": 15.173691658969695,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 1,
+        "fraud_amount_usd": 79844.49,
+        "fraud_rate": 0.014285714285714285
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260127-04",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-27T04:00:00",
+      "transactions": 77,
+      "amount_usd": 87253.09999999999,
+      "amount_currency": "USD",
+      "live_score": 14.598179740031396,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 2,
+        "fraud_amount_usd": 67600.97,
+        "fraud_rate": 0.025974025974025976
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260119-11",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-19T11:00:00",
+      "transactions": 72,
+      "amount_usd": 81075.9,
+      "amount_currency": "USD",
+      "live_score": 13.401180367759753,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 0,
+        "fraud_amount_usd": NaN,
+        "fraud_rate": 0.0
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260103-15",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-03T15:00:00",
+      "transactions": 69,
+      "amount_usd": 74238.2,
+      "amount_currency": "USD",
+      "live_score": 12.076191277592393,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 1,
+        "fraud_amount_usd": 61688.33,
+        "fraud_rate": 0.014492753623188406
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260112-12",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-12T12:00:00",
+      "transactions": 65,
+      "amount_usd": 72072.97,
+      "amount_currency": "USD",
+      "live_score": 11.656619473081655,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 3,
+        "fraud_amount_usd": 51604.06,
+        "fraud_rate": 0.046153846153846156
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260107-15",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-07T15:00:00",
+      "transactions": 70,
+      "amount_usd": 69119.77,
+      "amount_currency": "USD",
+      "live_score": 11.084357194671922,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 1,
+        "fraud_amount_usd": 52707.07,
+        "fraud_rate": 0.014285714285714285
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260114-06",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-14T06:00:00",
+      "transactions": 60,
+      "amount_usd": 67547.70000000001,
+      "amount_currency": "USD",
+      "live_score": 10.779726163918978,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 2,
+        "fraud_amount_usd": 17656.27,
+        "fraud_rate": 0.03333333333333333
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260109-11",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-09T11:00:00",
+      "transactions": 69,
+      "amount_usd": 63228.85999999999,
+      "amount_currency": "USD",
+      "live_score": 9.942834243802796,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 1,
+        "fraud_amount_usd": 56829.5,
+        "fraud_rate": 0.014492753623188406
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260126-17",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-26T17:00:00",
+      "transactions": 85,
+      "amount_usd": 62857.47000000001,
+      "amount_currency": "USD",
+      "live_score": 9.87086739848972,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 1,
+        "fraud_amount_usd": 40073.98,
+        "fraud_rate": 0.011764705882352941
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260109-17",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-09T17:00:00",
+      "transactions": 80,
+      "amount_usd": 60335.08,
+      "amount_currency": "USD",
+      "live_score": 9.38208619557832,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 2,
+        "fraud_amount_usd": 52733.240000000005,
+        "fraud_rate": 0.025
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    },
+    {
+      "anomaly_id": "rct-20260123-00",
+      "kind": "Amount concentration",
+      "kinds": [
+        "Amount concentration"
+      ],
+      "world": "RECENT PUBLIC DATA",
+      "dataset": "2026 ONLINE BANKING FRAUD DATA",
+      "hour_start": "2026-01-23T00:00:00",
+      "transactions": 83,
+      "amount_usd": 58668.26000000001,
+      "amount_currency": "USD",
+      "live_score": 9.059094792727544,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "hour volume and amount only; is_fraud and source-model outputs were not used",
+      "evaluation_overlay": {
+        "label": "DELAYED GROUND TRUTH",
+        "fraud_count": 0,
+        "fraud_amount_usd": NaN,
+        "fraud_rate": 0.0
+      },
+      "not_claimed": [
+        "coordinated abuse",
+        "account takeover",
+        "card testing",
+        "our model detected fraud"
+      ]
+    }
+  ]
+}

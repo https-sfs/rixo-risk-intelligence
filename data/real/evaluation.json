@@ -1,0 +1,58 @@
+{
+  "world": "REAL PUBLIC DATA",
+  "dataset": "IEEE-CIS Fraud Detection",
+  "amount_currency": "USD",
+  "methodology": {
+    "unit": "relative_hour_bucket",
+    "live_inputs": [
+      "transaction_count",
+      "amount_usd",
+      "product_top_share"
+    ],
+    "delayed_ground_truth": "An evaluation-positive hour has labelled_fraud_rate >= early-period mean + 2 standard deviations. isFraud is not a live input.",
+    "split": "First 70% of relative-hour buckets are the reference window; the remainder is the temporal holdout.",
+    "not_a_trained_model": true,
+    "synthetic_calendar_used": false
+  },
+  "reference_window": {
+    "hours": 3057,
+    "high_fraud_rate_threshold": 0.17581329472010107,
+    "counts": {
+      "tp": 0,
+      "fp": 498,
+      "tn": 2427,
+      "fn": 132
+    },
+    "scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": null
+    }
+  },
+  "temporal_holdout": {
+    "hours": 1311,
+    "counts": {
+      "tp": 0,
+      "fp": 235,
+      "tn": 1015,
+      "fn": 61
+    },
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": null
+  },
+  "pr_auc": {
+    "calculated": false,
+    "reason": "No trained scoring model exists. PR-AUC is not reported for the deterministic heuristic detector."
+  },
+  "signal_coverage": {
+    "hours_scored": 4368,
+    "hours_flagged_live": 733,
+    "hours_with_fraud_label": 4368
+  },
+  "notes": [
+    "These scores evaluate hour-level heuristic flags, not a transaction classifier.",
+    "Precision/recall can be low because elevated volume is not the same as elevated fraud.",
+    "Do not present these numbers as model-training results."
+  ]
+}

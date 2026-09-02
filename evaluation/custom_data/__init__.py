@@ -1,0 +1,17 @@
+"""User-provided transaction world. Isolated from seed-42, IEEE-CIS, and January 2026."""
+
+from __future__ import annotations
+
+WORLD = "BRING YOUR DATA"
+DATASET_NAME = "USER-PROVIDED DATA"
+AMOUNT_CURRENCY = "UNSPECIFIED"
+USER_MODEL_PROVENANCE = "MODEL PREDICTION · USER DATASET"
+USER_LABEL_PROVENANCE = "USER-PROVIDED GROUND TRUTH"
+
+__all__ = [
+    "AMOUNT_CURRENCY",
+    "DATASET_NAME",
+    "USER_LABEL_PROVENANCE",
+    "USER_MODEL_PROVENANCE",
+    "WORLD",
+]

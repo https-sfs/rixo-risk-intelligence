@@ -1,0 +1,2110 @@
+{
+  "world": "REAL PUBLIC DATA",
+  "dataset": "IEEE-CIS Fraud Detection",
+  "provenance": "MODEL PREDICTION",
+  "note": "Hour aggregates of our IEEE-CIS classifier. This overlay does not replace the hour-level anomaly detector.",
+  "hours": {
+    "453": {
+      "relative_hour_bucket": 453,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 406,
+      "mean_score": 0.23550782868076475,
+      "p95_score": 0.8609049985741539,
+      "high_risk_count": 53,
+      "high_risk_rate": 0.13054187192118227,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3060924.0",
+          "fraud_risk_score": 0.9958336619842303,
+          "amount_usd": 33.814,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3060916.0",
+          "fraud_risk_score": 0.9958336619842303,
+          "amount_usd": 33.814,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3060880.0",
+          "fraud_risk_score": 0.995608900985846,
+          "amount_usd": 33.814,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3060713.0",
+          "fraud_risk_score": 0.9954687708525481,
+          "amount_usd": 33.814,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3060984.0",
+          "fraud_risk_score": 0.9953176525265116,
+          "amount_usd": 33.814,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3060678.0",
+          "fraud_risk_score": 0.9950818216882448,
+          "amount_usd": 33.814,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3060902.0",
+          "fraud_risk_score": 0.9950115283307918,
+          "amount_usd": 33.814,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3060784.0",
+          "fraud_risk_score": 0.9949976168656159,
+          "amount_usd": 33.814,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "454": {
+      "relative_hour_bucket": 454,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 387,
+      "mean_score": 0.22757499277309515,
+      "p95_score": 0.8084170106367297,
+      "high_risk_count": 46,
+      "high_risk_rate": 0.11886304909560723,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3061339.0",
+          "fraud_risk_score": 0.9891649502489358,
+          "amount_usd": 33.814,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3061328.0",
+          "fraud_risk_score": 0.9875826078706527,
+          "amount_usd": 33.814,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3061127.0",
+          "fraud_risk_score": 0.98467641385833,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3061318.0",
+          "fraud_risk_score": 0.981665447063243,
+          "amount_usd": 33.814,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3061294.0",
+          "fraud_risk_score": 0.9810561326903438,
+          "amount_usd": 61.565,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3061312.0",
+          "fraud_risk_score": 0.9799816568072485,
+          "amount_usd": 49.555,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3061300.0",
+          "fraud_risk_score": 0.9726232646659745,
+          "amount_usd": 49.555,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3061119.0",
+          "fraud_risk_score": 0.9720884341707603,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "474": {
+      "relative_hour_bucket": 474,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 379,
+      "mean_score": 0.19875080456078217,
+      "p95_score": 0.669929509190769,
+      "high_risk_count": 35,
+      "high_risk_rate": 0.09234828496042216,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3065118.0",
+          "fraud_risk_score": 0.9030899979109264,
+          "amount_usd": 200.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3065120.0",
+          "fraud_risk_score": 0.9030899979109264,
+          "amount_usd": 200.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3065125.0",
+          "fraud_risk_score": 0.9030899979109264,
+          "amount_usd": 200.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3065138.0",
+          "fraud_risk_score": 0.9030899979109264,
+          "amount_usd": 200.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3065163.0",
+          "fraud_risk_score": 0.8936119755374962,
+          "amount_usd": 200.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3065416.0",
+          "fraud_risk_score": 0.892148375545424,
+          "amount_usd": 250.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3065269.0",
+          "fraud_risk_score": 0.8420762499591299,
+          "amount_usd": 171.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3065436.0",
+          "fraud_risk_score": 0.8342102389617443,
+          "amount_usd": 130.5,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "476": {
+      "relative_hour_bucket": 476,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 352,
+      "mean_score": 0.1836701952536079,
+      "p95_score": 0.5706215689577874,
+      "high_risk_count": 24,
+      "high_risk_rate": 0.06818181818181818,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3066098.0",
+          "fraud_risk_score": 0.8306128428135655,
+          "amount_usd": 117.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3066040.0",
+          "fraud_risk_score": 0.8306128428135655,
+          "amount_usd": 117.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3066161.0",
+          "fraud_risk_score": 0.8123217591341352,
+          "amount_usd": 1.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3066021.0",
+          "fraud_risk_score": 0.7925291658279057,
+          "amount_usd": 43.55,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3065970.0",
+          "fraud_risk_score": 0.7775005537355955,
+          "amount_usd": 335.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3065901.0",
+          "fraud_risk_score": 0.7688991230826128,
+          "amount_usd": 63.664,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3065885.0",
+          "fraud_risk_score": 0.7515945102499821,
+          "amount_usd": 63.664,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3066125.0",
+          "fraud_risk_score": 0.7146075476784733,
+          "amount_usd": 22.5,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "479": {
+      "relative_hour_bucket": 479,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 382,
+      "mean_score": 0.22089517821440388,
+      "p95_score": 0.7649420844763839,
+      "high_risk_count": 43,
+      "high_risk_rate": 0.112565445026178,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3067121.0",
+          "fraud_risk_score": 0.981722044076831,
+          "amount_usd": 76.023,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3067142.0",
+          "fraud_risk_score": 0.9766890530265511,
+          "amount_usd": 76.023,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3067053.0",
+          "fraud_risk_score": 0.9677059238145331,
+          "amount_usd": 76.023,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3067060.0",
+          "fraud_risk_score": 0.9549134393608745,
+          "amount_usd": 76.023,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3067302.0",
+          "fraud_risk_score": 0.9535286871964,
+          "amount_usd": 117.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3067043.0",
+          "fraud_risk_score": 0.9530402311212357,
+          "amount_usd": 76.023,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3067206.0",
+          "fraud_risk_score": 0.9445537676248672,
+          "amount_usd": 141.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3067183.0",
+          "fraud_risk_score": 0.9379391790956281,
+          "amount_usd": 141.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "498": {
+      "relative_hour_bucket": 498,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 451,
+      "mean_score": 0.2079856961218233,
+      "p95_score": 0.6439554075175191,
+      "high_risk_count": 46,
+      "high_risk_rate": 0.10199556541019955,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3070911.0",
+          "fraud_risk_score": 0.9582465795546871,
+          "amount_usd": 125.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3071094.0",
+          "fraud_risk_score": 0.9534227670055407,
+          "amount_usd": 300.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3071095.0",
+          "fraud_risk_score": 0.9534227670055407,
+          "amount_usd": 300.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3071100.0",
+          "fraud_risk_score": 0.9521943098312301,
+          "amount_usd": 300.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3070907.0",
+          "fraud_risk_score": 0.9506391590281489,
+          "amount_usd": 125.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3070776.0",
+          "fraud_risk_score": 0.886546393390903,
+          "amount_usd": 200.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3070781.0",
+          "fraud_risk_score": 0.8603142037646512,
+          "amount_usd": 200.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3070843.0",
+          "fraud_risk_score": 0.8555860694852518,
+          "amount_usd": 200.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "522": {
+      "relative_hour_bucket": 522,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 457,
+      "mean_score": 0.19305797803193972,
+      "p95_score": 0.605985774595272,
+      "high_risk_count": 36,
+      "high_risk_rate": 0.0787746170678337,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3076484.0",
+          "fraud_risk_score": 0.9848403962529099,
+          "amount_usd": 51.77,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3076472.0",
+          "fraud_risk_score": 0.980449452894064,
+          "amount_usd": 51.77,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3076479.0",
+          "fraud_risk_score": 0.9773582687794289,
+          "amount_usd": 51.77,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3076809.0",
+          "fraud_risk_score": 0.8722465159862858,
+          "amount_usd": 135.256,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3076802.0",
+          "fraud_risk_score": 0.863038591467571,
+          "amount_usd": 135.256,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3076794.0",
+          "fraud_risk_score": 0.820216243480069,
+          "amount_usd": 45.94,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3076539.0",
+          "fraud_risk_score": 0.819554666989792,
+          "amount_usd": 68.211,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3076547.0",
+          "fraud_risk_score": 0.7954339057565681,
+          "amount_usd": 20.988,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "523": {
+      "relative_hour_bucket": 523,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 414,
+      "mean_score": 0.20638517768705547,
+      "p95_score": 0.6663475337856554,
+      "high_risk_count": 38,
+      "high_risk_rate": 0.09178743961352658,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3076898.0",
+          "fraud_risk_score": 0.9661091251543673,
+          "amount_usd": 100.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3077006.0",
+          "fraud_risk_score": 0.9479353362207739,
+          "amount_usd": 11.543,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3077172.0",
+          "fraud_risk_score": 0.9422622171432671,
+          "amount_usd": 34.63,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3076962.0",
+          "fraud_risk_score": 0.9319280824021509,
+          "amount_usd": 117.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3077090.0",
+          "fraud_risk_score": 0.9088512281534822,
+          "amount_usd": 21.571,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3077186.0",
+          "fraud_risk_score": 0.9004780025014113,
+          "amount_usd": 21.571,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3077161.0",
+          "fraud_risk_score": 0.8609843210954248,
+          "amount_usd": 62.264,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3077249.0",
+          "fraud_risk_score": 0.8597029751116673,
+          "amount_usd": 53.869,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "542": {
+      "relative_hour_bucket": 542,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 378,
+      "mean_score": 0.17520942913069285,
+      "p95_score": 0.5562860511084048,
+      "high_risk_count": 22,
+      "high_risk_rate": 0.0582010582010582,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3080987.0",
+          "fraud_risk_score": 0.8415600745648278,
+          "amount_usd": 100.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3080938.0",
+          "fraud_risk_score": 0.8363134065757859,
+          "amount_usd": 29.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3080971.0",
+          "fraud_risk_score": 0.8337355744979228,
+          "amount_usd": 117.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3080941.0",
+          "fraud_risk_score": 0.8298388871478272,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3081022.0",
+          "fraud_risk_score": 0.8274982376430124,
+          "amount_usd": 100.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3081101.0",
+          "fraud_risk_score": 0.8201395617778372,
+          "amount_usd": 200.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3080951.0",
+          "fraud_risk_score": 0.8198123674572919,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3081014.0",
+          "fraud_risk_score": 0.7798865114444149,
+          "amount_usd": 117.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "543": {
+      "relative_hour_bucket": 543,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 442,
+      "mean_score": 0.18837170248223892,
+      "p95_score": 0.6800981157341235,
+      "high_risk_count": 43,
+      "high_risk_rate": 0.09728506787330317,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3081313.0",
+          "fraud_risk_score": 0.9839939964876598,
+          "amount_usd": 31.249,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3081360.0",
+          "fraud_risk_score": 0.9803186010518444,
+          "amount_usd": 18.131,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3081303.0",
+          "fraud_risk_score": 0.9790498739796701,
+          "amount_usd": 31.249,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3081368.0",
+          "fraud_risk_score": 0.9763992510336109,
+          "amount_usd": 18.131,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3081570.0",
+          "fraud_risk_score": 0.9711698337532242,
+          "amount_usd": 100.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3081467.0",
+          "fraud_risk_score": 0.9555411369274311,
+          "amount_usd": 20.522,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3081488.0",
+          "fraud_risk_score": 0.9538496415942503,
+          "amount_usd": 20.522,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3081482.0",
+          "fraud_risk_score": 0.9000497695713129,
+          "amount_usd": 34.105,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "544": {
+      "relative_hour_bucket": 544,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 535,
+      "mean_score": 0.1823830608973917,
+      "p95_score": 0.5338145492383396,
+      "high_risk_count": 31,
+      "high_risk_rate": 0.05794392523364486,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3081674.0",
+          "fraud_risk_score": 0.9881271089697264,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3081653.0",
+          "fraud_risk_score": 0.9878498954349203,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3081858.0",
+          "fraud_risk_score": 0.982530432363005,
+          "amount_usd": 300.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3081772.0",
+          "fraud_risk_score": 0.9813594299278121,
+          "amount_usd": 300.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3081784.0",
+          "fraud_risk_score": 0.9813594299278121,
+          "amount_usd": 300.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3081826.0",
+          "fraud_risk_score": 0.9786950724980744,
+          "amount_usd": 300.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3081889.0",
+          "fraud_risk_score": 0.9782759190132112,
+          "amount_usd": 300.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3082069.0",
+          "fraud_risk_score": 0.9652493105064076,
+          "amount_usd": 56.434,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "545": {
+      "relative_hour_bucket": 545,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 568,
+      "mean_score": 0.19513396081227385,
+      "p95_score": 0.6175626159138013,
+      "high_risk_count": 46,
+      "high_risk_rate": 0.08098591549295775,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3082687.0",
+          "fraud_risk_score": 0.9855245297465907,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3082425.0",
+          "fraud_risk_score": 0.9840715537839833,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3082439.0",
+          "fraud_risk_score": 0.9714257813257209,
+          "amount_usd": 100.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3082649.0",
+          "fraud_risk_score": 0.9714257813257209,
+          "amount_usd": 100.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3082715.0",
+          "fraud_risk_score": 0.9694380724118957,
+          "amount_usd": 100.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3082215.0",
+          "fraud_risk_score": 0.9486660371299724,
+          "amount_usd": 89.549,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3082417.0",
+          "fraud_risk_score": 0.9415129377357154,
+          "amount_usd": 17.082,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3082511.0",
+          "fraud_risk_score": 0.9403227639753582,
+          "amount_usd": 89.549,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "546": {
+      "relative_hour_bucket": 546,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 546,
+      "mean_score": 0.20455416869987475,
+      "p95_score": 0.6024054290413248,
+      "high_risk_count": 45,
+      "high_risk_rate": 0.08241758241758242,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3082839.0",
+          "fraud_risk_score": 0.9874682076407821,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3082767.0",
+          "fraud_risk_score": 0.9848552123158095,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3083112.0",
+          "fraud_risk_score": 0.9728846013151398,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3082990.0",
+          "fraud_risk_score": 0.9662325150098483,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3082775.0",
+          "fraud_risk_score": 0.9364717339238625,
+          "amount_usd": 22.387,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3082768.0",
+          "fraud_risk_score": 0.8731296053286185,
+          "amount_usd": 225.504,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3082958.0",
+          "fraud_risk_score": 0.8350783925988802,
+          "amount_usd": 92.93,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3082762.0",
+          "fraud_risk_score": 0.8340710765088817,
+          "amount_usd": 554.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "547": {
+      "relative_hour_bucket": 547,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 524,
+      "mean_score": 0.1990046819082948,
+      "p95_score": 0.5979350647837097,
+      "high_risk_count": 46,
+      "high_risk_rate": 0.08778625954198473,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3083508.0",
+          "fraud_risk_score": 0.9923983721044768,
+          "amount_usd": 100.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3083404.0",
+          "fraud_risk_score": 0.9909003610372272,
+          "amount_usd": 100.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3083382.0",
+          "fraud_risk_score": 0.9853968774842727,
+          "amount_usd": 100.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3083613.0",
+          "fraud_risk_score": 0.9832434017571307,
+          "amount_usd": 70.384,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3083596.0",
+          "fraud_risk_score": 0.9553428400715953,
+          "amount_usd": 70.384,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3083311.0",
+          "fraud_risk_score": 0.8469123367071787,
+          "amount_usd": 92.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3083380.0",
+          "fraud_risk_score": 0.8335298154872828,
+          "amount_usd": 27.284,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3083691.0",
+          "fraud_risk_score": 0.822684144734836,
+          "amount_usd": 44.308,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "549": {
+      "relative_hour_bucket": 549,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 479,
+      "mean_score": 0.19395233723162805,
+      "p95_score": 0.5469283218917796,
+      "high_risk_count": 33,
+      "high_risk_rate": 0.06889352818371608,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3084585.0",
+          "fraud_risk_score": 0.9818050569744698,
+          "amount_usd": 41.976,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3084473.0",
+          "fraud_risk_score": 0.8548882117462296,
+          "amount_usd": 28.217,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3084328.0",
+          "fraud_risk_score": 0.8278403828609588,
+          "amount_usd": 445.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3084457.0",
+          "fraud_risk_score": 0.825966943308081,
+          "amount_usd": 28.217,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3084678.0",
+          "fraud_risk_score": 0.8197504923113819,
+          "amount_usd": 15.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3084279.0",
+          "fraud_risk_score": 0.8184894871214781,
+          "amount_usd": 335.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3084373.0",
+          "fraud_risk_score": 0.8163668187653859,
+          "amount_usd": 42.559,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3084460.0",
+          "fraud_risk_score": 0.7953604987158202,
+          "amount_usd": 49.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "570": {
+      "relative_hour_bucket": 570,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 454,
+      "mean_score": 0.18782752158231308,
+      "p95_score": 0.6091135713040429,
+      "high_risk_count": 32,
+      "high_risk_rate": 0.07048458149779736,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3089036.0",
+          "fraud_risk_score": 0.9679990325387372,
+          "amount_usd": 20.988,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3088996.0",
+          "fraud_risk_score": 0.9487004222515288,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3089206.0",
+          "fraud_risk_score": 0.9290844377116986,
+          "amount_usd": 161.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3089102.0",
+          "fraud_risk_score": 0.8683946766771312,
+          "amount_usd": 200.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3089128.0",
+          "fraud_risk_score": 0.860273067636367,
+          "amount_usd": 200.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3089132.0",
+          "fraud_risk_score": 0.8475260965133664,
+          "amount_usd": 200.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3089097.0",
+          "fraud_risk_score": 0.8338620030461424,
+          "amount_usd": 32.356,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3089204.0",
+          "fraud_risk_score": 0.8291864085083822,
+          "amount_usd": 32.356,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "572": {
+      "relative_hour_bucket": 572,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 456,
+      "mean_score": 0.20512448830353397,
+      "p95_score": 0.5923746109509331,
+      "high_risk_count": 43,
+      "high_risk_rate": 0.09429824561403509,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3090052.0",
+          "fraud_risk_score": 0.9722791173910824,
+          "amount_usd": 20.988,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3089892.0",
+          "fraud_risk_score": 0.9290844377116986,
+          "amount_usd": 141.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3090196.0",
+          "fraud_risk_score": 0.8962271328608328,
+          "amount_usd": 994.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3090013.0",
+          "fraud_risk_score": 0.8592058025042003,
+          "amount_usd": 37.079,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3090261.0",
+          "fraud_risk_score": 0.8400027676283178,
+          "amount_usd": 206.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3090263.0",
+          "fraud_risk_score": 0.832064830629662,
+          "amount_usd": 42.559,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3089949.0",
+          "fraud_risk_score": 0.8165296874467383,
+          "amount_usd": 144.796,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3089932.0",
+          "fraud_risk_score": 0.8155131895645711,
+          "amount_usd": 161.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "594": {
+      "relative_hour_bucket": 594,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 472,
+      "mean_score": 0.18422251487709954,
+      "p95_score": 0.5753567117040929,
+      "high_risk_count": 31,
+      "high_risk_rate": 0.06567796610169492,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3094894.0",
+          "fraud_risk_score": 0.9644151408024245,
+          "amount_usd": 120.681,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3095247.0",
+          "fraud_risk_score": 0.914066009020751,
+          "amount_usd": 49.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3095191.0",
+          "fraud_risk_score": 0.8854695821706579,
+          "amount_usd": 66.462,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3094798.0",
+          "fraud_risk_score": 0.8658376999327935,
+          "amount_usd": 50.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3095017.0",
+          "fraud_risk_score": 0.8608914386456298,
+          "amount_usd": 100.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3094944.0",
+          "fraud_risk_score": 0.8582106088072138,
+          "amount_usd": 50.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3094838.0",
+          "fraud_risk_score": 0.856936076781923,
+          "amount_usd": 664.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3094895.0",
+          "fraud_risk_score": 0.7939228587424296,
+          "amount_usd": 100.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "595": {
+      "relative_hour_bucket": 595,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 487,
+      "mean_score": 0.17306614837385187,
+      "p95_score": 0.519012469341338,
+      "high_risk_count": 26,
+      "high_risk_rate": 0.053388090349075976,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3095276.0",
+          "fraud_risk_score": 0.9262327694767646,
+          "amount_usd": 49.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3095636.0",
+          "fraud_risk_score": 0.9159661812230862,
+          "amount_usd": 171.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3095419.0",
+          "fraud_risk_score": 0.8700510731401494,
+          "amount_usd": 291.267,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3095516.0",
+          "fraud_risk_score": 0.8258507089914132,
+          "amount_usd": 72.992,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3095494.0",
+          "fraud_risk_score": 0.8024890948447336,
+          "amount_usd": 72.992,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3095522.0",
+          "fraud_risk_score": 0.8023841570972015,
+          "amount_usd": 25.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3095672.0",
+          "fraud_risk_score": 0.7762289211404947,
+          "amount_usd": 200.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3095677.0",
+          "fraud_risk_score": 0.7639655456897848,
+          "amount_usd": 200.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "596": {
+      "relative_hour_bucket": 596,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 493,
+      "mean_score": 0.18990178553865356,
+      "p95_score": 0.605295234725676,
+      "high_risk_count": 39,
+      "high_risk_rate": 0.07910750507099391,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3096006.0",
+          "fraud_risk_score": 0.9922749243492232,
+          "amount_usd": 300.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3095934.0",
+          "fraud_risk_score": 0.9920147450620248,
+          "amount_usd": 300.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3095911.0",
+          "fraud_risk_score": 0.9719790599575818,
+          "amount_usd": 300.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3095854.0",
+          "fraud_risk_score": 0.954170377874906,
+          "amount_usd": 300.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3095947.0",
+          "fraud_risk_score": 0.938642141117471,
+          "amount_usd": 275.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3095959.0",
+          "fraud_risk_score": 0.9256307142628258,
+          "amount_usd": 275.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3096083.0",
+          "fraud_risk_score": 0.8621235681348182,
+          "amount_usd": 104.648,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3095772.0",
+          "fraud_risk_score": 0.8601482311189574,
+          "amount_usd": 72.992,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "597": {
+      "relative_hour_bucket": 597,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 480,
+      "mean_score": 0.18448836195288718,
+      "p95_score": 0.6133854974630752,
+      "high_risk_count": 35,
+      "high_risk_rate": 0.07291666666666667,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3096531.0",
+          "fraud_risk_score": 0.9817276468712685,
+          "amount_usd": 78.355,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3096522.0",
+          "fraud_risk_score": 0.9685452667147665,
+          "amount_usd": 78.355,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3096697.0",
+          "fraud_risk_score": 0.9290844377116986,
+          "amount_usd": 161.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3096426.0",
+          "fraud_risk_score": 0.9271919391792163,
+          "amount_usd": 117.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3096517.0",
+          "fraud_risk_score": 0.8868119853423782,
+          "amount_usd": 78.355,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3096404.0",
+          "fraud_risk_score": 0.8733012206518516,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3096703.0",
+          "fraud_risk_score": 0.839830129184141,
+          "amount_usd": 171.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3096518.0",
+          "fraud_risk_score": 0.8128719884187717,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "1847": {
+      "relative_hour_bucket": 1847,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 244,
+      "mean_score": 0.2904531301508407,
+      "p95_score": 0.7547947182609588,
+      "high_risk_count": 35,
+      "high_risk_rate": 0.14344262295081966,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3261145.0",
+          "fraud_risk_score": 0.9871768868157882,
+          "amount_usd": 29.243,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3261337.0",
+          "fraud_risk_score": 0.9294067773302838,
+          "amount_usd": 18.609,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3261333.0",
+          "fraud_risk_score": 0.9096445851620394,
+          "amount_usd": 18.609,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3261217.0",
+          "fraud_risk_score": 0.8160242556025373,
+          "amount_usd": 300.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3261197.0",
+          "fraud_risk_score": 0.8033277436183737,
+          "amount_usd": 100.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3261211.0",
+          "fraud_risk_score": 0.8005183527649218,
+          "amount_usd": 450.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3261204.0",
+          "fraud_risk_score": 0.7850751523032515,
+          "amount_usd": 100.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3261201.0",
+          "fraud_risk_score": 0.7834447771132004,
+          "amount_usd": 100.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "2224": {
+      "relative_hour_bucket": 2224,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 506,
+      "mean_score": 0.2521006910115073,
+      "p95_score": 0.6508681735877107,
+      "high_risk_count": 42,
+      "high_risk_rate": 0.08300395256916997,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3309277.0",
+          "fraud_risk_score": 0.9029502709879345,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3309266.0",
+          "fraud_risk_score": 0.8978183165490506,
+          "amount_usd": 150.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3309271.0",
+          "fraud_risk_score": 0.8452665688058523,
+          "amount_usd": 49.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3309334.0",
+          "fraud_risk_score": 0.8452665688058523,
+          "amount_usd": 49.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3309096.0",
+          "fraud_risk_score": 0.841697154694231,
+          "amount_usd": 54.5,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3309136.0",
+          "fraud_risk_score": 0.8395383365267259,
+          "amount_usd": 171.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3309409.0",
+          "fraud_risk_score": 0.8357776120740553,
+          "amount_usd": 46.161,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3309011.0",
+          "fraud_risk_score": 0.8038149782647971,
+          "amount_usd": 171.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "2225": {
+      "relative_hour_bucket": 2225,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 649,
+      "mean_score": 0.2538635640271898,
+      "p95_score": 0.636409554927524,
+      "high_risk_count": 57,
+      "high_risk_rate": 0.08782742681047766,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3310005.0",
+          "fraud_risk_score": 0.9778797637679865,
+          "amount_usd": 200.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3309642.0",
+          "fraud_risk_score": 0.9263022897083918,
+          "amount_usd": 55.466,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3309780.0",
+          "fraud_risk_score": 0.8948722775900932,
+          "amount_usd": 35.829,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3309952.0",
+          "fraud_risk_score": 0.8926227479067194,
+          "amount_usd": 123.498,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3309622.0",
+          "fraud_risk_score": 0.8720274810867005,
+          "amount_usd": 45.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3309766.0",
+          "fraud_risk_score": 0.8402891135279799,
+          "amount_usd": 92.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3309572.0",
+          "fraud_risk_score": 0.8269585451313344,
+          "amount_usd": 45.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3309586.0",
+          "fraud_risk_score": 0.8269585451313344,
+          "amount_usd": 45.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "2226": {
+      "relative_hour_bucket": 2226,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 687,
+      "mean_score": 0.2568446339683444,
+      "p95_score": 0.608876010366063,
+      "high_risk_count": 74,
+      "high_risk_rate": 0.10771470160116449,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3310263.0",
+          "fraud_risk_score": 0.9914915841520279,
+          "amount_usd": 300.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3310674.0",
+          "fraud_risk_score": 0.8919153138152692,
+          "amount_usd": 49.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3310623.0",
+          "fraud_risk_score": 0.8850271835671162,
+          "amount_usd": 49.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3310194.0",
+          "fraud_risk_score": 0.8799409286865996,
+          "amount_usd": 98.364,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3310421.0",
+          "fraud_risk_score": 0.8444825975254407,
+          "amount_usd": 68.5,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3310246.0",
+          "fraud_risk_score": 0.8444825975254407,
+          "amount_usd": 68.5,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3310069.0",
+          "fraud_risk_score": 0.7995588432683449,
+          "amount_usd": 12.93,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3310388.0",
+          "fraud_risk_score": 0.7860072247586765,
+          "amount_usd": 719.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "2227": {
+      "relative_hour_bucket": 2227,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 748,
+      "mean_score": 0.2686209012756969,
+      "p95_score": 0.6805538882492234,
+      "high_risk_count": 92,
+      "high_risk_rate": 0.12299465240641712,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3311020.0",
+          "fraud_risk_score": 0.919861991989892,
+          "amount_usd": 50.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3311151.0",
+          "fraud_risk_score": 0.9187970772563919,
+          "amount_usd": 22.235,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3311058.0",
+          "fraud_risk_score": 0.9036767358950945,
+          "amount_usd": 50.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3311053.0",
+          "fraud_risk_score": 0.8966757154676014,
+          "amount_usd": 50.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3311180.0",
+          "fraud_risk_score": 0.8932198631301266,
+          "amount_usd": 22.235,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3311260.0",
+          "fraud_risk_score": 0.8719886054163959,
+          "amount_usd": 13.836,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3311134.0",
+          "fraud_risk_score": 0.8478145548061757,
+          "amount_usd": 22.235,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3311121.0",
+          "fraud_risk_score": 0.8369176058695575,
+          "amount_usd": 22.235,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "2228": {
+      "relative_hour_bucket": 2228,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 661,
+      "mean_score": 0.26224719519740036,
+      "p95_score": 0.5926743305852241,
+      "high_risk_count": 65,
+      "high_risk_rate": 0.09833585476550681,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3312109.0",
+          "fraud_risk_score": 0.9810395211685343,
+          "amount_usd": 123.257,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3312094.0",
+          "fraud_risk_score": 0.9651910819639933,
+          "amount_usd": 123.257,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3312103.0",
+          "fraud_risk_score": 0.9649259141273098,
+          "amount_usd": 123.257,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3311959.0",
+          "fraud_risk_score": 0.9075611050620487,
+          "amount_usd": 50.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3311669.0",
+          "fraud_risk_score": 0.8389066119448351,
+          "amount_usd": 1054.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3311571.0",
+          "fraud_risk_score": 0.8057523770879734,
+          "amount_usd": 117.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3311790.0",
+          "fraud_risk_score": 0.7912037630059338,
+          "amount_usd": 445.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3311800.0",
+          "fraud_risk_score": 0.7849522928364414,
+          "amount_usd": 213.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "2229": {
+      "relative_hour_bucket": 2229,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 447,
+      "mean_score": 0.2766285449438819,
+      "p95_score": 0.6970881057894283,
+      "high_risk_count": 64,
+      "high_risk_rate": 0.14317673378076062,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3312605.0",
+          "fraud_risk_score": 0.916948435372185,
+          "amount_usd": 226.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3312598.0",
+          "fraud_risk_score": 0.90710858166243,
+          "amount_usd": 335.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3312231.0",
+          "fraud_risk_score": 0.8781509435330626,
+          "amount_usd": 842.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3312308.0",
+          "fraud_risk_score": 0.8696649982958509,
+          "amount_usd": 97.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3312203.0",
+          "fraud_risk_score": 0.8028971213885246,
+          "amount_usd": 34.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3312438.0",
+          "fraud_risk_score": 0.8012729389815141,
+          "amount_usd": 59.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3312538.0",
+          "fraud_risk_score": 0.7899882947429239,
+          "amount_usd": 490.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        },
+        {
+          "transaction_id": "3312393.0",
+          "fraud_risk_score": 0.7884463027764628,
+          "amount_usd": 77.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "2232": {
+      "relative_hour_bucket": 2232,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 462,
+      "mean_score": 0.29321594927724265,
+      "p95_score": 0.7181600993843207,
+      "high_risk_count": 73,
+      "high_risk_rate": 0.15800865800865802,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3313592.0",
+          "fraud_risk_score": 0.9810012222855997,
+          "amount_usd": 9.546,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3313536.0",
+          "fraud_risk_score": 0.9715079328084926,
+          "amount_usd": 9.546,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3313496.0",
+          "fraud_risk_score": 0.9298266056969444,
+          "amount_usd": 9.546,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3313528.0",
+          "fraud_risk_score": 0.9190753340960729,
+          "amount_usd": 9.546,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3313522.0",
+          "fraud_risk_score": 0.9062885660364493,
+          "amount_usd": 15.891,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3313188.0",
+          "fraud_risk_score": 0.8930285233999855,
+          "amount_usd": 35.346,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3313402.0",
+          "fraud_risk_score": 0.890436939161283,
+          "amount_usd": 9.546,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3313533.0",
+          "fraud_risk_score": 0.8779175708355381,
+          "amount_usd": 57.913,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 0
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    },
+    "2898": {
+      "relative_hour_bucket": 2898,
+      "label": "MODEL PREDICTION",
+      "transaction_count": 294,
+      "mean_score": 0.29310888579466676,
+      "p95_score": 0.8348720520727808,
+      "high_risk_count": 55,
+      "high_risk_rate": 0.1870748299319728,
+      "threshold": 0.5,
+      "top_transactions": [
+        {
+          "transaction_id": "3400086.0",
+          "fraud_risk_score": 0.994805979744539,
+          "amount_usd": 127.244,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3400079.0",
+          "fraud_risk_score": 0.9914108118691275,
+          "amount_usd": 127.244,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3400068.0",
+          "fraud_risk_score": 0.9855331227572186,
+          "amount_usd": 127.244,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3400208.0",
+          "fraud_risk_score": 0.984691759800547,
+          "amount_usd": 81.446,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3400065.0",
+          "fraud_risk_score": 0.9823040550340907,
+          "amount_usd": 127.244,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3399954.0",
+          "fraud_risk_score": 0.9769968693860586,
+          "amount_usd": 175.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3399949.0",
+          "fraud_risk_score": 0.9749538204603512,
+          "amount_usd": 175.0,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        },
+        {
+          "transaction_id": "3400053.0",
+          "fraud_risk_score": 0.966829974333951,
+          "amount_usd": 127.244,
+          "provenance": "MODEL PREDICTION",
+          "delayed_ground_truth": 1
+        }
+      ],
+      "sample_scope": "IN_SAMPLE_MODEL_OVERLAY",
+      "not_a_test_metric": true
+    }
+  },
+  "train_cutoff_elapsed_seconds": 10437996.0,
+  "sample_scope_note": "IN_SAMPLE_MODEL_OVERLAY scores hours at or before the train TransactionDT cutoff. Those scores are investigation display, not untouched test metrics. OUT_OF_SAMPLE_MODEL_OVERLAY hours are after the train cutoff."
+}

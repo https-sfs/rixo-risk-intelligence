@@ -1,0 +1,3701 @@
+{
+  "rda-2227": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-2227",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 2227,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 748,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 124518.748,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 700,
+          "share": 0.9358288770053476,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 469,
+          "share": 0.6270053475935828,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 721,
+          "share": 0.963903743315508,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 26,
+          "share": 0.034759358288770054,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.053475935828877004,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 2227,
+          "live_score": 6.650990603158139,
+          "signals": [
+            "elevated transaction volume",
+            "elevated transaction amount",
+            "ProductCD concentration"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 7,
+      "fraud_rate": 0.009358288770053475,
+      "fraud_amount_usd": 1093.172,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 748,
+      "amount_usd": 124518.748,
+      "product_top": "W",
+      "product_top_share": 0.9358288770053476
+    }
+  },
+  "rda-2226": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-2226",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 2226,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 687,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 114315.955,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 643,
+          "share": 0.9359534206695779,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 425,
+          "share": 0.61863173216885,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 659,
+          "share": 0.9592430858806404,
+          "unique": 1
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 27,
+          "share": 0.039301310043668124,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.055312954876273655,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 2226,
+          "live_score": 6.06773000963056,
+          "signals": [
+            "elevated transaction volume",
+            "elevated transaction amount",
+            "ProductCD concentration"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 9,
+      "fraud_rate": 0.013100436681222707,
+      "fraud_amount_usd": 1893.0,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 687,
+      "amount_usd": 114315.955,
+      "product_top": "W",
+      "product_top_share": 0.9359534206695779
+    }
+  },
+  "rda-2228": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-2228",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 2228,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 661,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 114161.412,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 609,
+          "share": 0.9213313161875946,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 434,
+          "share": 0.6565809379727685,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 632,
+          "share": 0.9561270801815431,
+          "unique": 1
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 24,
+          "share": 0.036308623298033284,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.07261724659606657,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 2228,
+          "live_score": 6.051583291941757,
+          "signals": [
+            "elevated transaction volume",
+            "elevated transaction amount",
+            "ProductCD concentration"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 5,
+      "fraud_rate": 0.007564296520423601,
+      "fraud_amount_usd": 454.771,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 661,
+      "amount_usd": 114161.412,
+      "product_top": "W",
+      "product_top_share": 0.9213313161875946
+    }
+  },
+  "rda-2225": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-2225",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 2225,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 649,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 112872.127,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 595,
+          "share": 0.9167950693374423,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 411,
+          "share": 0.6332819722650231,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 619,
+          "share": 0.9537750385208013,
+          "unique": 1
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 29,
+          "share": 0.04468412942989214,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.07395993836671803,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 2225,
+          "live_score": 5.9756030565033065,
+          "signals": [
+            "elevated transaction volume",
+            "elevated transaction amount",
+            "ProductCD concentration"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 25,
+      "fraud_rate": 0.03852080123266564,
+      "fraud_amount_usd": 3316.259,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 649,
+      "amount_usd": 112872.127,
+      "product_top": "W",
+      "product_top_share": 0.9167950693374423
+    }
+  },
+  "rda-1847": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-1847",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 1847,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 244,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 108152.309,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 186,
+          "share": 0.7622950819672131,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 145,
+          "share": 0.5942622950819673,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 218,
+          "share": 0.8934426229508197,
+          "unique": 1
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "mobile",
+          "count": 30,
+          "share": 0.12295081967213115,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.20901639344262296,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 1847,
+          "live_score": 5.628507564655458,
+          "signals": [
+            "elevated transaction amount"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 7,
+      "fraud_rate": 0.028688524590163935,
+      "fraud_amount_usd": 229.411,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 244,
+      "amount_usd": 108152.309,
+      "product_top": "W",
+      "product_top_share": 0.7622950819672131
+    }
+  },
+  "rda-2229": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-2229",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 2229,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 447,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 87511.71900000001,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 400,
+          "share": 0.8948545861297539,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 311,
+          "share": 0.6957494407158836,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 411,
+          "share": 0.9194630872483222,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 23,
+          "share": 0.05145413870246085,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.09395973154362416,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 2229,
+          "live_score": 4.514705735005666,
+          "signals": [
+            "elevated transaction volume",
+            "elevated transaction amount",
+            "ProductCD concentration"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 7,
+      "fraud_rate": 0.015659955257270694,
+      "fraud_amount_usd": 1416.1070000000002,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 447,
+      "amount_usd": 87511.71900000001,
+      "product_top": "W",
+      "product_top_share": 0.8948545861297539
+    }
+  },
+  "rda-545": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-545",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 545,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 568,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 86384.079,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 253,
+          "share": 0.4454225352112676,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 373,
+          "share": 0.6566901408450704,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 521,
+          "share": 0.9172535211267606,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 235,
+          "share": 0.4137323943661972,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.5334507042253521,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 545,
+          "live_score": 4.225519304639237,
+          "signals": [
+            "elevated transaction volume",
+            "elevated transaction amount",
+            "identity coverage present"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 11,
+      "fraud_rate": 0.01936619718309859,
+      "fraud_amount_usd": 1335.954,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 568,
+      "amount_usd": 86384.079,
+      "product_top": "W",
+      "product_top_share": 0.4454225352112676
+    }
+  },
+  "rda-544": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-544",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 544,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 535,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 85400.343,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 228,
+          "share": 0.4261682242990654,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 362,
+          "share": 0.6766355140186916,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 492,
+          "share": 0.9196261682242991,
+          "unique": 1
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 221,
+          "share": 0.4130841121495327,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.5514018691588785,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 544,
+          "live_score": 4.159649147656252,
+          "signals": [
+            "elevated transaction volume",
+            "elevated transaction amount",
+            "identity coverage present"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 4,
+      "fraud_rate": 0.007476635514018692,
+      "fraud_amount_usd": 374.39,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 535,
+      "amount_usd": 85400.343,
+      "product_top": "W",
+      "product_top_share": 0.4261682242990654
+    }
+  },
+  "rda-546": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-546",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 546,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 546,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 75750.977,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 229,
+          "share": 0.4194139194139194,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 354,
+          "share": 0.6483516483516484,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 468,
+          "share": 0.8571428571428571,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 226,
+          "share": 0.4139194139194139,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.5421245421245421,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 546,
+          "live_score": 3.8129569597069595,
+          "signals": [
+            "elevated transaction volume",
+            "elevated transaction amount",
+            "identity coverage present"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 14,
+      "fraud_rate": 0.02564102564102564,
+      "fraud_amount_usd": 1781.6930000000002,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 546,
+      "amount_usd": 75750.977,
+      "product_top": "W",
+      "product_top_share": 0.4194139194139194
+    }
+  },
+  "rda-543": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-543",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 543,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 442,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 79055.026,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 178,
+          "share": 0.40271493212669685,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 276,
+          "share": 0.6244343891402715,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 404,
+          "share": 0.9140271493212669,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 204,
+          "share": 0.46153846153846156,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.5678733031674208,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 543,
+          "live_score": 3.7851425751268315,
+          "signals": [
+            "elevated transaction volume",
+            "elevated transaction amount",
+            "identity coverage present"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 11,
+      "fraud_rate": 0.024886877828054297,
+      "fraud_amount_usd": 1341.804,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 442,
+      "amount_usd": 79055.026,
+      "product_top": "W",
+      "product_top_share": 0.40271493212669685
+    }
+  },
+  "rda-2224": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-2224",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 2224,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 506,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 73520.295,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 464,
+          "share": 0.9169960474308301,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 335,
+          "share": 0.6620553359683794,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 479,
+          "share": 0.9466403162055336,
+          "unique": 1
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 28,
+          "share": 0.05533596837944664,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.06719367588932806,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 2224,
+          "live_score": 3.725846726991275,
+          "signals": [
+            "elevated transaction volume",
+            "elevated transaction amount",
+            "ProductCD concentration"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 9,
+      "fraud_rate": 0.017786561264822136,
+      "fraud_amount_usd": 780.31,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 506,
+      "amount_usd": 73520.295,
+      "product_top": "W",
+      "product_top_share": 0.9169960474308301
+    }
+  },
+  "rda-522": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-522",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 522,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 457,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 77812.61499999999,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 179,
+          "share": 0.3916849015317287,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 319,
+          "share": 0.6980306345733042,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 393,
+          "share": 0.8599562363238512,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 205,
+          "share": 0.4485776805251641,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.5601750547045952,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 522,
+          "live_score": 3.708595368499541,
+          "signals": [
+            "elevated transaction volume",
+            "elevated transaction amount",
+            "identity coverage present"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 5,
+      "fraud_rate": 0.010940919037199124,
+      "fraud_amount_usd": 394.521,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 457,
+      "amount_usd": 77812.61499999999,
+      "product_top": "W",
+      "product_top_share": 0.3916849015317287
+    }
+  },
+  "rda-547": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-547",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 547,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 524,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 71974.884,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 214,
+          "share": 0.4083969465648855,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 349,
+          "share": 0.666030534351145,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 452,
+          "share": 0.8625954198473282,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 229,
+          "share": 0.43702290076335876,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.5591603053435115,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 547,
+          "live_score": 3.612198473282443,
+          "signals": [
+            "elevated transaction volume",
+            "elevated transaction amount",
+            "identity coverage present"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 9,
+      "fraud_rate": 0.01717557251908397,
+      "fraud_amount_usd": 2062.768,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 524,
+      "amount_usd": 71974.884,
+      "product_top": "W",
+      "product_top_share": 0.4083969465648855
+    }
+  },
+  "rda-498": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-498",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 498,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 451,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 73127.304,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 175,
+          "share": 0.38802660753880264,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 280,
+          "share": 0.6208425720620843,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 395,
+          "share": 0.8758314855875832,
+          "unique": 1
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 195,
+          "share": 0.43237250554323725,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.5631929046563193,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 498,
+          "live_score": 3.4388935872527036,
+          "signals": [
+            "elevated transaction volume",
+            "elevated transaction amount",
+            "identity coverage present"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 6,
+      "fraud_rate": 0.013303769401330377,
+      "fraud_amount_usd": 1194.308,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 451,
+      "amount_usd": 73127.304,
+      "product_top": "W",
+      "product_top_share": 0.38802660753880264
+    }
+  },
+  "rda-542": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-542",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 542,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 378,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 71662.707,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "R",
+          "count": 157,
+          "share": 0.41534391534391535,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 244,
+          "share": 0.6455026455026455,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 364,
+          "share": 0.9629629629629629,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 158,
+          "share": 0.41798941798941797,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.6031746031746031,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 542,
+          "live_score": 3.368817040545269,
+          "signals": [
+            "elevated transaction amount",
+            "identity coverage present"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 1,
+      "fraud_rate": 0.0026455026455026454,
+      "fraud_amount_usd": 39.0,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 378,
+      "amount_usd": 71662.707,
+      "product_top": "R",
+      "product_top_share": 0.41534391534391535
+    }
+  },
+  "rda-549": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-549",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 549,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 479,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 69950.48700000001,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 242,
+          "share": 0.5052192066805845,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 321,
+          "share": 0.6701461377870563,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 443,
+          "share": 0.9248434237995825,
+          "unique": 1
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 161,
+          "share": 0.33611691022964507,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.4780793319415449,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 549,
+          "live_score": 3.31586217025977,
+          "signals": [
+            "elevated transaction volume",
+            "elevated transaction amount"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 6,
+      "fraud_rate": 0.012526096033402923,
+      "fraud_amount_usd": 306.976,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 479,
+      "amount_usd": 69950.48700000001,
+      "product_top": "W",
+      "product_top_share": 0.5052192066805845
+    }
+  },
+  "rda-2232": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-2232",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 2232,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 462,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 63214.130000000005,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 410,
+          "share": 0.8874458874458875,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 318,
+          "share": 0.6883116883116883,
+          "unique": 3
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 418,
+          "share": 0.9047619047619048,
+          "unique": 1
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 29,
+          "share": 0.06277056277056277,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.09090909090909091,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 2232,
+          "live_score": 3.3014729437229438,
+          "signals": [
+            "elevated transaction volume",
+            "elevated transaction amount",
+            "ProductCD concentration"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 14,
+      "fraud_rate": 0.030303030303030304,
+      "fraud_amount_usd": 509.15999999999997,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 462,
+      "amount_usd": 63214.130000000005,
+      "product_top": "W",
+      "product_top_share": 0.8874458874458875
+    }
+  },
+  "rda-596": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-596",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 596,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 493,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 54283.378,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "R",
+          "count": 153,
+          "share": 0.3103448275862069,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 324,
+          "share": 0.6572008113590264,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 437,
+          "share": 0.8864097363083164,
+          "unique": 1
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 194,
+          "share": 0.3935091277890467,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.6835699797160243,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 596,
+          "live_score": 3.2880474137931035,
+          "signals": [
+            "elevated transaction volume",
+            "identity coverage present"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 8,
+      "fraud_rate": 0.016227180527383367,
+      "fraud_amount_usd": 2065.56,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 493,
+      "amount_usd": 54283.378,
+      "product_top": "R",
+      "product_top_share": 0.3103448275862069
+    }
+  },
+  "rda-595": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-595",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 595,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 487,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 55171.124,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 184,
+          "share": 0.37782340862423,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 323,
+          "share": 0.6632443531827515,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 450,
+          "share": 0.9240246406570842,
+          "unique": 3
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 169,
+          "share": 0.3470225872689938,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.5913757700205339,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 595,
+          "live_score": 3.268536704312115,
+          "signals": [
+            "elevated transaction volume",
+            "identity coverage present"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 5,
+      "fraud_rate": 0.01026694045174538,
+      "fraud_amount_usd": 214.47,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 487,
+      "amount_usd": 55171.124,
+      "product_top": "W",
+      "product_top_share": 0.37782340862423
+    }
+  },
+  "rda-453": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-453",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 453,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 406,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 68912.515,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 195,
+          "share": 0.4802955665024631,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 270,
+          "share": 0.6650246305418719,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 338,
+          "share": 0.8325123152709359,
+          "unique": 1
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 156,
+          "share": 0.3842364532019704,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.49507389162561577,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 453,
+          "live_score": 3.2440565213580355,
+          "signals": [
+            "elevated transaction amount"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 25,
+      "fraud_rate": 0.06157635467980296,
+      "fraud_amount_usd": 1279.962,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 406,
+      "amount_usd": 68912.515,
+      "product_top": "W",
+      "product_top_share": 0.4802955665024631
+    }
+  },
+  "rda-597": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-597",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 597,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 480,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 47905.046,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 164,
+          "share": 0.3416666666666667,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 339,
+          "share": 0.70625,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 430,
+          "share": 0.8958333333333334,
+          "unique": 3
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 166,
+          "share": 0.3458333333333333,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.6270833333333333,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 597,
+          "live_score": 3.188333333333333,
+          "signals": [
+            "elevated transaction volume",
+            "identity coverage present"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 2,
+      "fraud_rate": 0.004166666666666667,
+      "fraud_amount_usd": 551.0,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 480,
+      "amount_usd": 47905.046,
+      "product_top": "W",
+      "product_top_share": 0.3416666666666667
+    }
+  },
+  "rda-476": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-476",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 476,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 352,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 67988.522,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 163,
+          "share": 0.4630681818181818,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 227,
+          "share": 0.6448863636363636,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 319,
+          "share": 0.90625,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 135,
+          "share": 0.3835227272727273,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.5028409090909091,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 476,
+          "live_score": 3.1826155057199803,
+          "signals": [
+            "elevated transaction amount",
+            "identity coverage present"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 3,
+      "fraud_rate": 0.008522727272727272,
+      "fraud_amount_usd": 288.0,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 352,
+      "amount_usd": 67988.522,
+      "product_top": "W",
+      "product_top_share": 0.4630681818181818
+    }
+  },
+  "rda-523": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-523",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 523,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 414,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 68512.12,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 156,
+          "share": 0.37681159420289856,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 285,
+          "share": 0.6884057971014492,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 344,
+          "share": 0.8309178743961353,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 174,
+          "share": 0.42028985507246375,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.5555555555555556,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 523,
+          "live_score": 3.1694228075533166,
+          "signals": [
+            "elevated transaction amount",
+            "identity coverage present"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 7,
+      "fraud_rate": 0.016908212560386472,
+      "fraud_amount_usd": 384.04200000000003,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 414,
+      "amount_usd": 68512.12,
+      "product_top": "W",
+      "product_top_share": 0.37681159420289856
+    }
+  },
+  "rda-474": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-474",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 474,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 379,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 67503.53899999999,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 162,
+          "share": 0.42744063324538256,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 253,
+          "share": 0.6675461741424802,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 348,
+          "share": 0.9182058047493403,
+          "unique": 1
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 154,
+          "share": 0.40633245382585753,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.5408970976253298,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 474,
+          "live_score": 3.1370738658176904,
+          "signals": [
+            "elevated transaction amount",
+            "identity coverage present"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 10,
+      "fraud_rate": 0.026385224274406333,
+      "fraud_amount_usd": 914.9259999999999,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 379,
+      "amount_usd": 67503.53899999999,
+      "product_top": "W",
+      "product_top_share": 0.42744063324538256
+    }
+  },
+  "rda-594": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-594",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 594,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 472,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 50812.574,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 175,
+          "share": 0.3707627118644068,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 309,
+          "share": 0.6546610169491526,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 432,
+          "share": 0.9152542372881356,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 181,
+          "share": 0.3834745762711864,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.5953389830508474,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 594,
+          "live_score": 3.131881355932203,
+          "signals": [
+            "elevated transaction volume",
+            "identity coverage present"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 3,
+      "fraud_rate": 0.006355932203389831,
+      "fraud_amount_usd": 833.681,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 472,
+      "amount_usd": 50812.574,
+      "product_top": "W",
+      "product_top_share": 0.3707627118644068
+    }
+  },
+  "rda-454": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-454",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 454,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 387,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 66344.274,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 202,
+          "share": 0.5219638242894057,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 248,
+          "share": 0.6408268733850129,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 351,
+          "share": 0.9069767441860465,
+          "unique": 1
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 123,
+          "share": 0.3178294573643411,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.4392764857881137,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 454,
+          "live_score": 3.1180569647053793,
+          "signals": [
+            "elevated transaction amount"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 13,
+      "fraud_rate": 0.03359173126614987,
+      "fraud_amount_usd": 1175.0669999999998,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 387,
+      "amount_usd": 66344.274,
+      "product_top": "W",
+      "product_top_share": 0.5219638242894057
+    }
+  },
+  "rda-2898": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-2898",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 2898,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 294,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 62070.62100000001,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 256,
+          "share": 0.8707482993197279,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 192,
+          "share": 0.6530612244897959,
+          "unique": 3
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 270,
+          "share": 0.9183673469387755,
+          "unique": 1
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 26,
+          "share": 0.08843537414965986,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.1292517006802721,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 2898,
+          "live_score": 3.0481122335578377,
+          "signals": [
+            "elevated transaction amount",
+            "ProductCD concentration"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 16,
+      "fraud_rate": 0.05442176870748299,
+      "fraud_amount_usd": 6710.91,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 294,
+      "amount_usd": 62070.62100000001,
+      "product_top": "W",
+      "product_top_share": 0.8707482993197279
+    }
+  },
+  "rda-479": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-479",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 479,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 382,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 65207.783,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 192,
+          "share": 0.5026178010471204,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 261,
+          "share": 0.6832460732984293,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 329,
+          "share": 0.8612565445026178,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 128,
+          "share": 0.33507853403141363,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.468586387434555,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 479,
+          "live_score": 3.043407511184896,
+          "signals": [
+            "elevated transaction amount"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 16,
+      "fraud_rate": 0.041884816753926704,
+      "fraud_amount_usd": 2415.4139999999998,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 382,
+      "amount_usd": 65207.783,
+      "product_top": "W",
+      "product_top_share": 0.5026178010471204
+    }
+  },
+  "rda-572": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-572",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 572,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 456,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 50319.574,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 214,
+          "share": 0.4692982456140351,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 307,
+          "share": 0.6732456140350878,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 410,
+          "share": 0.8991228070175439,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 145,
+          "share": 0.31798245614035087,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.48026315789473684,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 572,
+          "live_score": 3.0391491228070175,
+          "signals": [
+            "elevated transaction volume"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 7,
+      "fraud_rate": 0.015350877192982455,
+      "fraud_amount_usd": 719.331,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 456,
+      "amount_usd": 50319.574,
+      "product_top": "W",
+      "product_top_share": 0.4692982456140351
+    }
+  },
+  "rda-570": {
+    "world": "REAL PUBLIC DATA",
+    "dataset": "IEEE-CIS Fraud Detection",
+    "amount_currency": "USD",
+    "anomaly_id": "rda-570",
+    "kind": "REAL DATA ANOMALY",
+    "relative_hour_bucket": 570,
+    "live_evidence": {
+      "transaction_count": {
+        "value": 454,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv row count in relative_hour_bucket"
+      },
+      "amount_usd": {
+        "value": 50072.592000000004,
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv TransactionAmt"
+      },
+      "product_concentration": {
+        "value": {
+          "value": "W",
+          "count": 188,
+          "share": 0.41409691629955947,
+          "unique": 5
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "train_transaction.csv ProductCD"
+      },
+      "card_proxy_concentration": {
+        "value": {
+          "value": "visa",
+          "count": 306,
+          "share": 0.6740088105726872,
+          "unique": 4
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv card4"
+      },
+      "address_proxy_concentration": {
+        "value": {
+          "value": "87.0",
+          "count": 405,
+          "share": 0.8920704845814978,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_transaction.csv addr2"
+      },
+      "device_proxy": {
+        "value": {
+          "value": "desktop",
+          "count": 148,
+          "share": 0.32599118942731276,
+          "unique": 2
+        },
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv DeviceType"
+      },
+      "identity_coverage": {
+        "value": 0.539647577092511,
+        "label": "PROXY SIGNAL",
+        "source": "train_identity.csv join on TransactionID"
+      },
+      "temporal_anomaly": {
+        "value": {
+          "relative_hour_bucket": 570,
+          "live_score": 2.99379845814978,
+          "signals": [
+            "elevated transaction volume",
+            "identity coverage present"
+          ]
+        },
+        "label": "OBSERVED FROM IEEE-CIS",
+        "source": "evaluation.real_data.detect live score"
+      }
+    },
+    "evaluation_overlay": {
+      "note": "isFraud is delayed ground truth. It was not used to detect this anomaly.",
+      "label": "DELAYED GROUND TRUTH",
+      "fraud_count": 7,
+      "fraud_rate": 0.015418502202643172,
+      "fraud_amount_usd": 659.047,
+      "source": "train_transaction.csv isFraud"
+    },
+    "unavailable": {
+      "ip_address": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real IP addresses."
+      },
+      "ip_subnet": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide IP subnets."
+      },
+      "transaction_status": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide success/failed/declined payment status."
+      },
+      "sku_id": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide real SKU identity."
+      },
+      "festive_calendar": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide a festive, Diwali, or sale calendar."
+      },
+      "attack_spec": {
+        "label": "UNAVAILABLE",
+        "reason": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+      }
+    },
+    "missing_signal_warnings": [
+      "IP address and subnet are unavailable.",
+      "Payment success/failure/decline is unavailable.",
+      "True account, device, and SKU identities are unavailable.",
+      "TransactionDT is a relative elapsed-time field, not a calendar date."
+    ],
+    "hour_summary": {
+      "transaction_count": 454,
+      "amount_usd": 50072.592000000004,
+      "product_top": "W",
+      "product_top_share": 0.41409691629955947
+    }
+  }
+}

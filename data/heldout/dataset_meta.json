@@ -1,0 +1,31 @@
+{
+  "seed": 2027,
+  "n_transactions": 10404,
+  "start": "2026-01-05T00:08:10",
+  "end": "2026-01-25T23:57:42",
+  "columns": [
+    "transaction_id",
+    "timestamp",
+    "account_id",
+    "device_id",
+    "ip_address",
+    "ip_subnet",
+    "pincode",
+    "sku_id",
+    "amount",
+    "payment_method",
+    "transaction_status",
+    "fraud_label",
+    "event_type",
+    "account_tx_count_1h",
+    "device_tx_count_1h",
+    "ip_subnet_tx_count_1h"
+  ],
+  "festive_name": "Winter Festival Sale",
+  "event_types": [
+    "coordinated_abuse",
+    "festive_purchase",
+    "legitimate_purchase"
+  ],
+  "notes": "fraud_label is ground truth for later evaluation. The detection layer classifies activity windows, not individual payments."
+}

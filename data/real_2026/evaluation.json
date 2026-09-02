@@ -1,0 +1,39 @@
+{
+  "world": "RECENT PUBLIC DATA",
+  "dataset": "2026 ONLINE BANKING FRAUD DATA",
+  "amount_currency": "USD",
+  "methodology": {
+    "collection": "January 2026 rows with test_date present",
+    "live_inputs": [
+      "hourly transaction_count",
+      "hourly amount_usd"
+    ],
+    "delayed_ground_truth": "is_fraud overlay only; never a live detector input",
+    "independent_predictive_score": false,
+    "source_model_used_as_our_prediction": false,
+    "classifier_metrics_calculated": false,
+    "reason": "This adapter does not emit an independent fraud score that can be compared with is_fraud. Source CNN-LSTM probability is not our prediction, so precision, recall, F1, and PR-AUC are not calculated.",
+    "source_model_outputs_excluded": [
+      "fraud_probability",
+      "risk_level",
+      "confidence",
+      "recommendation"
+    ]
+  },
+  "not_calculated": [
+    "precision",
+    "recall",
+    "f1",
+    "pr_auc",
+    "source CNN-LSTM probability as our prediction"
+  ],
+  "attribution": {
+    "zenodo": "https://zenodo.org/records/20359708",
+    "doi": "10.5281/zenodo.20359708",
+    "license": "CC BY 4.0"
+  },
+  "notes": [
+    "Historical public research data, not our live production traffic.",
+    "Hour-level volume and amount outliers are descriptive signals, not fraud verdicts."
+  ]
+}

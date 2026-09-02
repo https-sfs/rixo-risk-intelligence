@@ -1,0 +1,332 @@
+{
+  "world": "REAL PUBLIC DATA",
+  "dataset": "IEEE-CIS Fraud Detection",
+  "source": "Kaggle / Vesta",
+  "amount_currency": "USD",
+  "files": {
+    "train_transaction.csv": {
+      "present": true,
+      "name": "train_transaction.csv",
+      "rows": 590540,
+      "columns": 394,
+      "column_names_head": [
+        "TransactionID",
+        "isFraud",
+        "TransactionDT",
+        "TransactionAmt",
+        "ProductCD",
+        "card1",
+        "card2",
+        "card3",
+        "card4",
+        "card5",
+        "card6",
+        "addr1",
+        "addr2",
+        "dist1",
+        "dist2",
+        "P_emaildomain",
+        "R_emaildomain",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8"
+      ],
+      "has_isFraud": true
+    },
+    "train_identity.csv": {
+      "present": true,
+      "name": "train_identity.csv",
+      "rows": 144233,
+      "columns": 41,
+      "column_names_head": [
+        "TransactionID",
+        "id_01",
+        "id_02",
+        "id_03",
+        "id_04",
+        "id_05",
+        "id_06",
+        "id_07",
+        "id_08",
+        "id_09",
+        "id_10",
+        "id_11",
+        "id_12",
+        "id_13",
+        "id_14",
+        "id_15",
+        "id_16",
+        "id_17",
+        "id_18",
+        "id_19",
+        "id_20",
+        "id_21",
+        "id_22",
+        "id_23",
+        "id_24"
+      ],
+      "has_isFraud": false
+    },
+    "test_transaction.csv": {
+      "present": true,
+      "name": "test_transaction.csv",
+      "rows": 506691,
+      "columns": 393,
+      "column_names_head": [
+        "TransactionID",
+        "TransactionDT",
+        "TransactionAmt",
+        "ProductCD",
+        "card1",
+        "card2",
+        "card3",
+        "card4",
+        "card5",
+        "card6",
+        "addr1",
+        "addr2",
+        "dist1",
+        "dist2",
+        "P_emaildomain",
+        "R_emaildomain",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+      ],
+      "has_isFraud": false
+    },
+    "test_identity.csv": {
+      "present": true,
+      "name": "test_identity.csv",
+      "rows": 141907,
+      "columns": 41,
+      "column_names_head": [
+        "TransactionID",
+        "id-01",
+        "id-02",
+        "id-03",
+        "id-04",
+        "id-05",
+        "id-06",
+        "id-07",
+        "id-08",
+        "id-09",
+        "id-10",
+        "id-11",
+        "id-12",
+        "id-13",
+        "id-14",
+        "id-15",
+        "id-16",
+        "id-17",
+        "id-18",
+        "id-19",
+        "id-20",
+        "id-21",
+        "id-22",
+        "id-23",
+        "id-24"
+      ],
+      "has_isFraud": false
+    },
+    "sample_submission.csv": {
+      "present": true,
+      "name": "sample_submission.csv",
+      "rows": 506691,
+      "columns": 2,
+      "column_names_head": [
+        "TransactionID",
+        "isFraud"
+      ],
+      "has_isFraud": true
+    }
+  },
+  "train_labelled": {
+    "transactions": 590540,
+    "columns_in_raw_file": 394,
+    "columns_loaded": [
+      "TransactionID",
+      "isFraud",
+      "TransactionDT",
+      "TransactionAmt",
+      "ProductCD",
+      "card1",
+      "card2",
+      "card3",
+      "card4",
+      "card5",
+      "card6",
+      "addr1",
+      "addr2",
+      "P_emaildomain"
+    ],
+    "fraud_count": 20663,
+    "legitimate_count": 569877,
+    "unlabelled_count": 0,
+    "fraud_rate": 0.03499000914417313,
+    "amount_column": "TransactionAmt",
+    "amount_usd": {
+      "non_null": 590540,
+      "min": 0.251,
+      "max": 31937.391,
+      "mean": 135.02717637247264,
+      "median": 68.769
+    },
+    "elapsed_seconds": {
+      "non_null": 590540,
+      "min": 86400.0,
+      "max": 15811131.0,
+      "mean": 7372311.310116165,
+      "median": 7306527.5
+    },
+    "relative_hour_bucket": {
+      "non_null": 590540,
+      "min": 24.0,
+      "max": 4391.0,
+      "mean": 2047.362691773631,
+      "median": 2029.0
+    },
+    "product_values": [
+      "C",
+      "H",
+      "R",
+      "S",
+      "W"
+    ],
+    "card_fields_present": [
+      "card1",
+      "card2",
+      "card3",
+      "card4",
+      "card5",
+      "card6"
+    ],
+    "addr_fields_present": [
+      "addr1",
+      "addr2"
+    ]
+  },
+  "identity_coverage": {
+    "train_identity_rows": 144233,
+    "transactions_with_device_type": 140810,
+    "transactions_with_device_info": 118666,
+    "transactions_with_any_device_identity": 140855,
+    "coverage": 0.23851898262607105
+  },
+  "missingness": {
+    "TransactionID": {
+      "non_null": 590540,
+      "coverage": 1.0
+    },
+    "isFraud": {
+      "non_null": 590540,
+      "coverage": 1.0
+    },
+    "TransactionDT": {
+      "non_null": 590540,
+      "coverage": 1.0
+    },
+    "ProductCD": {
+      "non_null": 590540,
+      "coverage": 1.0
+    },
+    "P_emaildomain": {
+      "non_null": 496084,
+      "coverage": 0.8400514783079893
+    },
+    "card1": {
+      "non_null": 590540,
+      "coverage": 1.0
+    },
+    "card2": {
+      "non_null": 581607,
+      "coverage": 0.9848731669319606
+    },
+    "card3": {
+      "non_null": 588975,
+      "coverage": 0.9973498831577878
+    },
+    "card4": {
+      "non_null": 588963,
+      "coverage": 0.9973295627730552
+    },
+    "card5": {
+      "non_null": 586281,
+      "coverage": 0.9927879567853152
+    },
+    "card6": {
+      "non_null": 588969,
+      "coverage": 0.9973397229654215
+    },
+    "addr1": {
+      "non_null": 524834,
+      "coverage": 0.8887357333965523
+    },
+    "addr2": {
+      "non_null": 524834,
+      "coverage": 0.8887357333965523
+    },
+    "TransactionAmt": {
+      "non_null": 590540,
+      "coverage": 1.0
+    }
+  },
+  "available_signals": {
+    "transaction_id": "TransactionID",
+    "amount_usd": "TransactionAmt",
+    "fraud_label_evaluation_only": "isFraud"
+  },
+  "partial_proxy_signals": {
+    "elapsed_seconds": "TransactionDT",
+    "relative_hour_bucket": "floor(TransactionDT/3600)",
+    "product": "ProductCD",
+    "card_proxy": [
+      "card1",
+      "card2",
+      "card3",
+      "card4",
+      "card5",
+      "card6"
+    ],
+    "account_proxy": [
+      "card1",
+      "addr1",
+      "P_emaildomain"
+    ],
+    "device_proxy": [
+      "DeviceType",
+      "DeviceInfo"
+    ],
+    "geographic_proxy": [
+      "addr1",
+      "addr2"
+    ]
+  },
+  "unavailable_signals": {
+    "ip_address": "IEEE-CIS does not provide real IP addresses.",
+    "ip_subnet": "IEEE-CIS does not provide IP subnets.",
+    "transaction_status": "IEEE-CIS does not provide success/failed/declined payment status.",
+    "sku_id": "IEEE-CIS does not provide real SKU identity.",
+    "festive_calendar": "IEEE-CIS does not provide a festive, Diwali, or sale calendar.",
+    "attack_spec": "IEEE-CIS does not provide AttackSpec or coordinated-abuse ground truth."
+  },
+  "timestamp_limitations": "TransactionDT is relative elapsed seconds from an unpublished origin. It is not a calendar timestamp. Do not derive Diwali, festive sale, day of week, or a real-world date from it.",
+  "notes": [
+    "Fraud labels exist only on train_transaction.csv.",
+    "test_transaction.csv has no isFraud column and is not used for labelled metrics.",
+    "sample_submission.csv is a competition template. Its isFraud values are not ground truth and are not used for evaluation.",
+    "There is no trained ML fraud model in this repository.",
+    "Amounts are USD."
+  ]
+}

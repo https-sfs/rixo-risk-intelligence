@@ -1,0 +1,169 @@
+{
+  "world": "RECENT PUBLIC DATA",
+  "dataset": "2026 ONLINE BANKING FRAUD DATA",
+  "source": {
+    "title": "A Production-Collected Online Banking Fraud Detection Dataset from a Live Cloud-Based Deep Learning System",
+    "zenodo_record": "20359708",
+    "doi": "10.5281/zenodo.20359708",
+    "url": "https://zenodo.org/records/20359708",
+    "license": "CC BY 4.0",
+    "collection_period": "2026-01-01 to 2026-01-31"
+  },
+  "amount_currency": "USD",
+  "file": {
+    "name": "fraud_tests_export_20260501_080333.csv",
+    "expected_name": "fraud_tests_export_20260501_080333.csv",
+    "export_rows": 57394,
+    "export_columns": [
+      "id",
+      "transaction_id",
+      "amount",
+      "time_value",
+      "v1",
+      "v2",
+      "v3",
+      "v4",
+      "v5",
+      "v6",
+      "v7",
+      "v8",
+      "v9",
+      "v10",
+      "v11",
+      "v12",
+      "v13",
+      "v14",
+      "v15",
+      "v16",
+      "v17",
+      "v18",
+      "v19",
+      "v20",
+      "v21",
+      "v22",
+      "v23",
+      "v24",
+      "v25",
+      "v26",
+      "v27",
+      "v28",
+      "is_fraud",
+      "fraud_probability",
+      "risk_level",
+      "confidence",
+      "recommendation",
+      "timestamp",
+      "test_date",
+      "ip_address"
+    ],
+    "export_column_count": 40,
+    "source_readme_claimed_rows": 56962,
+    "source_readme_claimed_columns": 38,
+    "source_readme_claimed_fraud": 98
+  },
+  "january_collection": {
+    "rows": 56962,
+    "fraud_count": 98,
+    "legitimate_count": 56864,
+    "fraud_rate": 0.0017204452090867595,
+    "amount_usd": {
+      "non_null": 56962,
+      "min": 0.02,
+      "max": 149081.06,
+      "mean": 212.553737052772,
+      "median": 33.14
+    },
+    "timestamp_min": "2026-01-01 00:02:00",
+    "timestamp_max": "2026-01-31 23:59:59",
+    "unique_transaction_id": 56962,
+    "unique_ip": 56962
+  },
+  "excluded_export_rows": {
+    "rows": 432,
+    "reason": "No test_date; timestamps fall outside the stated January 2026 collection.",
+    "fraud_count": 13
+  },
+  "field_classification": {
+    "world": "RECENT PUBLIC DATA",
+    "dataset": "2026 ONLINE BANKING FRAUD DATA",
+    "amount_currency": "USD",
+    "available": {
+      "transaction_id": "transaction_id",
+      "amount_usd": "amount (source-documented USD)",
+      "event_timestamp": "timestamp",
+      "collection_date": "test_date",
+      "ip_address": "ip_address (as provided; January rows are unique)",
+      "pca_features": [
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6",
+        "v7",
+        "v8",
+        "v9",
+        "v10",
+        "v11",
+        "v12",
+        "v13",
+        "v14",
+        "v15",
+        "v16",
+        "v17",
+        "v18",
+        "v19",
+        "v20",
+        "v21",
+        "v22",
+        "v23",
+        "v24",
+        "v25",
+        "v26",
+        "v27",
+        "v28"
+      ],
+      "fraud_label": "is_fraud (delayed ground truth only)"
+    },
+    "derived": {
+      "hour_start": "floor(timestamp to hour)",
+      "relative_hour_index": "hours since first January timestamp"
+    },
+    "proxy": {
+      "ip_address": "Network address as supplied. Not a verified customer identity."
+    },
+    "source_model_output": {
+      "fraud_probability": "Source CNN-LSTM / API output. Never used as our score, label, or metric.",
+      "risk_level": "Source CNN-LSTM / API output. Never used as our score, label, or metric.",
+      "confidence": "Source CNN-LSTM / API output. Never used as our score, label, or metric.",
+      "recommendation": "Source CNN-LSTM / API output. Never used as our score, label, or metric."
+    },
+    "unavailable": {
+      "account_identity": "No account identifiers are provided.",
+      "device_identity": "No device identifiers are provided.",
+      "merchant_identity": "No merchant identifiers are provided.",
+      "sku_identity": "No SKU or product codes are provided. v1\u2013v28 are opaque PCA features.",
+      "payment_outcome": "No success / failed / declined payment status is provided.",
+      "source_latency": "Described in the source README; not present in this CSV export."
+    },
+    "notes": [
+      "is_fraud is delayed/historical ground truth with source verification bias.",
+      "time_value in this export is a Unix timestamp, not the README elapsed-second field.",
+      "Primary analysis uses the January collection (test_date present)."
+    ]
+  },
+  "source_model_outputs_in_file": [
+    "fraud_probability",
+    "risk_level",
+    "confidence",
+    "recommendation"
+  ],
+  "documented_but_missing": [
+    "response_time_ms"
+  ],
+  "notes": [
+    "Primary metrics use the January collection only.",
+    "is_fraud has source verification bias and is evaluation-only.",
+    "This is historical public data, not our live production traffic."
+  ]
+}

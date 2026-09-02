@@ -1,0 +1,767 @@
+{
+  "world": "REAL PUBLIC DATA",
+  "dataset": "IEEE-CIS Fraud Detection",
+  "count": 30,
+  "anomalies": [
+    {
+      "anomaly_id": "rda-2227",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 2227,
+      "transactions": 748,
+      "amount_usd": 124518.748,
+      "amount_currency": "USD",
+      "live_score": 6.650990603158139,
+      "volume_z": 5.396,
+      "amount_z": 6.183076164655465,
+      "product_top": "W",
+      "product_top_share": 0.9358288770053476,
+      "signals": [
+        "elevated transaction volume",
+        "elevated transaction amount",
+        "ProductCD concentration"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-2226",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 2226,
+      "transactions": 687,
+      "amount_usd": 114315.955,
+      "amount_currency": "USD",
+      "live_score": 6.06773000963056,
+      "volume_z": 4.854625,
+      "amount_z": 5.599753299295772,
+      "product_top": "W",
+      "product_top_share": 0.9359534206695779,
+      "signals": [
+        "elevated transaction volume",
+        "elevated transaction amount",
+        "ProductCD concentration"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-2228",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 2228,
+      "transactions": 661,
+      "amount_usd": 114161.412,
+      "amount_currency": "USD",
+      "live_score": 6.051583291941757,
+      "volume_z": 4.623875,
+      "amount_z": 5.59091763384796,
+      "product_top": "W",
+      "product_top_share": 0.9213313161875946,
+      "signals": [
+        "elevated transaction volume",
+        "elevated transaction amount",
+        "ProductCD concentration"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-2225",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 2225,
+      "transactions": 649,
+      "amount_usd": 112872.127,
+      "amount_currency": "USD",
+      "live_score": 5.9756030565033065,
+      "volume_z": 4.5173749999999995,
+      "amount_z": 5.517205521834585,
+      "product_top": "W",
+      "product_top_share": 0.9167950693374423,
+      "signals": [
+        "elevated transaction volume",
+        "elevated transaction amount",
+        "ProductCD concentration"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-1847",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 1847,
+      "transactions": 244,
+      "amount_usd": 108152.309,
+      "amount_currency": "USD",
+      "live_score": 5.628507564655458,
+      "volume_z": 0.9229999999999999,
+      "amount_z": 5.247360023671852,
+      "product_top": "W",
+      "product_top_share": 0.7622950819672131,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-2229",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 2229,
+      "transactions": 447,
+      "amount_usd": 87511.71900000001,
+      "amount_currency": "USD",
+      "live_score": 4.514705735005666,
+      "volume_z": 2.7246249999999996,
+      "amount_z": 4.06727844194079,
+      "product_top": "W",
+      "product_top_share": 0.8948545861297539,
+      "signals": [
+        "elevated transaction volume",
+        "elevated transaction amount",
+        "ProductCD concentration"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-545",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 545,
+      "transactions": 568,
+      "amount_usd": 86384.079,
+      "amount_currency": "USD",
+      "live_score": 4.225519304639237,
+      "volume_z": 3.7984999999999998,
+      "amount_z": 4.002808037033603,
+      "product_top": "W",
+      "product_top_share": 0.4454225352112676,
+      "signals": [
+        "elevated transaction volume",
+        "elevated transaction amount",
+        "identity coverage present"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-544",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 544,
+      "transactions": 535,
+      "amount_usd": 85400.343,
+      "amount_currency": "USD",
+      "live_score": 4.159649147656252,
+      "volume_z": 3.505625,
+      "amount_z": 3.9465650355067186,
+      "product_top": "W",
+      "product_top_share": 0.4261682242990654,
+      "signals": [
+        "elevated transaction volume",
+        "elevated transaction amount",
+        "identity coverage present"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-546",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 546,
+      "transactions": 546,
+      "amount_usd": 75750.977,
+      "amount_currency": "USD",
+      "live_score": 3.8129569597069595,
+      "volume_z": 3.6032499999999996,
+      "amount_z": 3.3948831750568993,
+      "product_top": "W",
+      "product_top_share": 0.4194139194139194,
+      "signals": [
+        "elevated transaction volume",
+        "elevated transaction amount",
+        "identity coverage present"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-543",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 543,
+      "transactions": 442,
+      "amount_usd": 79055.026,
+      "amount_currency": "USD",
+      "live_score": 3.7851425751268315,
+      "volume_z": 2.6802499999999996,
+      "amount_z": 3.583785109063483,
+      "product_top": "W",
+      "product_top_share": 0.40271493212669685,
+      "signals": [
+        "elevated transaction volume",
+        "elevated transaction amount",
+        "identity coverage present"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-2224",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 2224,
+      "transactions": 506,
+      "amount_usd": 73520.295,
+      "amount_currency": "USD",
+      "live_score": 3.725846726991275,
+      "volume_z": 3.24825,
+      "amount_z": 3.26734870327586,
+      "product_top": "W",
+      "product_top_share": 0.9169960474308301,
+      "signals": [
+        "elevated transaction volume",
+        "elevated transaction amount",
+        "ProductCD concentration"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-522",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 522,
+      "transactions": 457,
+      "amount_usd": 77812.61499999999,
+      "amount_currency": "USD",
+      "live_score": 3.708595368499541,
+      "volume_z": 2.8133749999999997,
+      "amount_z": 3.5127529177336765,
+      "product_top": "W",
+      "product_top_share": 0.3916849015317287,
+      "signals": [
+        "elevated transaction volume",
+        "elevated transaction amount",
+        "identity coverage present"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-547",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 547,
+      "transactions": 524,
+      "amount_usd": 71974.884,
+      "amount_currency": "USD",
+      "live_score": 3.612198473282443,
+      "volume_z": 3.408,
+      "amount_z": 3.1789931350820937,
+      "product_top": "W",
+      "product_top_share": 0.4083969465648855,
+      "signals": [
+        "elevated transaction volume",
+        "elevated transaction amount",
+        "identity coverage present"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-498",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 498,
+      "transactions": 451,
+      "amount_usd": 73127.304,
+      "amount_currency": "USD",
+      "live_score": 3.4388935872527036,
+      "volume_z": 2.760125,
+      "amount_z": 3.2448802834833024,
+      "product_top": "W",
+      "product_top_share": 0.38802660753880264,
+      "signals": [
+        "elevated transaction volume",
+        "elevated transaction amount",
+        "identity coverage present"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-542",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 542,
+      "transactions": 378,
+      "amount_usd": 71662.707,
+      "amount_currency": "USD",
+      "live_score": 3.368817040545269,
+      "volume_z": 2.11225,
+      "amount_z": 3.161145082873311,
+      "product_top": "R",
+      "product_top_share": 0.41534391534391535,
+      "signals": [
+        "elevated transaction amount",
+        "identity coverage present"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-549",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 549,
+      "transactions": 479,
+      "amount_usd": 69950.48700000001,
+      "amount_currency": "USD",
+      "live_score": 3.31586217025977,
+      "volume_z": 3.008625,
+      "amount_z": 3.0632525669194774,
+      "product_top": "W",
+      "product_top_share": 0.5052192066805845,
+      "signals": [
+        "elevated transaction volume",
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-2232",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 2232,
+      "transactions": 462,
+      "amount_usd": 63214.130000000005,
+      "amount_currency": "USD",
+      "live_score": 3.3014729437229438,
+      "volume_z": 2.85775,
+      "amount_z": 2.678115764935371,
+      "product_top": "W",
+      "product_top_share": 0.8874458874458875,
+      "signals": [
+        "elevated transaction volume",
+        "elevated transaction amount",
+        "ProductCD concentration"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-596",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 596,
+      "transactions": 493,
+      "amount_usd": 54283.378,
+      "amount_currency": "USD",
+      "live_score": 3.2880474137931035,
+      "volume_z": 3.132875,
+      "amount_z": 2.1675191227750523,
+      "product_top": "R",
+      "product_top_share": 0.3103448275862069,
+      "signals": [
+        "elevated transaction volume",
+        "identity coverage present"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-595",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 595,
+      "transactions": 487,
+      "amount_usd": 55171.124,
+      "amount_currency": "USD",
+      "live_score": 3.268536704312115,
+      "volume_z": 3.079625,
+      "amount_z": 2.2182741013805782,
+      "product_top": "W",
+      "product_top_share": 0.37782340862423,
+      "signals": [
+        "elevated transaction volume",
+        "identity coverage present"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-453",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 453,
+      "transactions": 406,
+      "amount_usd": 68912.515,
+      "amount_currency": "USD",
+      "live_score": 3.2440565213580355,
+      "volume_z": 2.36075,
+      "amount_z": 3.003908738106804,
+      "product_top": "W",
+      "product_top_share": 0.4802955665024631,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-597",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 597,
+      "transactions": 480,
+      "amount_usd": 47905.046,
+      "amount_currency": "USD",
+      "live_score": 3.188333333333333,
+      "volume_z": 3.0174999999999996,
+      "amount_z": 1.8028516343279757,
+      "product_top": "W",
+      "product_top_share": 0.3416666666666667,
+      "signals": [
+        "elevated transaction volume",
+        "identity coverage present"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-476",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 476,
+      "transactions": 352,
+      "amount_usd": 67988.522,
+      "amount_currency": "USD",
+      "live_score": 3.1826155057199803,
+      "volume_z": 1.8815,
+      "amount_z": 2.9510814148108895,
+      "product_top": "W",
+      "product_top_share": 0.4630681818181818,
+      "signals": [
+        "elevated transaction amount",
+        "identity coverage present"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-523",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 523,
+      "transactions": 414,
+      "amount_usd": 68512.12,
+      "amount_currency": "USD",
+      "live_score": 3.1694228075533166,
+      "volume_z": 2.4317499999999996,
+      "amount_z": 2.9810170104518674,
+      "product_top": "W",
+      "product_top_share": 0.37681159420289856,
+      "signals": [
+        "elevated transaction amount",
+        "identity coverage present"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-474",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 474,
+      "transactions": 379,
+      "amount_usd": 67503.53899999999,
+      "amount_currency": "USD",
+      "live_score": 3.1370738658176904,
+      "volume_z": 2.121125,
+      "amount_z": 2.9233535491949993,
+      "product_top": "W",
+      "product_top_share": 0.42744063324538256,
+      "signals": [
+        "elevated transaction amount",
+        "identity coverage present"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-594",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 594,
+      "transactions": 472,
+      "amount_usd": 50812.574,
+      "amount_currency": "USD",
+      "live_score": 3.131881355932203,
+      "volume_z": 2.9465,
+      "amount_z": 1.9690833283428928,
+      "product_top": "W",
+      "product_top_share": 0.3707627118644068,
+      "signals": [
+        "elevated transaction volume",
+        "identity coverage present"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-454",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 454,
+      "transactions": 387,
+      "amount_usd": 66344.274,
+      "amount_currency": "USD",
+      "live_score": 3.1180569647053793,
+      "volume_z": 2.192125,
+      "amount_z": 2.8570750525606763,
+      "product_top": "W",
+      "product_top_share": 0.5219638242894057,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-2898",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 2898,
+      "transactions": 294,
+      "amount_usd": 62070.62100000001,
+      "amount_currency": "USD",
+      "live_score": 3.0481122335578377,
+      "volume_z": 1.3667500000000001,
+      "amount_z": 2.6127380838979737,
+      "product_top": "W",
+      "product_top_share": 0.8707482993197279,
+      "signals": [
+        "elevated transaction amount",
+        "ProductCD concentration"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-479",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 479,
+      "transactions": 382,
+      "amount_usd": 65207.783,
+      "amount_currency": "USD",
+      "live_score": 3.043407511184896,
+      "volume_z": 2.14775,
+      "amount_z": 2.792098610661336,
+      "product_top": "W",
+      "product_top_share": 0.5026178010471204,
+      "signals": [
+        "elevated transaction amount"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-572",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 572,
+      "transactions": 456,
+      "amount_usd": 50319.574,
+      "amount_currency": "USD",
+      "live_score": 3.0391491228070175,
+      "volume_z": 2.8045,
+      "amount_z": 1.94089710790087,
+      "product_top": "W",
+      "product_top_share": 0.4692982456140351,
+      "signals": [
+        "elevated transaction volume"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    },
+    {
+      "anomaly_id": "rda-570",
+      "kind": "REAL DATA ANOMALY",
+      "world": "REAL PUBLIC DATA",
+      "dataset": "IEEE-CIS Fraud Detection",
+      "relative_hour_bucket": 570,
+      "transactions": 454,
+      "amount_usd": 50072.592000000004,
+      "amount_currency": "USD",
+      "live_score": 2.99379845814978,
+      "volume_z": 2.78675,
+      "amount_z": 1.9267764403608862,
+      "product_top": "W",
+      "product_top_share": 0.41409691629955947,
+      "signals": [
+        "elevated transaction volume",
+        "identity coverage present"
+      ],
+      "detection_inputs": "live observed fields only; isFraud was not used",
+      "not_claimed": [
+        "coordinated abuse",
+        "festive surge",
+        "AttackSpec ground truth"
+      ]
+    }
+  ],
+  "detection": "label-free relative-hour heuristic"
+}

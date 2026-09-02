@@ -1,0 +1,83 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+env/
+
+# Build and cache
+dist/
+dist-ssr/
+build/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]
+*.tsbuildinfo
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+*.pem
+
+# Editor and OS
+.cursor/
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Data and logs
+*.db
+*.sqlite
+*.sqlite3
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+.coverage.*
+
+# IEEE-CIS raw files (manual obtainment only; never commit)
+data/real/**
+!data/real/.gitkeep
+!data/real/README.md
+!data/real/profile.json
+!data/real/benchmark.json
+!data/real/hourly_metrics.csv
+!data/real/entity_metrics.csv
+!data/real/anomalies.json
+!data/real/evidence.json
+!data/real/evaluation.json
+!data/real/model/
+data/real/model/**
+!data/real/model/.gitkeep
+!data/real/model/README.md
+!data/real/model/feature_spec.json
+!data/real/model/encoder.json
+!data/real/model/model_evaluation.json
+!data/real/model/hour_risk_overlay.json
+
+# January 2026 Zenodo raw export (manual obtainment only; never commit the CSV)
+data/real_2026/**
+!data/real_2026/.gitkeep
+!data/real_2026/README.md
+!data/real_2026/profile.json
+!data/real_2026/benchmark.json
+!data/real_2026/hourly_metrics.csv
+!data/real_2026/anomalies.json
+!data/real_2026/evidence.json
+!data/real_2026/evaluation.json

@@ -1,0 +1,386 @@
+{
+  "evaluation_unit": "hypothetically affected held-out transaction inside a recommended spike window",
+  "heldout_seed": 2027,
+  "label": "HYPOTHETICAL / SIMULATION ONLY",
+  "claim": "hypothetically_affected_observed_activity",
+  "not_calculated": [
+    "money_saved",
+    "money_prevented",
+    "loss_prevented",
+    "losses_avoided",
+    "loss_avoided",
+    "avoided_loss",
+    "revenue_protected",
+    "roi",
+    "roi_of_blocking"
+  ],
+  "counterfactual": {
+    "status": "hypothetical_simulation_only",
+    "action_type": "tighten_rule",
+    "temporal_scope": "window_start <= timestamp < window_end for each objectively coordinated spike with an evaluable recommendation",
+    "matching_semantics": "AND of parsed device/subnet/SKU dimensions (narrowest interpretation). OR is computed only as an explicit alternative and is not the reported metric.",
+    "scope": {
+      "source": "existing Step 4 investigation recommended_action.scope",
+      "entity_dimensions": [
+        "device",
+        "subnet",
+        "sku"
+      ],
+      "evaluable_interventions": 6,
+      "per_spike": [
+        {
+          "spike_id": "spk-coord-20260108-13",
+          "window_start": "2026-01-08T13:00:00",
+          "window_end": "2026-01-08T14:00:00",
+          "parsed_scope": {
+            "device": "dev_5001",
+            "subnet": "185.220.101.0/24",
+            "sku": "sku_1048"
+          }
+        },
+        {
+          "spike_id": "spk-coord-20260108-14",
+          "window_start": "2026-01-08T14:00:00",
+          "window_end": "2026-01-08T15:00:00",
+          "parsed_scope": {
+            "device": "dev_5000",
+            "subnet": "185.220.101.0/24",
+            "sku": "sku_1048"
+          }
+        },
+        {
+          "spike_id": "spk-coord-20260108-15",
+          "window_start": "2026-01-08T15:00:00",
+          "window_end": "2026-01-08T16:00:00",
+          "parsed_scope": {
+            "device": "dev_5000",
+            "subnet": "185.220.101.0/24",
+            "sku": "sku_1048"
+          }
+        },
+        {
+          "spike_id": "spk-coord-20260118-02",
+          "window_start": "2026-01-18T02:00:00",
+          "window_end": "2026-01-18T03:00:00",
+          "parsed_scope": {
+            "device": "dev_5005",
+            "subnet": "45.33.32.0/24",
+            "sku": "sku_1050"
+          }
+        },
+        {
+          "spike_id": "spk-coord-20260118-03",
+          "window_start": "2026-01-18T03:00:00",
+          "window_end": "2026-01-18T04:00:00",
+          "parsed_scope": {
+            "device": "dev_5005",
+            "subnet": "45.33.32.0/24",
+            "sku": "sku_1050"
+          }
+        },
+        {
+          "spike_id": "spk-coord-20260118-04",
+          "window_start": "2026-01-18T04:00:00",
+          "window_end": "2026-01-18T05:00:00",
+          "parsed_scope": {
+            "device": "dev_5005",
+            "subnet": "45.33.32.0/24",
+            "sku": "sku_1050"
+          }
+        }
+      ]
+    }
+  },
+  "action_evaluability": {
+    "tighten_rule": "evaluable when the existing scope names at least one device, subnet, or SKU",
+    "review": "not_mechanically_evaluable",
+    "monitor": "not_mechanically_evaluable",
+    "counts": {
+      "tighten_rule": 6,
+      "review": 0,
+      "monitor": 34,
+      "other": 0
+    },
+    "objectively_coordinated_spikes": 6,
+    "evaluable": 6,
+    "not_evaluable": 0,
+    "not_mechanically_evaluable": 0
+  },
+  "overall": {
+    "terminology": "hypothetically affected",
+    "transaction_count": 113,
+    "total_amount": 327953.47
+  },
+  "coordinated_abuse": {
+    "applicable_window": {
+      "transaction_count": 430,
+      "total_amount": 1308000.51
+    },
+    "hypothetically_affected": {
+      "transaction_count": 113,
+      "total_amount": 327953.47
+    },
+    "transaction_coverage_rate": 0.262791,
+    "amount_coverage_rate": 0.250729
+  },
+  "collateral": {
+    "legitimate_festive": {
+      "transaction_count": 0,
+      "total_amount": 0.0
+    },
+    "background": {
+      "transaction_count": 0,
+      "total_amount": 0.0
+    },
+    "non_coordinated": {
+      "transaction_count": 0,
+      "total_amount": 0.0
+    }
+  },
+  "metrics": {
+    "precision_tx": 1.0,
+    "precision_amount": 1.0,
+    "recall_tx": 0.262791,
+    "recall_amount": 0.250729,
+    "definition": {
+      "precision": "coordinated hypothetically affected / all hypothetically affected",
+      "recall": "coordinated hypothetically affected / coordinated transactions in applicable intervention windows"
+    }
+  },
+  "alternative_or_semantics": {
+    "note": "Wider match. Not the official counterfactual.",
+    "transaction_count": 345,
+    "total_amount": 1156109.33
+  },
+  "festive_safety": {
+    "entire_festive_period_in_scope": false,
+    "festive_transactions_in_heldout_world": 3042,
+    "festive_transactions_hypothetically_affected": 0,
+    "festive_share_of_all_festive_transactions": 0.0
+  },
+  "cases": [
+    {
+      "spike_id": "spk-coord-20260108-13",
+      "window_start": "2026-01-08T13:00:00",
+      "window_end": "2026-01-08T14:00:00",
+      "calendar_expected": "coordinated_abuse",
+      "investigator_verdict": "coordinated_abuse",
+      "action_type": "tighten_rule",
+      "scope_text": "review device dev_5001, subnet 185.220.101.0/24, sku sku_1048",
+      "parsed_scope": {
+        "device": "dev_5001",
+        "subnet": "185.220.101.0/24",
+        "sku": "sku_1048"
+      },
+      "evaluability": "evaluable",
+      "matching_semantics": "AND of parsed entity dimensions inside the spike window (narrowest)",
+      "alternative_or_semantics": "OR of parsed entity dimensions inside the spike window",
+      "window": {
+        "transaction_count": 89,
+        "total_amount": 402408.91
+      },
+      "window_coordinated": {
+        "transaction_count": 89,
+        "total_amount": 402408.91
+      },
+      "hypothetically_affected_and": {
+        "transaction_count": 14,
+        "total_amount": 82938.36
+      },
+      "hypothetically_affected_or": {
+        "transaction_count": 60,
+        "total_amount": 342803.96
+      }
+    },
+    {
+      "spike_id": "spk-coord-20260108-14",
+      "window_start": "2026-01-08T14:00:00",
+      "window_end": "2026-01-08T15:00:00",
+      "calendar_expected": "coordinated_abuse",
+      "investigator_verdict": "coordinated_abuse",
+      "action_type": "tighten_rule",
+      "scope_text": "review device dev_5000, subnet 185.220.101.0/24, sku sku_1048",
+      "parsed_scope": {
+        "device": "dev_5000",
+        "subnet": "185.220.101.0/24",
+        "sku": "sku_1048"
+      },
+      "evaluability": "evaluable",
+      "matching_semantics": "AND of parsed entity dimensions inside the spike window (narrowest)",
+      "alternative_or_semantics": "OR of parsed entity dimensions inside the spike window",
+      "window": {
+        "transaction_count": 89,
+        "total_amount": 465712.83
+      },
+      "window_coordinated": {
+        "transaction_count": 89,
+        "total_amount": 465712.83
+      },
+      "hypothetically_affected_and": {
+        "transaction_count": 20,
+        "total_amount": 118305.92
+      },
+      "hypothetically_affected_or": {
+        "transaction_count": 69,
+        "total_amount": 426431.66
+      }
+    },
+    {
+      "spike_id": "spk-coord-20260108-15",
+      "window_start": "2026-01-08T15:00:00",
+      "window_end": "2026-01-08T16:00:00",
+      "calendar_expected": "coordinated_abuse",
+      "investigator_verdict": "coordinated_abuse",
+      "action_type": "tighten_rule",
+      "scope_text": "review device dev_5000, subnet 185.220.101.0/24, sku sku_1048",
+      "parsed_scope": {
+        "device": "dev_5000",
+        "subnet": "185.220.101.0/24",
+        "sku": "sku_1048"
+      },
+      "evaluability": "evaluable",
+      "matching_semantics": "AND of parsed entity dimensions inside the spike window (narrowest)",
+      "alternative_or_semantics": "OR of parsed entity dimensions inside the spike window",
+      "window": {
+        "transaction_count": 81,
+        "total_amount": 316709.16
+      },
+      "window_coordinated": {
+        "transaction_count": 81,
+        "total_amount": 316709.16
+      },
+      "hypothetically_affected_and": {
+        "transaction_count": 15,
+        "total_amount": 74304.3
+      },
+      "hypothetically_affected_or": {
+        "transaction_count": 53,
+        "total_amount": 268574.09
+      }
+    },
+    {
+      "spike_id": "spk-coord-20260118-02",
+      "window_start": "2026-01-18T02:00:00",
+      "window_end": "2026-01-18T03:00:00",
+      "calendar_expected": "coordinated_abuse",
+      "investigator_verdict": "coordinated_abuse",
+      "action_type": "tighten_rule",
+      "scope_text": "review device dev_5005, subnet 45.33.32.0/24, sku sku_1050",
+      "parsed_scope": {
+        "device": "dev_5005",
+        "subnet": "45.33.32.0/24",
+        "sku": "sku_1050"
+      },
+      "evaluability": "evaluable",
+      "matching_semantics": "AND of parsed entity dimensions inside the spike window (narrowest)",
+      "alternative_or_semantics": "OR of parsed entity dimensions inside the spike window",
+      "window": {
+        "transaction_count": 67,
+        "total_amount": 58062.04
+      },
+      "window_coordinated": {
+        "transaction_count": 67,
+        "total_amount": 58062.04
+      },
+      "hypothetically_affected_and": {
+        "transaction_count": 27,
+        "total_amount": 26816.53
+      },
+      "hypothetically_affected_or": {
+        "transaction_count": 65,
+        "total_amount": 55593.42
+      }
+    },
+    {
+      "spike_id": "spk-coord-20260118-03",
+      "window_start": "2026-01-18T03:00:00",
+      "window_end": "2026-01-18T04:00:00",
+      "calendar_expected": "coordinated_abuse",
+      "investigator_verdict": "coordinated_abuse",
+      "action_type": "tighten_rule",
+      "scope_text": "review device dev_5005, subnet 45.33.32.0/24, sku sku_1050",
+      "parsed_scope": {
+        "device": "dev_5005",
+        "subnet": "45.33.32.0/24",
+        "sku": "sku_1050"
+      },
+      "evaluability": "evaluable",
+      "matching_semantics": "AND of parsed entity dimensions inside the spike window (narrowest)",
+      "alternative_or_semantics": "OR of parsed entity dimensions inside the spike window",
+      "window": {
+        "transaction_count": 55,
+        "total_amount": 40458.26
+      },
+      "window_coordinated": {
+        "transaction_count": 55,
+        "total_amount": 40458.26
+      },
+      "hypothetically_affected_and": {
+        "transaction_count": 22,
+        "total_amount": 20543.33
+      },
+      "hypothetically_affected_or": {
+        "transaction_count": 52,
+        "total_amount": 39256.59
+      }
+    },
+    {
+      "spike_id": "spk-coord-20260118-04",
+      "window_start": "2026-01-18T04:00:00",
+      "window_end": "2026-01-18T05:00:00",
+      "calendar_expected": "coordinated_abuse",
+      "investigator_verdict": "coordinated_abuse",
+      "action_type": "tighten_rule",
+      "scope_text": "review device dev_5005, subnet 45.33.32.0/24, sku sku_1050",
+      "parsed_scope": {
+        "device": "dev_5005",
+        "subnet": "45.33.32.0/24",
+        "sku": "sku_1050"
+      },
+      "evaluability": "evaluable",
+      "matching_semantics": "AND of parsed entity dimensions inside the spike window (narrowest)",
+      "alternative_or_semantics": "OR of parsed entity dimensions inside the spike window",
+      "window": {
+        "transaction_count": 49,
+        "total_amount": 24649.31
+      },
+      "window_coordinated": {
+        "transaction_count": 49,
+        "total_amount": 24649.31
+      },
+      "hypothetically_affected_and": {
+        "transaction_count": 15,
+        "total_amount": 5045.03
+      },
+      "hypothetically_affected_or": {
+        "transaction_count": 46,
+        "total_amount": 23449.61
+      }
+    }
+  ],
+  "ground_truth": {
+    "source": "Step 3 scenario calendars via transaction hour",
+    "not_used": [
+      "investigation verdict as ground truth",
+      "detector spike_type as ground truth",
+      "event_type",
+      "fraud_label as live evidence"
+    ],
+    "unassigned_timestamps": 0
+  },
+  "limitations": [
+    "HYPOTHETICAL / SIMULATION ONLY. No intervention was executed.",
+    "The dataset has no historical intervention logs; this constructs an affected set from existing recommendations.",
+    "Matching uses AND of parsed entity dimensions (narrowest). OR is reported only as an alternative.",
+    "A matching transaction is hypothetically affected, not blocked, prevented, or saved.",
+    "review and monitor have no deterministic intervention effect and are not mechanically evaluable.",
+    "Investigation verdicts are the policy source only; calendar labels remain ground truth.",
+    "No payment, authorization, or settlement outcome is inferred."
+  ],
+  "data_quality": {
+    "heldout_meta_transactions": 10404,
+    "loaded_transactions": 10404,
+    "heldout_spikes": 40,
+    "heldout_hourly_windows": 494
+  }
+}

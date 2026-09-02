@@ -1,0 +1,97 @@
+{
+  "seed": 2027,
+  "evaluation_unit": "hourly_window",
+  "ground_truth": {
+    "source": "data.scenarios attack and festive calendars",
+    "not_used": [
+      "detector spike_type",
+      "fraud_label",
+      "event_type column"
+    ],
+    "labels": {
+      "coordinated_abuse": "hour overlaps an injected AttackSpec window",
+      "legitimate_festive": "hour is inside the festive sale calendar and is not an attack hour",
+      "background": "hour is outside festive and attack calendars"
+    },
+    "note": "Festive positives are sale-calendar hours, including low-volume night hours. The generator does not mark a separate festive-surge subset. fraud_label is delayed transaction truth and is not the spike label."
+  },
+  "prediction": {
+    "source": "held-out hourly_windows.spike_type written by the existing detector",
+    "mapping": {
+      "suspicious_coordinated_spike": "coordinated_abuse",
+      "legitimate_festive_spike": "legitimate_festive",
+      "ordinary": "background"
+    }
+  },
+  "n_windows": 494,
+  "truth_counts": {
+    "background": 416,
+    "legitimate_festive": 72,
+    "coordinated_abuse": 6
+  },
+  "prediction_counts": {
+    "background": 454,
+    "legitimate_festive": 34,
+    "coordinated_abuse": 6
+  },
+  "confusion_matrix": {
+    "coordinated_abuse": {
+      "coordinated_abuse": 6,
+      "legitimate_festive": 0,
+      "background": 0
+    },
+    "legitimate_festive": {
+      "coordinated_abuse": 0,
+      "legitimate_festive": 28,
+      "background": 44
+    },
+    "background": {
+      "coordinated_abuse": 0,
+      "legitimate_festive": 6,
+      "background": 410
+    }
+  },
+  "per_class": {
+    "coordinated_abuse": {
+      "tp": 6,
+      "fp": 0,
+      "tn": 488,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "legitimate_festive": {
+      "tp": 28,
+      "fp": 6,
+      "tn": 416,
+      "fn": 44,
+      "precision": 0.823529,
+      "recall": 0.388889,
+      "f1": 0.528302
+    },
+    "background": {
+      "tp": 410,
+      "fp": 44,
+      "tn": 34,
+      "fn": 6,
+      "precision": 0.903084,
+      "recall": 0.985577,
+      "f1": 0.942529
+    }
+  },
+  "any_injected_scenario_vs_any_spike": {
+    "tp": 34,
+    "fp": 6,
+    "tn": 410,
+    "fn": 44,
+    "precision": 0.85,
+    "recall": 0.435897,
+    "f1": 0.576271
+  },
+  "product_checks": {
+    "festive_hours_predicted_as_coordinated_abuse": 0,
+    "coordinated_hours_detected_as_coordinated_abuse": 6,
+    "coordinated_hours_total": 6
+  }
+}

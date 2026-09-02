@@ -1,0 +1,965 @@
+{
+  "world": "REAL PUBLIC DATA",
+  "dataset": "IEEE-CIS Fraud Detection",
+  "amount_currency": "USD",
+  "source_file": "train_transaction.csv",
+  "measurements": {
+    "total_transactions": {
+      "value": 590540,
+      "source": "train_transaction.csv row count"
+    },
+    "labelled_fraud_transactions": {
+      "value": 20663,
+      "source": "train_transaction.csv isFraud == 1"
+    },
+    "legitimate_transactions": {
+      "value": 569877,
+      "source": "train_transaction.csv isFraud == 0"
+    },
+    "fraud_transaction_rate": {
+      "value": 0.03499000914417313,
+      "source": "labelled_fraud_transactions / total_transactions"
+    },
+    "total_amount_usd": {
+      "value": 79738948.735,
+      "source": "sum(TransactionAmt)"
+    },
+    "labelled_fraud_amount_usd": {
+      "value": 3083844.8600000003,
+      "source": "sum(TransactionAmt) where isFraud == 1"
+    },
+    "legitimate_amount_usd": {
+      "value": 76655103.875,
+      "source": "sum(TransactionAmt) where isFraud != 1"
+    },
+    "fraud_amount_share": {
+      "value": 0.03867426030720168,
+      "source": "labelled_fraud_amount_usd / total_amount_usd"
+    },
+    "identity_coverage": {
+      "value": {
+        "train_identity_rows": 144233,
+        "transactions_with_device_type": 140810,
+        "transactions_with_device_info": 118666,
+        "transactions_with_any_device_identity": 140855,
+        "coverage": 0.23851898262607105
+      },
+      "source": "train_identity.csv DeviceType/DeviceInfo join"
+    }
+  },
+  "by_product": [
+    {
+      "value": "W",
+      "transactions": 439670,
+      "labelled_fraud_count": 8969,
+      "labelled_fraud_rate": 0.020399390451929858,
+      "amount_usd": 67339221.37200001,
+      "labelled_fraud_amount_usd": 2054325.46,
+      "source": "train_transaction.csv ProductCD",
+      "signal_kind": "OBSERVED FROM IEEE-CIS"
+    },
+    {
+      "value": "C",
+      "transactions": 68519,
+      "labelled_fraud_count": 8008,
+      "labelled_fraud_rate": 0.11687269224594637,
+      "amount_usd": 2937570.763,
+      "labelled_fraud_amount_usd": 391421.4,
+      "source": "train_transaction.csv ProductCD",
+      "signal_kind": "OBSERVED FROM IEEE-CIS"
+    },
+    {
+      "value": "R",
+      "transactions": 37699,
+      "labelled_fraud_count": 1426,
+      "labelled_fraud_rate": 0.03782593702750736,
+      "amount_usd": 6344975.0,
+      "labelled_fraud_amount_usd": 348050.0,
+      "source": "train_transaction.csv ProductCD",
+      "signal_kind": "OBSERVED FROM IEEE-CIS"
+    },
+    {
+      "value": "H",
+      "transactions": 33024,
+      "labelled_fraud_count": 1574,
+      "labelled_fraud_rate": 0.04766230620155039,
+      "amount_usd": 2416368.0,
+      "labelled_fraud_amount_usd": 246632.0,
+      "source": "train_transaction.csv ProductCD",
+      "signal_kind": "OBSERVED FROM IEEE-CIS"
+    },
+    {
+      "value": "S",
+      "transactions": 11628,
+      "labelled_fraud_count": 686,
+      "labelled_fraud_rate": 0.058995528035775714,
+      "amount_usd": 700813.6,
+      "labelled_fraud_amount_usd": 43416.0,
+      "source": "train_transaction.csv ProductCD",
+      "signal_kind": "OBSERVED FROM IEEE-CIS"
+    }
+  ],
+  "by_card4_proxy": [
+    {
+      "value": "visa",
+      "transactions": 384767,
+      "labelled_fraud_count": 13373,
+      "labelled_fraud_rate": 0.03475609914571676,
+      "amount_usd": 51236268.458000004,
+      "labelled_fraud_amount_usd": 1997705.8510000003,
+      "source": "train_transaction.csv card4",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "mastercard",
+      "transactions": 189217,
+      "labelled_fraud_count": 6496,
+      "labelled_fraud_rate": 0.03433095334985757,
+      "amount_usd": 25050009.367,
+      "labelled_fraud_amount_usd": 855739.176,
+      "source": "train_transaction.csv card4",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "american express",
+      "transactions": 8328,
+      "labelled_fraud_count": 239,
+      "labelled_fraud_rate": 0.028698366954851104,
+      "amount_usd": 1441219.834,
+      "labelled_fraud_amount_usd": 42798.184,
+      "source": "train_transaction.csv card4",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "discover",
+      "transactions": 6651,
+      "labelled_fraud_count": 514,
+      "labelled_fraud_rate": 0.0772816117877011,
+      "amount_usd": 1767506.0799999998,
+      "labelled_fraud_amount_usd": 182000.44,
+      "source": "train_transaction.csv card4",
+      "signal_kind": "PROXY SIGNAL"
+    }
+  ],
+  "by_card6_proxy": [
+    {
+      "value": "debit",
+      "transactions": 439938,
+      "labelled_fraud_count": 10674,
+      "labelled_fraud_rate": 0.024262509717278342,
+      "amount_usd": 51179200.521000005,
+      "labelled_fraud_amount_usd": 1422042.2799999998,
+      "source": "train_transaction.csv card6",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "credit",
+      "transactions": 148986,
+      "labelled_fraud_count": 9950,
+      "labelled_fraud_rate": 0.06678479857167788,
+      "amount_usd": 28312458.989,
+      "labelled_fraud_amount_usd": 1656751.3709999998,
+      "source": "train_transaction.csv card6",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "debit or credit",
+      "transactions": 30,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 3121.9699999999993,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv card6",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "charge card",
+      "transactions": 15,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 892.922,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv card6",
+      "signal_kind": "PROXY SIGNAL"
+    }
+  ],
+  "by_addr2_proxy": [
+    {
+      "value": "87.0",
+      "transactions": 520481,
+      "labelled_fraud_count": 12477,
+      "labelled_fraud_rate": 0.023972056616860173,
+      "amount_usd": 76578238.53599998,
+      "labelled_fraud_amount_usd": 2662387.5100000002,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "60.0",
+      "transactions": 3084,
+      "labelled_fraud_count": 279,
+      "labelled_fraud_rate": 0.09046692607003891,
+      "amount_usd": 154048.83299999998,
+      "labelled_fraud_amount_usd": 15508.177,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "96.0",
+      "transactions": 638,
+      "labelled_fraud_count": 89,
+      "labelled_fraud_rate": 0.13949843260188088,
+      "amount_usd": 124173.226,
+      "labelled_fraud_amount_usd": 18400.0,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "32.0",
+      "transactions": 91,
+      "labelled_fraud_count": 6,
+      "labelled_fraud_rate": 0.06593406593406594,
+      "amount_usd": 5438.842,
+      "labelled_fraud_amount_usd": 360.0,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "65.0",
+      "transactions": 82,
+      "labelled_fraud_count": 44,
+      "labelled_fraud_rate": 0.5365853658536586,
+      "amount_usd": 7537.909,
+      "labelled_fraud_amount_usd": 4325.0,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "16.0",
+      "transactions": 55,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 3462.813,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "31.0",
+      "transactions": 47,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 2378.815,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "19.0",
+      "transactions": 33,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 2292.3199999999997,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "26.0",
+      "transactions": 25,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 1831.6979999999999,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "27.0",
+      "transactions": 20,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 5609.17,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "59.0",
+      "transactions": 17,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 948.819,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "69.0",
+      "transactions": 17,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 1043.954,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "34.0",
+      "transactions": 16,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 2228.3,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "43.0",
+      "transactions": 12,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 1259.113,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "102.0",
+      "transactions": 11,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 396.61400000000003,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "29.0",
+      "transactions": 11,
+      "labelled_fraud_count": 1,
+      "labelled_fraud_rate": 0.09090909090909091,
+      "amount_usd": 979.616,
+      "labelled_fraud_amount_usd": 300.0,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "98.0",
+      "transactions": 11,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 679.998,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "57.0",
+      "transactions": 10,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 1220.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "68.0",
+      "transactions": 10,
+      "labelled_fraud_count": 1,
+      "labelled_fraud_rate": 0.1,
+      "amount_usd": 650.0,
+      "labelled_fraud_amount_usd": 100.0,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "10.0",
+      "transactions": 8,
+      "labelled_fraud_count": 8,
+      "labelled_fraud_rate": 1.0,
+      "amount_usd": 950.0,
+      "labelled_fraud_amount_usd": 950.0,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "78.0",
+      "transactions": 8,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 583.35,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "13.0",
+      "transactions": 7,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 205.105,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "17.0",
+      "transactions": 7,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 700.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "71.0",
+      "transactions": 7,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 540.094,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "54.0",
+      "transactions": 6,
+      "labelled_fraud_count": 2,
+      "labelled_fraud_rate": 0.3333333333333333,
+      "amount_usd": 725.0,
+      "labelled_fraud_amount_usd": 300.0,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "72.0",
+      "transactions": 6,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 175.44,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "21.0",
+      "transactions": 5,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 308.933,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "52.0",
+      "transactions": 5,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 500.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "73.0",
+      "transactions": 5,
+      "labelled_fraud_count": 1,
+      "labelled_fraud_rate": 0.2,
+      "amount_usd": 214.0,
+      "labelled_fraud_amount_usd": 100.0,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "88.0",
+      "transactions": 5,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 389.212,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "101.0",
+      "transactions": 4,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 243.08300000000003,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "28.0",
+      "transactions": 4,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 368.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "30.0",
+      "transactions": 4,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 378.822,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "47.0",
+      "transactions": 4,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 200.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "48.0",
+      "transactions": 4,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 400.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "51.0",
+      "transactions": 4,
+      "labelled_fraud_count": 4,
+      "labelled_fraud_rate": 1.0,
+      "amount_usd": 200.0,
+      "labelled_fraud_amount_usd": 200.0,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "62.0",
+      "transactions": 4,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 700.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "18.0",
+      "transactions": 3,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 669.483,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "20.0",
+      "transactions": 3,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 75.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "24.0",
+      "transactions": 3,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 226.015,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "38.0",
+      "transactions": 3,
+      "labelled_fraud_count": 2,
+      "labelled_fraud_rate": 0.6666666666666666,
+      "amount_usd": 180.0,
+      "labelled_fraud_amount_usd": 30.0,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "39.0",
+      "transactions": 3,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 450.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "40.0",
+      "transactions": 3,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 640.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "44.0",
+      "transactions": 3,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 75.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "46.0",
+      "transactions": 3,
+      "labelled_fraud_count": 3,
+      "labelled_fraud_rate": 1.0,
+      "amount_usd": 150.0,
+      "labelled_fraud_amount_usd": 150.0,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "61.0",
+      "transactions": 3,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 159.85,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "74.0",
+      "transactions": 3,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 350.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "100.0",
+      "transactions": 2,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 100.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "23.0",
+      "transactions": 2,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 400.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "36.0",
+      "transactions": 2,
+      "labelled_fraud_count": 1,
+      "labelled_fraud_rate": 0.5,
+      "amount_usd": 150.0,
+      "labelled_fraud_amount_usd": 100.0,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "63.0",
+      "transactions": 2,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 100.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "66.0",
+      "transactions": 2,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 42.617000000000004,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "76.0",
+      "transactions": 2,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 50.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "86.0",
+      "transactions": 2,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 200.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "92.0",
+      "transactions": 2,
+      "labelled_fraud_count": 2,
+      "labelled_fraud_rate": 1.0,
+      "amount_usd": 121.0,
+      "labelled_fraud_amount_usd": 121.0,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "97.0",
+      "transactions": 2,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 200.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "14.0",
+      "transactions": 1,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 50.838,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "15.0",
+      "transactions": 1,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 27.189,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "22.0",
+      "transactions": 1,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 17.548,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "25.0",
+      "transactions": 1,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 31.832,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "35.0",
+      "transactions": 1,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 50.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "49.0",
+      "transactions": 1,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 72.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "50.0",
+      "transactions": 1,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 25.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "55.0",
+      "transactions": 1,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 100.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "70.0",
+      "transactions": 1,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 25.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "75.0",
+      "transactions": 1,
+      "labelled_fraud_count": 1,
+      "labelled_fraud_rate": 1.0,
+      "amount_usd": 67.0,
+      "labelled_fraud_amount_usd": 67.0,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "77.0",
+      "transactions": 1,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 100.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "79.0",
+      "transactions": 1,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 75.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "82.0",
+      "transactions": 1,
+      "labelled_fraud_count": 1,
+      "labelled_fraud_rate": 1.0,
+      "amount_usd": 41.0,
+      "labelled_fraud_amount_usd": 41.0,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "83.0",
+      "transactions": 1,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 91.298,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "84.0",
+      "transactions": 1,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 100.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "89.0",
+      "transactions": 1,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 31.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "93.0",
+      "transactions": 1,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 129.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "94.0",
+      "transactions": 1,
+      "labelled_fraud_count": 0,
+      "labelled_fraud_rate": 0.0,
+      "amount_usd": 100.0,
+      "labelled_fraud_amount_usd": NaN,
+      "source": "train_transaction.csv addr2",
+      "signal_kind": "PROXY SIGNAL"
+    }
+  ],
+  "by_device_type_proxy": [
+    {
+      "value": "desktop",
+      "transactions": 85165,
+      "labelled_fraud_count": 5554,
+      "labelled_fraud_rate": 0.06521458345564493,
+      "amount_usd": 7886291.448,
+      "labelled_fraud_amount_usd": 449878.93700000003,
+      "source": "train_identity.csv DeviceType",
+      "signal_kind": "PROXY SIGNAL"
+    },
+    {
+      "value": "mobile",
+      "transactions": 55645,
+      "labelled_fraud_count": 5657,
+      "labelled_fraud_rate": 0.10166232365890916,
+      "amount_usd": 3867584.528,
+      "labelled_fraud_amount_usd": 546427.465,
+      "source": "train_identity.csv DeviceType",
+      "signal_kind": "PROXY SIGNAL"
+    }
+  ],
+  "hourly_artifact": "hourly_metrics.csv",
+  "hourly_buckets": 4368,
+  "not_calculated": [
+    "festive-vs-coordinated classification",
+    "coordinated-abuse ground truth",
+    "IP subnet concentration",
+    "success/failed/declined rate",
+    "money saved",
+    "ROI",
+    "trained-model accuracy"
+  ],
+  "notes": [
+    "Hourly fraud rates are evaluation overlays, not live detector inputs.",
+    "All amounts are USD."
+  ]
+}
