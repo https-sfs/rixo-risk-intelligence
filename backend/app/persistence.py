@@ -12,6 +12,8 @@ import threading
 from pathlib import Path
 from typing import Any
 
+from app.config import is_serverless_runtime, resolve_governance_sqlite_path
+
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS decisions (
     world TEXT NOT NULL,
@@ -81,7 +83,11 @@ class GovernanceDB:
 
     def _connect(self) -> sqlite3.Connection:
         conn = sqlite3.connect(str(self.path), check_same_thread=False)
-        conn.execute("PRAGMA journal_mode=WAL")
+        journal = "DELETE" if is_serverless_runtime() else "WAL"
+        try:
+            conn.execute(f"PRAGMA journal_mode={journal}")
+        except sqlite3.Error:
+            conn.execute("PRAGMA journal_mode=DELETE")
         conn.execute("PRAGMA foreign_keys=ON")
         return conn
 
@@ -232,7 +238,7 @@ def attach_default_stores(path: str | None) -> GovernanceDB | None:
     """Bind the existing world stores to one SQLite file. Restore only."""
     if not path or not str(path).strip():
         return None
-    db = GovernanceDB(path)
+    db = GovernanceDB(resolve_governance_sqlite_path(str(path).strip()))
     from agent.actions.service import bind_default_store
     from evaluation.real_data.governance import bind_store as bind_ieee
     from evaluation.recent_data.governance import bind_store as bind_january

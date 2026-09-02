@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 import app.repo  # noqa: F401 — put repo root on sys.path
-from app.config import settings
+from app.config import resolve_governance_sqlite_path, settings
 from app.errors import register_exception_handlers
 from app.persistence import attach_default_stores
 from app.routers import actions, audit, custom, evaluation, health, investigations, real, recent, sandbox, spikes
@@ -22,7 +22,7 @@ app.add_middleware(
 )
 
 register_exception_handlers(app)
-attach_default_stores(settings.governance_sqlite_path)
+attach_default_stores(resolve_governance_sqlite_path(settings.governance_sqlite_path))
 app.include_router(health.router)
 app.include_router(spikes.router)
 app.include_router(evaluation.router)
