@@ -81,3 +81,4 @@ data/real_2026/**
 !data/real_2026/anomalies.json
 !data/real_2026/evidence.json
 !data/real_2026/evaluation.json
+!data/real_2026/classifier_overlay.json

@@ -45,6 +45,25 @@ def test_backend_contains_vendored_local_packages() -> None:
     assert (ROOT / "backend" / "vendor_packages.py").is_file()
 
 
+def test_vendor_copies_derived_world_artifacts() -> None:
+    result = subprocess.run(
+        [sys.executable, str(ROOT / "backend" / "vendor_packages.py")],
+        cwd=str(ROOT / "backend"),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    app_dir = ROOT / "backend" / "app"
+    assert (app_dir / "data" / "real" / "anomalies.json").is_file()
+    assert (app_dir / "data" / "real" / "profile.json").is_file()
+    assert (app_dir / "data" / "real" / "model" / "model_evaluation.json").is_file()
+    assert (app_dir / "data" / "real_2026" / "benchmark.json").is_file()
+    assert (app_dir / "data" / "real_2026" / "anomalies.json").is_file()
+    assert not (app_dir / "data" / "real" / "train_transaction.csv").exists()
+    assert not list((app_dir / "data" / "real_2026").glob("fraud_tests_export_*.csv"))
+
+
 def test_backend_pyproject_declares_runtime_dependencies() -> None:
     pyproject = (ROOT / "backend" / "pyproject.toml").read_text(encoding="utf-8")
     for dependency in (
@@ -79,7 +98,10 @@ def test_vercel_json_includes_local_packages_on_fastapi_entrypoint() -> None:
         assert "tools" in include
         assert "../" not in include
     assert "api/index.py" not in config["functions"]
-    assert not (ROOT / "backend" / "vercel.json").exists()
+    backend_config = json.loads((ROOT / "backend" / "vercel.json").read_text(encoding="utf-8"))
+    include = backend_config["functions"]["app/main.py"]["includeFiles"]
+    assert "app" in include
+    assert "data" in include
 
 
 def test_root_main_entrypoint_imports_app() -> None:
@@ -100,11 +122,16 @@ def test_hoisted_var_task_layout_can_import_app_main(tmp_path: Path) -> None:
     """Reproduce /var/task/app plus sibling packages, repo root off sys.path."""
     import shutil
 
+    subprocess.run(
+        [sys.executable, str(ROOT / "backend" / "vendor_packages.py")],
+        cwd=str(ROOT / "backend"),
+        check=True,
+    )
     task = tmp_path / "var" / "task"
     shutil.copytree(
         ROOT / "backend" / "app",
         task / "app",
-        ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "real", "real_2026"),
+        ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
     )
 
     env = os.environ.copy()
@@ -113,9 +140,19 @@ def test_hoisted_var_task_layout_can_import_app_main(tmp_path: Path) -> None:
     env["PYTHONPATH"] = str(task)
     script = (
         "import fastapi\n"
+        "from fastapi.testclient import TestClient\n"
         "import app.main\n"
         "assert app.main.app.title == 'Fraud-Spike Investigator'\n"
         "import agent, tools\n"
+        "client = TestClient(app.main.app)\n"
+        "real = client.get('/api/real/status')\n"
+        "assert real.status_code == 200, real.text\n"
+        "assert real.json()['ready'] is True\n"
+        "assert real.json()['artifacts']['anomalies'] is True\n"
+        "profile = client.get('/api/real/profile')\n"
+        "assert profile.status_code == 200, profile.text\n"
+        "recent = client.get('/api/recent/benchmark')\n"
+        "assert recent.status_code == 200, recent.text\n"
         "print('ok')\n"
     )
     result = subprocess.run(

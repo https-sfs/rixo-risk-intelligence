@@ -9,9 +9,9 @@ from pathlib import Path
 from typing import Any
 
 import app.repo  # noqa: F401
-from app.repo import REPO_ROOT
+from app.repo import resolve_data_subdir
 from evaluation.real_data.investigate import investigate_real_anomaly
-from evaluation.real_data.mapper import DATASET_NAME, MissingRealDatasetError, WORLD
+from evaluation.real_data.mapper import DATASET_NAME, WORLD
 from models.ieee_fraud import (
     ENCODER_NAME,
     EVALUATION_NAME,
@@ -38,7 +38,7 @@ from models.ieee_fraud.predict import (
     predict_transaction,
 )
 
-REAL_DATA_DIR = REPO_ROOT / "data" / "real"
+REAL_DATA_DIR = resolve_data_subdir("real", marker="anomalies.json")
 ARTIFACT_NAMES = {
     "profile": "profile.json",
     "benchmark": "benchmark.json",
@@ -68,9 +68,8 @@ def _read_json(name: str) -> dict[str, Any]:
     path = artifact_path(name)
     if not path.is_file():
         raise RealDataUnavailableError(
-            f"{path.name} is missing. Run "
-            r".\backend\.venv\Scripts\python.exe -m evaluation.real_data.preprocess "
-            "after placing IEEE-CIS files in data/real/."
+            f"{path.name} is missing. Derived IEEE-CIS artifacts were not found at {path}. "
+            "Run `python -m evaluation.real_data.preprocess` after placing IEEE-CIS files in data/real/."
         )
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -87,16 +86,12 @@ def world_status() -> dict[str, Any]:
         "dataset": DATASET_NAME,
         "raw_train_present": raw_train_present(),
         "artifacts": artifacts,
-        "ready": raw_train_present() and all(artifacts.values()),
+        "ready": all(artifacts.values()),
         "amount_currency": "USD",
     }
 
 
 def get_profile() -> dict[str, Any]:
-    if not raw_train_present():
-        raise MissingRealDatasetError(
-            "IEEE-CIS train_transaction.csv was not found under data/real/."
-        )
     return load_artifact("profile")
 
 

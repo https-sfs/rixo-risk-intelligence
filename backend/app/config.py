@@ -5,6 +5,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 DEFAULT_GOVERNANCE_SQLITE_PATH = "data/governance.sqlite"
 SERVERLESS_GOVERNANCE_SQLITE_PATH = "/tmp/rixo-governance.sqlite"
+VERCEL_FUNCTION_BODY_LIMIT_BYTES = int(4.5 * 1024 * 1024)
+SAFE_UPLOAD_CHUNK_BYTES = 3 * 1024 * 1024
 
 
 def is_serverless_runtime() -> bool:

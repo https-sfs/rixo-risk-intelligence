@@ -2,14 +2,20 @@
 
 from __future__ import annotations
 
+import json
 from collections.abc import AsyncIterator
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
-from app.config import settings
+from app.config import (
+    SAFE_UPLOAD_CHUNK_BYTES,
+    VERCEL_FUNCTION_BODY_LIMIT_BYTES,
+    is_serverless_runtime,
+    settings,
+)
 from evaluation.custom_data import DATASET_NAME, WORLD
 from evaluation.custom_data.compatibility import assess_compatibility
 from evaluation.custom_data.detect import build_evidence, detect_from_path
@@ -43,7 +49,7 @@ from evaluation.custom_data.score import (
     score_adapted_path,
     score_compatible_path,
 )
-from evaluation.custom_data.stream import MAX_FIELD_BYTES, new_upload_path, unlink_quietly
+from evaluation.custom_data.stream import MAX_FIELD_BYTES, byd_temp_dir, new_upload_path, unlink_quietly
 
 MAX_SESSIONS = 8
 
@@ -107,16 +113,43 @@ class CustomSession:
 
 
 _SESSIONS: dict[str, CustomSession] = {}
+_UPLOADS: dict[str, dict[str, Any]] = {}
+
+
+def _session_store_path(session_id: str) -> Path:
+    return byd_temp_dir() / f"{session_id}.session.json"
+
+
+def _persist_session(session: CustomSession) -> None:
+    _SESSIONS[session.session_id] = session
+    payload = asdict(session)
+    scored = payload.get("scored")
+    if isinstance(scored, dict):
+        payload["scored"] = {
+            key: value
+            for key, value in scored.items()
+            if key not in {"scores", "score_array", "label_array", "hours"}
+        }
+    _session_store_path(session.session_id).write_text(
+        json.dumps(payload, default=str),
+        encoding="utf-8",
+    )
+
+
+def _forget_session_store(session_id: str) -> None:
+    unlink_quietly(_session_store_path(session_id))
 
 
 def _release_session(session: CustomSession) -> None:
     unlink_quietly(session.csv_path)
+    _forget_session_store(session.session_id)
 
 
 def reset_sessions() -> None:
     for session in list(_SESSIONS.values()):
         _release_session(session)
     _SESSIONS.clear()
+    _UPLOADS.clear()
     reset_custom_gov()
 
 
@@ -130,12 +163,19 @@ def _evict_if_needed() -> None:
 
 def get_session(session_id: str) -> CustomSession:
     session = _SESSIONS.get(session_id)
-    if session is None:
-        raise CustomSessionError(
-            "This Bring Your Data session is unknown or expired. Upload the CSV again. "
-            "Uploads stay in an isolated temporary file and are not written to the benchmark datasets."
-        )
-    return session
+    if session is not None:
+        return session
+    stored = _session_store_path(session_id)
+    if stored.is_file():
+        payload = json.loads(stored.read_text(encoding="utf-8"))
+        session = CustomSession(**payload)
+        if Path(session.csv_path).is_file():
+            _SESSIONS[session.session_id] = session
+            return session
+    raise CustomSessionError(
+        "This Bring Your Data session is unknown or expired. Upload the CSV again. "
+        "Uploads stay in an isolated temporary file and are not written to the benchmark datasets."
+    )
 
 
 def world_status() -> dict[str, Any]:
@@ -153,6 +193,12 @@ def world_status() -> dict[str, Any]:
             "max_mb": ceiling / (1024 * 1024),
             "max_rows": max_row_limit(),
             "max_field_bytes": MAX_FIELD_BYTES,
+            "chunk_bytes": SAFE_UPLOAD_CHUNK_BYTES,
+            "single_request_max_bytes": (
+                VERCEL_FUNCTION_BODY_LIMIT_BYTES if is_serverless_runtime() else ceiling
+            ),
+            "chunked_upload": True,
+            "platform_body_limit_bytes": VERCEL_FUNCTION_BODY_LIMIT_BYTES,
         },
     }
 
@@ -178,7 +224,7 @@ def create_session_from_path(filename: str, path: str, size: int) -> dict[str, A
         inspection=inspection,
         mapping_proposals=propose_mappings(columns),
     )
-    _SESSIONS[session_id] = session
+    _persist_session(session)
     return session_payload(session)
 
 
@@ -208,6 +254,127 @@ async def ingest_upload_stream(filename: str, chunks: AsyncIterator[bytes]) -> d
     except Exception:
         unlink_quietly(target)
         raise
+
+
+def _upload_dir(upload_id: str) -> Path:
+    return byd_temp_dir() / upload_id
+
+
+def _upload_meta_path(upload_id: str) -> Path:
+    return _upload_dir(upload_id) / "meta.json"
+
+
+def _load_upload(upload_id: str) -> dict[str, Any]:
+    cached = _UPLOADS.get(upload_id)
+    if cached is not None:
+        return cached
+    path = _upload_meta_path(upload_id)
+    if not path.is_file():
+        raise CustomDataError(
+            "This chunked upload is unknown or expired. Start the upload again."
+        )
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    _UPLOADS[upload_id] = payload
+    return payload
+
+
+def _save_upload(meta: dict[str, Any]) -> None:
+    upload_id = str(meta["upload_id"])
+    dest = _upload_dir(upload_id)
+    dest.mkdir(parents=True, exist_ok=True)
+    _upload_meta_path(upload_id).write_text(json.dumps(meta), encoding="utf-8")
+    _UPLOADS[upload_id] = meta
+
+
+def begin_chunked_upload(filename: str, size: int) -> dict[str, Any]:
+    safe = safe_filename(filename)
+    assert_size_within_limit(size)
+    upload_id = f"upl-{uuid4().hex[:12]}"
+    meta = {
+        "upload_id": upload_id,
+        "filename": safe,
+        "expected_size": size,
+        "received_bytes": 0,
+        "parts": {},
+    }
+    _save_upload(meta)
+    return {
+        "upload_id": upload_id,
+        "filename": safe,
+        "chunk_bytes": SAFE_UPLOAD_CHUNK_BYTES,
+        "expected_size": size,
+    }
+
+
+def write_upload_part(upload_id: str, index: int, data: bytes) -> dict[str, Any]:
+    if not upload_id or not upload_id.startswith("upl-"):
+        raise CustomDataError("A valid upload_id is required.")
+    if index < 0 or index > 10_000:
+        raise CustomDataError("Invalid upload part index.")
+    if not data:
+        raise CustomDataError("Upload part is empty.")
+    if len(data) > VERCEL_FUNCTION_BODY_LIMIT_BYTES:
+        raise CustomDataError(
+            f"Upload part is {format_bytes(len(data))}. "
+            f"Each part must stay under {format_bytes(VERCEL_FUNCTION_BODY_LIMIT_BYTES)} "
+            "because of the Vercel function request body limit."
+        )
+    meta = _load_upload(upload_id)
+    next_total = int(meta.get("received_bytes") or 0) + len(data)
+    expected = int(meta.get("expected_size") or 0)
+    if expected and next_total > expected:
+        raise CustomDataError("Upload parts exceed the announced file size.")
+    assert_size_within_limit(next_total)
+    part_path = _upload_dir(upload_id) / f"{index:06d}.part"
+    part_path.write_bytes(data)
+    parts = dict(meta.get("parts") or {})
+    parts[str(index)] = len(data)
+    meta["parts"] = parts
+    meta["received_bytes"] = next_total
+    _save_upload(meta)
+    return {
+        "upload_id": upload_id,
+        "index": index,
+        "bytes": len(data),
+        "received_bytes": next_total,
+    }
+
+
+def finish_chunked_upload(upload_id: str, part_count: int) -> dict[str, Any]:
+    if not upload_id or not upload_id.startswith("upl-"):
+        raise CustomDataError("A valid upload_id is required.")
+    if part_count < 1:
+        raise CustomDataError("Upload finished with no parts.")
+    meta = _load_upload(upload_id)
+    dest = _upload_dir(upload_id)
+    target = new_upload_path()
+    size = 0
+    try:
+        with target.open("wb") as handle:
+            for index in range(part_count):
+                part = dest / f"{index:06d}.part"
+                if not part.is_file():
+                    raise CustomDataError(
+                        f"Upload part {index} is missing. Retry the upload from the start."
+                    )
+                chunk = part.read_bytes()
+                handle.write(chunk)
+                size += len(chunk)
+        if size == 0:
+            raise CustomDataError("The upload body is empty.")
+        assert_size_within_limit(size)
+        payload = create_session_from_path(str(meta.get("filename") or "upload.csv"), str(target), size)
+    except Exception:
+        unlink_quietly(target)
+        raise
+    for leftover in dest.glob("*"):
+        unlink_quietly(leftover)
+    try:
+        dest.rmdir()
+    except OSError:
+        pass
+    _UPLOADS.pop(upload_id, None)
+    return payload
 
 
 def session_payload(session: CustomSession) -> dict[str, Any]:
@@ -259,6 +426,7 @@ def confirm_mapping(session_id: str, mapping: dict[str, Any]) -> dict[str, Any]:
     session.scored = None
     session.label_hours = {}
     session.hourly = []
+    _persist_session(session)
     return session_payload(session)
 
 
@@ -351,6 +519,7 @@ def analyze_session(session_id: str) -> dict[str, Any]:
         "supervised_scores": bool(session.scored and session.scored.get("scored_rows")),
         "chunked": True,
     }
+    _persist_session(session)
     return session_payload(session)
 
 

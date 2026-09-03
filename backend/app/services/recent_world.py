@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 import app.repo  # noqa: F401
-from app.repo import REPO_ROOT
+from app.repo import resolve_data_subdir
 from evaluation.recent_data.governance import (
     approve_action as approve_recent_gov,
     decide_from_investigation,
@@ -25,12 +25,11 @@ from evaluation.recent_data.investigate import investigate_recent_anomaly
 from evaluation.recent_data.mapper import (
     AMOUNT_CURRENCY,
     DATASET_NAME,
-    MissingRecentDatasetError,
     RAW_CSV_FILENAME,
     WORLD,
 )
 
-RECENT_DATA_DIR = REPO_ROOT / "data" / "real_2026"
+RECENT_DATA_DIR = resolve_data_subdir("real_2026", marker="benchmark.json")
 ARTIFACT_NAMES = {
     "profile": "profile.json",
     "benchmark": "benchmark.json",
@@ -65,9 +64,8 @@ def load_artifact(name: str) -> dict[str, Any]:
     path = artifact_path(name)
     if not path.is_file():
         raise RecentDataUnavailableError(
-            f"{path.name} is missing. Run "
-            r".\backend\.venv\Scripts\python.exe -m evaluation.recent_data.preprocess "
-            "after placing the January 2026 CSV in data/real_2026/."
+            f"{path.name} is missing. Derived January 2026 artifacts were not found at {path}. "
+            "Run `python -m evaluation.recent_data.preprocess` after placing the CSV in data/real_2026/."
         )
     return _load_json_file(str(path.resolve()))
 
@@ -79,17 +77,12 @@ def world_status() -> dict[str, Any]:
         "dataset": DATASET_NAME,
         "raw_csv_present": raw_csv_present(),
         "artifacts": artifacts,
-        "ready": raw_csv_present() and all(artifacts.values()),
+        "ready": all(artifacts.values()),
         "amount_currency": AMOUNT_CURRENCY,
     }
 
 
 def get_profile() -> dict[str, Any]:
-    if not raw_csv_present():
-        raise MissingRecentDatasetError(
-            f"{RAW_CSV_FILENAME} was not found under data/real_2026/. "
-            "This adapter does not download the dataset."
-        )
     return load_artifact("profile")
 
 

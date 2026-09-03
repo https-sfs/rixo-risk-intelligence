@@ -446,8 +446,10 @@ def test_row_limit_stops_without_loading_the_full_csv(
 def test_router_streams_and_never_buffers_the_request_body() -> None:
     router = (REPO / "backend" / "app" / "routers" / "custom.py").read_text(encoding="utf-8")
     world = (REPO / "backend" / "app" / "services" / "custom_world.py").read_text(encoding="utf-8")
-    assert "request.body()" not in router
     assert "request.stream()" in router
+    assert "ingest_upload_stream" in router
+    assert "begin_chunked_upload" in router
+    assert "write_upload_part" in router
     assert "await request.body()" not in world
 
 
@@ -467,6 +469,48 @@ def test_small_csv_still_uploads() -> None:
         "timestamp": "timestamp",
     }
     reset_sessions()
+
+
+def test_chunked_upload_reassembles_and_creates_a_session() -> None:
+    from app.main import app
+    from app.services.custom_world import reset_sessions
+
+    reset_sessions()
+    client = TestClient(app)
+    content = _minimal_csv().encode("utf-8")
+    mid = max(1, len(content) // 2)
+    begin = client.post("/api/custom/upload/begin", json={"filename": "parts.csv", "size": len(content)})
+    assert begin.status_code == 200
+    upload_id = begin.json()["upload_id"]
+    first = client.post(
+        "/api/custom/upload/part",
+        content=content[:mid],
+        headers={"X-Upload-Id": upload_id, "X-Part-Index": "0"},
+    )
+    assert first.status_code == 200
+    second = client.post(
+        "/api/custom/upload/part",
+        content=content[mid:],
+        headers={"X-Upload-Id": upload_id, "X-Part-Index": "1"},
+    )
+    assert second.status_code == 200
+    finished = client.post("/api/custom/upload/finish", json={"upload_id": upload_id, "parts": 2})
+    assert finished.status_code == 200
+    body = finished.json()
+    assert body["filename"] == "parts.csv"
+    assert body["session_id"]
+    reset_sessions()
+
+
+def test_custom_status_advertises_chunked_upload_limits() -> None:
+    from app.main import app
+
+    status = TestClient(app).get("/api/custom/status")
+    assert status.status_code == 200
+    limits = status.json()["upload_limits"]
+    assert limits["chunked_upload"] is True
+    assert limits["chunk_bytes"] == 3 * 1024 * 1024
+    assert limits["platform_body_limit_bytes"] == int(4.5 * 1024 * 1024)
 
 
 def test_file_over_previous_50mb_guard_is_accepted(tmp_path: Path) -> None:

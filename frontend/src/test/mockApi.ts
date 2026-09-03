@@ -838,8 +838,23 @@ export function defaultApiResponse(
       active_sessions: 0,
       storage: 'isolated_temp_file',
       mixed_with_benchmarks: false,
-      upload_limits: { max_bytes: 1073741824, max_mb: 1024, max_rows: 2000000 },
+      upload_limits: {
+        max_bytes: 1073741824,
+        max_mb: 1024,
+        max_rows: 2000000,
+        chunk_bytes: 3 * 1024 * 1024,
+        chunked_upload: true,
+      },
     })
+  }
+  if (path === '/api/custom/upload/begin' && method === 'POST') {
+    return jsonResponse({ upload_id: 'upl-mock', chunk_bytes: 3 * 1024 * 1024, filename: 'upload.csv' })
+  }
+  if (path === '/api/custom/upload/part' && method === 'POST') {
+    return jsonResponse({ upload_id: 'upl-mock', index: 0, bytes: 1 })
+  }
+  if (path === '/api/custom/upload/finish' && method === 'POST') {
+    return defaultApiResponse('http://localhost:8000/api/custom/upload', { method: 'POST' })
   }
   if (path === '/api/custom/upload' && method === 'POST') {
     return jsonResponse({

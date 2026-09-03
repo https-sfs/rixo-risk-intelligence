@@ -86,6 +86,7 @@ export function CustomUploadPage() {
   const [progress, setProgress] = useState<number | null>(null)
   const [maxBytes, setMaxBytes] = useState(1024 * 1024 * 1024)
   const [maxRows, setMaxRows] = useState(2_000_000)
+  const [chunkBytes, setChunkBytes] = useState(3 * 1024 * 1024)
   const [reviewOpen, setReviewOpen] = useState(false)
   const [restoring, setRestoring] = useState(() => Boolean(routeSessionId || readCustomSession()))
 
@@ -102,6 +103,9 @@ export function CustomUploadPage() {
         const limits = asRecord(payload.upload_limits)
         if (typeof limits.max_bytes === 'number') setMaxBytes(limits.max_bytes)
         if (typeof limits.max_rows === 'number') setMaxRows(limits.max_rows)
+        if (typeof limits.chunk_bytes === 'number' && limits.chunk_bytes > 0) {
+          setChunkBytes(limits.chunk_bytes)
+        }
       })
       .catch(() => {
         /* keep conservative local defaults */
@@ -183,9 +187,13 @@ export function CustomUploadPage() {
     setBusy('upload')
     setError(null)
     try {
-      const next = await uploadCustomCsv(file, (sent, total) => {
-        setProgress(total > 0 ? Math.round((sent / total) * 100) : null)
-      })
+      const next = await uploadCustomCsv(
+        file,
+        (sent, total) => {
+          setProgress(total > 0 ? Math.round((sent / total) * 100) : null)
+        },
+        { chunkBytes },
+      )
       applySession(next)
       setProgress(100)
       setReviewOpen(false)

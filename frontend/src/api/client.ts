@@ -294,40 +294,118 @@ export async function getCustomStatus(signal?: AbortSignal): Promise<Record<stri
   return request('/api/custom/status', { signal })
 }
 
-export function uploadCustomCsv(
-  file: File,
+const DEFAULT_UPLOAD_CHUNK_BYTES = 3 * 1024 * 1024
+
+function parseXhrError(xhr: XMLHttpRequest, fallback: string): ApiError {
+  let payload: { detail?: unknown } = {}
+  try {
+    payload = JSON.parse(xhr.responseText) as { detail?: unknown }
+  } catch {
+    payload = {}
+  }
+  const detail =
+    typeof payload.detail === 'string'
+      ? payload.detail
+      : payload.detail != null
+        ? JSON.stringify(payload.detail)
+        : xhr.status
+          ? `HTTP ${xhr.status}`
+          : fallback
+  return new ApiError(detail, xhr.status)
+}
+
+function postBinary(
+  path: string,
+  body: Blob,
+  headers: Record<string, string>,
   onProgress?: (sent: number, total: number) => void,
 ): Promise<Record<string, unknown>> {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest()
-    xhr.open('POST', `${getApiBaseUrl()}/api/custom/upload`)
+    xhr.open('POST', `${getApiBaseUrl()}${path}`)
     xhr.setRequestHeader('Accept', 'application/json')
-    xhr.setRequestHeader('X-Filename', file.name)
+    for (const [key, value] of Object.entries(headers)) {
+      xhr.setRequestHeader(key, value)
+    }
     xhr.upload.onprogress = (event) => {
       if (onProgress && event.lengthComputable) onProgress(event.loaded, event.total)
     }
     xhr.onload = () => {
-      let payload: { detail?: unknown } = {}
-      try {
-        payload = JSON.parse(xhr.responseText) as { detail?: unknown }
-      } catch {
-        payload = {}
-      }
       if (xhr.status >= 200 && xhr.status < 300) {
-        resolve(payload as Record<string, unknown>)
+        try {
+          resolve(JSON.parse(xhr.responseText) as Record<string, unknown>)
+        } catch {
+          resolve({})
+        }
         return
       }
-      const detail =
-        typeof payload.detail === 'string'
-          ? payload.detail
-          : payload.detail != null
-            ? JSON.stringify(payload.detail)
-            : `HTTP ${xhr.status}`
-      reject(new ApiError(detail, xhr.status))
+      reject(parseXhrError(xhr, `HTTP ${xhr.status}`))
     }
-    xhr.onerror = () => reject(new ApiError('Upload failed before the API responded.', 0))
-    xhr.send(file)
+    xhr.onerror = () =>
+      reject(
+        new ApiError(
+          'Upload failed before the API responded. The request may have exceeded the 4.5 MB Vercel function body limit.',
+          xhr.status === 413 ? 413 : 0,
+        ),
+      )
+    xhr.send(body)
   })
+}
+
+async function uploadCustomCsvChunked(
+  file: File,
+  chunkBytes: number,
+  onProgress?: (sent: number, total: number) => void,
+): Promise<Record<string, unknown>> {
+  const begin = await request<Record<string, unknown>>('/api/custom/upload/begin', {
+    method: 'POST',
+    body: JSON.stringify({ filename: file.name, size: file.size }),
+  })
+  const uploadId = typeof begin.upload_id === 'string' ? begin.upload_id : ''
+  if (!uploadId) {
+    throw new ApiError('The API did not return an upload_id.', 500)
+  }
+  const size = Math.max(1, chunkBytes)
+  const parts = Math.ceil(file.size / size)
+  let sent = 0
+  for (let index = 0; index < parts; index += 1) {
+    const start = index * size
+    const blob = file.slice(start, Math.min(file.size, start + size))
+    await postBinary(
+      '/api/custom/upload/part',
+      blob,
+      {
+        'Content-Type': 'application/octet-stream',
+        'X-Upload-Id': uploadId,
+        'X-Part-Index': String(index),
+      },
+    )
+    sent += blob.size
+    onProgress?.(sent, file.size)
+  }
+  return request('/api/custom/upload/finish', {
+    method: 'POST',
+    body: JSON.stringify({ upload_id: uploadId, parts }),
+  })
+}
+
+export async function uploadCustomCsv(
+  file: File,
+  onProgress?: (sent: number, total: number) => void,
+  options?: { chunkBytes?: number },
+): Promise<Record<string, unknown>> {
+  const chunkBytes = options?.chunkBytes ?? DEFAULT_UPLOAD_CHUNK_BYTES
+  if (file.size > chunkBytes) {
+    return uploadCustomCsvChunked(file, chunkBytes, onProgress)
+  }
+  try {
+    return await postBinary('/api/custom/upload', file, { 'X-Filename': file.name }, onProgress)
+  } catch (error) {
+    if (error instanceof ApiError && (error.status === 0 || error.status === 413)) {
+      return uploadCustomCsvChunked(file, chunkBytes, onProgress)
+    }
+    throw error
+  }
 }
 
 export async function getCustomSession(

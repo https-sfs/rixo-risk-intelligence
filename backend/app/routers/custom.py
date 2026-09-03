@@ -4,8 +4,10 @@ from app.services.custom_world import (
     analyze_session,
     approve_custom_action,
     assert_size_within_limit,
+    begin_chunked_upload,
     confirm_mapping,
     decide_custom_anomaly,
+    finish_chunked_upload,
     get_anomaly,
     get_custom_action,
     get_custom_audit,
@@ -17,6 +19,7 @@ from app.services.custom_world import (
     session_payload,
     simulate_custom_action,
     world_status,
+    write_upload_part,
 )
 
 router = APIRouter(prefix="/api/custom", tags=["bring-your-data"])
@@ -39,6 +42,45 @@ async def custom_upload(request: Request) -> dict:
         if announced_size is not None:
             assert_size_within_limit(announced_size)
     return await ingest_upload_stream(filename, request.stream())
+
+
+@router.post("/upload/begin")
+def custom_upload_begin(payload: dict) -> dict:
+    filename = str(payload.get("filename") or "upload.csv")
+    try:
+        size = int(payload.get("size") or 0)
+    except (TypeError, ValueError) as exc:
+        raise ValueError("size must be an integer byte count.") from exc
+    return begin_chunked_upload(filename, size)
+
+
+@router.post("/upload/part")
+async def custom_upload_part(request: Request) -> dict:
+    upload_id = request.headers.get("x-upload-id") or ""
+    try:
+        index = int(request.headers.get("x-part-index") or "")
+    except ValueError as exc:
+        raise ValueError("X-Part-Index must be an integer.") from exc
+    announced = request.headers.get("content-length")
+    if announced:
+        try:
+            announced_size = int(announced)
+        except ValueError:
+            announced_size = None
+        if announced_size is not None:
+            assert_size_within_limit(announced_size)
+    body = await request.body()
+    return write_upload_part(upload_id, index, body)
+
+
+@router.post("/upload/finish")
+def custom_upload_finish(payload: dict) -> dict:
+    upload_id = str(payload.get("upload_id") or "").strip()
+    try:
+        parts = int(payload.get("parts") or 0)
+    except (TypeError, ValueError) as exc:
+        raise ValueError("parts must be an integer.") from exc
+    return finish_chunked_upload(upload_id, parts)
 
 
 @router.get("/sessions/{session_id}")
