@@ -32,9 +32,11 @@ def test_vercel_json_includes_local_packages_on_fastapi_entrypoint() -> None:
     path = ROOT / "vercel.json"
     assert path.is_file()
     config = json.loads(path.read_text(encoding="utf-8"))
-    function = config["functions"]["backend/app/main.py"]
-    assert "agent" in function["includeFiles"]
-    assert "../" not in function["includeFiles"]
+    for key in ("app/main.py", "backend/app/main.py"):
+        include = config["functions"][key]["includeFiles"]
+        assert "agent" in include
+        assert "tools" in include
+        assert "../" not in include
     assert "api/index.py" not in config["functions"]
     assert not (ROOT / "backend" / "vercel.json").exists()
 

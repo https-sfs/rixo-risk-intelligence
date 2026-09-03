@@ -1,8 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
+    "app/main.py": {
+      "includeFiles": "{agent,data,detection,evaluation,models,tools,backend}/**"
+    },
     "backend/app/main.py": {
-      "includeFiles": "{agent,data,detection,evaluation,models,backend}/**"
+      "includeFiles": "{agent,data,detection,evaluation,models,tools,backend}/**"
     }
   }
 }
