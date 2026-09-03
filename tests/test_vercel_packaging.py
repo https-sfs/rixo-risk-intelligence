@@ -20,9 +20,21 @@ def test_agent_package_is_present_and_importable() -> None:
     assert ActionError.__name__ == "ActionError"
 
 
-def test_backend_requirements_has_no_parent_path_dependency() -> None:
-    requirements = (ROOT / "backend" / "requirements.txt").read_text(encoding="utf-8")
-    assert "../" not in {line.strip() for line in requirements.splitlines()}
+def test_backend_requirements_installs_local_project_without_parent_path() -> None:
+    lines = {
+        line.strip()
+        for line in (ROOT / "backend" / "requirements.txt").read_text(encoding="utf-8").splitlines()
+    }
+    assert "../" not in lines
+    assert "." in lines
+
+
+def test_backend_pyproject_installs_sibling_packages_as_app() -> None:
+    pyproject = (ROOT / "backend" / "pyproject.toml").read_text(encoding="utf-8")
+    assert 'name = "app"' in pyproject
+    assert '"" = ".."' in pyproject
+    for package in LOCAL_PACKAGES:
+        assert f"{package}*" in pyproject
 
 
 def test_pyproject_declares_vercel_entrypoint_and_local_packages() -> None:

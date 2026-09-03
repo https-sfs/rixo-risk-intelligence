@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "app"
+version = "0.1.0"
+description = "RIXO FastAPI runtime. Local packages are installed from the repository root."
+requires-python = ">=3.11"
+
+[tool.setuptools.package-dir]
+"" = ".."
+app = "app"
+
+[tool.setuptools.packages.find]
+where = ["..", "."]
+include = ["agent*", "app*", "data*", "detection*", "evaluation*", "models*", "tools*"]
+
+[tool.vercel]
+entrypoint = "app.main:app"
