@@ -20,13 +20,15 @@ def test_agent_package_is_present_and_importable() -> None:
     assert ActionError.__name__ == "ActionError"
 
 
-def test_backend_requirements_installs_local_project_without_parent_path() -> None:
+def test_backend_requirements_has_no_path_install() -> None:
     lines = {
         line.strip()
         for line in (ROOT / "backend" / "requirements.txt").read_text(encoding="utf-8").splitlines()
+        if line.strip()
     }
     assert "../" not in lines
-    assert "." in lines
+    assert "." not in lines
+    assert any(line.startswith("fastapi") for line in lines)
 
 
 def test_backend_contains_vendored_local_packages() -> None:
@@ -38,12 +40,21 @@ def test_backend_contains_vendored_local_packages() -> None:
     assert (ROOT / "backend" / "vendor_packages.py").is_file()
 
 
-def test_backend_pyproject_installs_sibling_packages_as_app() -> None:
+def test_backend_pyproject_declares_runtime_dependencies() -> None:
     pyproject = (ROOT / "backend" / "pyproject.toml").read_text(encoding="utf-8")
-    assert 'name = "app"' in pyproject
-    assert '"" = ".."' in pyproject
-    for package in LOCAL_PACKAGES:
-        assert f"{package}*" in pyproject
+    for dependency in (
+        "fastapi>=0.115.0",
+        "uvicorn[standard]>=0.32.0",
+        "pydantic-settings>=2.6.0",
+        "httpx>=0.27.0",
+        "pandas>=2.2.0",
+        "numpy>=1.26.0",
+        "scikit-learn>=1.4.0",
+        "joblib>=1.3.0",
+    ):
+        assert dependency in pyproject
+    assert 'entrypoint = "app.main:app"' in pyproject
+    assert '"" = ".."' not in pyproject
 
 
 def test_pyproject_declares_vercel_entrypoint_and_local_packages() -> None:
@@ -93,8 +104,10 @@ def test_hoisted_var_task_layout_can_import_app_main(tmp_path: Path) -> None:
 
     env = os.environ.copy()
     env["VERCEL"] = "1"
+    env.pop("PYTHONPATH", None)
     env["PYTHONPATH"] = str(task)
     script = (
+        "import fastapi\n"
         "import app.main\n"
         "assert app.main.app.title == 'Fraud-Spike Investigator'\n"
         "import agent, tools\n"
