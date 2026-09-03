@@ -40,7 +40,9 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
     app_name: str = "Fraud-Spike Investigator"
-    cors_origins: str = "http://localhost:5173"
+    cors_origins: str = (
+        "http://localhost:5173,https://rixo-risk-intelligence-frontend.vercel.app"
+    )
     custom_max_upload_mb: int = 1024
     custom_max_rows: int = 2_000_000
     razorpay_key_id: str = ""

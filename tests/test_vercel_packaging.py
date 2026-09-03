@@ -20,6 +20,11 @@ def test_agent_package_is_present_and_importable() -> None:
     assert ActionError.__name__ == "ActionError"
 
 
+def test_frontend_production_env_uses_backend_alias() -> None:
+    production_env = (ROOT / "frontend" / ".env.production").read_text(encoding="utf-8")
+    assert "VITE_API_BASE_URL=https://rixo-risk-intelligence.vercel.app" in production_env
+
+
 def test_backend_requirements_has_no_path_install() -> None:
     lines = {
         line.strip()
