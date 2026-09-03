@@ -5,6 +5,14 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
+_HERE = Path(__file__).resolve()
+REPO_ROOT = next(
+    (
+        ancestor
+        for ancestor in (_HERE.parents[1], _HERE.parents[2])
+        if (ancestor / "agent" / "__init__.py").is_file()
+    ),
+    _HERE.parents[2],
+)
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))

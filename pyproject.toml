@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Local packages for the RIXO FastAPI runtime."
 
 [tool.setuptools.packages.find]
-include = ["agent*", "data*", "detection*", "evaluation*", "models*"]
+include = ["agent*", "data*", "detection*", "evaluation*", "models*", "tools*"]
 
 [tool.vercel]
-entrypoint = "backend.app.main:app"
+entrypoint = "main:app"
