@@ -30,10 +30,11 @@ def test_backend_requirements_installs_local_project_without_parent_path() -> No
 
 
 def test_backend_contains_vendored_local_packages() -> None:
-    for package in ("agent", "detection", "evaluation", "models", "tools"):
-        assert (ROOT / "backend" / package / "__init__.py").is_file()
-    assert (ROOT / "backend" / "agent" / "actions" / "errors.py").is_file()
-    assert (ROOT / "backend" / "tools" / "evidence.py").is_file()
+    app_dir = ROOT / "backend" / "app"
+    for package in LOCAL_PACKAGES:
+        assert (app_dir / package / "__init__.py").is_file()
+    assert (app_dir / "agent" / "actions" / "errors.py").is_file()
+    assert (app_dir / "tools" / "evidence.py").is_file()
     assert (ROOT / "backend" / "vendor_packages.py").is_file()
 
 
@@ -84,13 +85,11 @@ def test_hoisted_var_task_layout_can_import_app_main(tmp_path: Path) -> None:
     import shutil
 
     task = tmp_path / "var" / "task"
-    shutil.copytree(ROOT / "backend" / "app", task / "app")
-    for package in LOCAL_PACKAGES:
-        shutil.copytree(
-            ROOT / package,
-            task / package,
-            ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "real", "real_2026"),
-        )
+    shutil.copytree(
+        ROOT / "backend" / "app",
+        task / "app",
+        ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "real", "real_2026"),
+    )
 
     env = os.environ.copy()
     env["VERCEL"] = "1"

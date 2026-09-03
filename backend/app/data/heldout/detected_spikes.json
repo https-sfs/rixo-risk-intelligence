@@ -1,0 +1,1477 @@
+[
+  {
+    "spike_id": "spk-coord-20260108-13",
+    "window_start": "2026-01-08T13:00:00",
+    "window_end": "2026-01-08T14:00:00",
+    "spike_type": "suspicious_coordinated_spike",
+    "severity": "high",
+    "volume": 89,
+    "baseline_volume": NaN,
+    "volume_change_ratio": NaN,
+    "fraud_rate": 0.5281,
+    "baseline_fraud_rate": 0.0247,
+    "failure_rate": 0.618,
+    "unique_accounts": 68,
+    "unique_devices": 32,
+    "unique_ip_subnets": 18,
+    "unique_pincodes": 19,
+    "top_skus": [
+      {
+        "sku_id": "sku_1048",
+        "count": 41
+      },
+      {
+        "sku_id": "sku_1049",
+        "count": 21
+      },
+      {
+        "sku_id": "sku_1003",
+        "count": 3
+      }
+    ],
+    "anomaly_reasons": [
+      "many_accounts_per_device",
+      "high_device_reuse",
+      "elevated_device_velocity",
+      "high_absolute_failure_rate"
+    ],
+    "anomaly_score": 23.768,
+    "coordination_score": 23.768
+  },
+  {
+    "spike_id": "spk-coord-20260108-14",
+    "window_start": "2026-01-08T14:00:00",
+    "window_end": "2026-01-08T15:00:00",
+    "spike_type": "suspicious_coordinated_spike",
+    "severity": "high",
+    "volume": 89,
+    "baseline_volume": NaN,
+    "volume_change_ratio": NaN,
+    "fraud_rate": 0.7303,
+    "baseline_fraud_rate": 0.032,
+    "failure_rate": 0.5393,
+    "unique_accounts": 64,
+    "unique_devices": 22,
+    "unique_ip_subnets": 13,
+    "unique_pincodes": 17,
+    "top_skus": [
+      {
+        "sku_id": "sku_1048",
+        "count": 54
+      },
+      {
+        "sku_id": "sku_1049",
+        "count": 18
+      },
+      {
+        "sku_id": "sku_1003",
+        "count": 3
+      }
+    ],
+    "anomaly_reasons": [
+      "many_accounts_per_device",
+      "high_device_reuse",
+      "elevated_device_velocity",
+      "high_absolute_failure_rate",
+      "narrow_sku_targeting"
+    ],
+    "anomaly_score": 36.662,
+    "coordination_score": 36.662
+  },
+  {
+    "spike_id": "spk-coord-20260108-15",
+    "window_start": "2026-01-08T15:00:00",
+    "window_end": "2026-01-08T16:00:00",
+    "spike_type": "suspicious_coordinated_spike",
+    "severity": "high",
+    "volume": 81,
+    "baseline_volume": NaN,
+    "volume_change_ratio": NaN,
+    "fraud_rate": 0.4938,
+    "baseline_fraud_rate": 0.0421,
+    "failure_rate": 0.4691,
+    "unique_accounts": 69,
+    "unique_devices": 30,
+    "unique_ip_subnets": 19,
+    "unique_pincodes": 21,
+    "top_skus": [
+      {
+        "sku_id": "sku_1048",
+        "count": 40
+      },
+      {
+        "sku_id": "sku_1049",
+        "count": 15
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 3
+      }
+    ],
+    "anomaly_reasons": [
+      "many_accounts_per_device",
+      "high_device_reuse",
+      "elevated_device_velocity",
+      "high_absolute_failure_rate"
+    ],
+    "anomaly_score": 15.834,
+    "coordination_score": 15.834
+  },
+  {
+    "spike_id": "spk-fest-20260109-07",
+    "window_start": "2026-01-09T07:00:00",
+    "window_end": "2026-01-09T08:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 18,
+    "baseline_volume": 9.75,
+    "volume_change_ratio": 1.846,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0502,
+    "failure_rate": 0.1111,
+    "unique_accounts": 18,
+    "unique_devices": 18,
+    "unique_ip_subnets": 11,
+    "unique_pincodes": 11,
+    "top_skus": [
+      {
+        "sku_id": "sku_1004",
+        "count": 3
+      },
+      {
+        "sku_id": "sku_1003",
+        "count": 3
+      },
+      {
+        "sku_id": "sku_1001",
+        "count": 3
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.226,
+    "coordination_score": 0.071
+  },
+  {
+    "spike_id": "spk-fest-20260109-16",
+    "window_start": "2026-01-09T16:00:00",
+    "window_end": "2026-01-09T17:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 25,
+    "baseline_volume": 19.75,
+    "volume_change_ratio": 1.266,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.052,
+    "failure_rate": 0.04,
+    "unique_accounts": 23,
+    "unique_devices": 23,
+    "unique_ip_subnets": 17,
+    "unique_pincodes": 18,
+    "top_skus": [
+      {
+        "sku_id": "sku_1010",
+        "count": 2
+      },
+      {
+        "sku_id": "sku_1004",
+        "count": 2
+      },
+      {
+        "sku_id": "sku_1017",
+        "count": 2
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.225,
+    "coordination_score": 0.0
+  },
+  {
+    "spike_id": "spk-fest-20260110-19",
+    "window_start": "2026-01-10T19:00:00",
+    "window_end": "2026-01-10T20:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 51,
+    "baseline_volume": 32.4,
+    "volume_change_ratio": 1.574,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0422,
+    "failure_rate": 0.1373,
+    "unique_accounts": 48,
+    "unique_devices": 48,
+    "unique_ip_subnets": 20,
+    "unique_pincodes": 31,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 6
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 5
+      },
+      {
+        "sku_id": "sku_1014",
+        "count": 3
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.133,
+    "coordination_score": 0.176
+  },
+  {
+    "spike_id": "spk-fest-20260110-20",
+    "window_start": "2026-01-10T20:00:00",
+    "window_end": "2026-01-10T21:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 37,
+    "baseline_volume": 25.6,
+    "volume_change_ratio": 1.445,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0422,
+    "failure_rate": 0.0811,
+    "unique_accounts": 35,
+    "unique_devices": 35,
+    "unique_ip_subnets": 17,
+    "unique_pincodes": 23,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 5
+      },
+      {
+        "sku_id": "sku_1011",
+        "count": 3
+      },
+      {
+        "sku_id": "sku_1004",
+        "count": 3
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.055,
+    "coordination_score": 0.0
+  },
+  {
+    "spike_id": "spk-fest-20260110-21",
+    "window_start": "2026-01-10T21:00:00",
+    "window_end": "2026-01-10T22:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 32,
+    "baseline_volume": 21.4,
+    "volume_change_ratio": 1.495,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0418,
+    "failure_rate": 0.0,
+    "unique_accounts": 30,
+    "unique_devices": 30,
+    "unique_ip_subnets": 18,
+    "unique_pincodes": 21,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 4
+      },
+      {
+        "sku_id": "sku_1003",
+        "count": 4
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 3
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.423,
+    "coordination_score": 0.0
+  },
+  {
+    "spike_id": "spk-fest-20260111-17",
+    "window_start": "2026-01-11T17:00:00",
+    "window_end": "2026-01-11T18:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 37,
+    "baseline_volume": 21.0,
+    "volume_change_ratio": 1.762,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0227,
+    "failure_rate": 0.027,
+    "unique_accounts": 37,
+    "unique_devices": 37,
+    "unique_ip_subnets": 17,
+    "unique_pincodes": 21,
+    "top_skus": [
+      {
+        "sku_id": "sku_1024",
+        "count": 3
+      },
+      {
+        "sku_id": "sku_1004",
+        "count": 3
+      },
+      {
+        "sku_id": "sku_1005",
+        "count": 3
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.194,
+    "coordination_score": 0.0
+  },
+  {
+    "spike_id": "spk-fest-20260114-06",
+    "window_start": "2026-01-14T06:00:00",
+    "window_end": "2026-01-14T07:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 27,
+    "baseline_volume": 7.778,
+    "volume_change_ratio": 3.471,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0197,
+    "failure_rate": 0.1481,
+    "unique_accounts": 27,
+    "unique_devices": 27,
+    "unique_ip_subnets": 14,
+    "unique_pincodes": 21,
+    "top_skus": [
+      {
+        "sku_id": "sku_1003",
+        "count": 4
+      },
+      {
+        "sku_id": "sku_1001",
+        "count": 4
+      },
+      {
+        "sku_id": "sku_1013",
+        "count": 2
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 2.751,
+    "coordination_score": 0.198
+  },
+  {
+    "spike_id": "spk-fest-20260114-07",
+    "window_start": "2026-01-14T07:00:00",
+    "window_end": "2026-01-14T08:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 30,
+    "baseline_volume": 11.111,
+    "volume_change_ratio": 2.7,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0197,
+    "failure_rate": 0.1,
+    "unique_accounts": 29,
+    "unique_devices": 29,
+    "unique_ip_subnets": 16,
+    "unique_pincodes": 19,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 3
+      },
+      {
+        "sku_id": "sku_1012",
+        "count": 3
+      },
+      {
+        "sku_id": "sku_1011",
+        "count": 2
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.566,
+    "coordination_score": 0.127
+  },
+  {
+    "spike_id": "spk-fest-20260114-08",
+    "window_start": "2026-01-14T08:00:00",
+    "window_end": "2026-01-14T09:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 43,
+    "baseline_volume": 13.111,
+    "volume_change_ratio": 3.28,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0197,
+    "failure_rate": 0.0698,
+    "unique_accounts": 40,
+    "unique_devices": 40,
+    "unique_ip_subnets": 18,
+    "unique_pincodes": 26,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 8
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 4
+      },
+      {
+        "sku_id": "sku_1006",
+        "count": 2
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 4.383,
+    "coordination_score": 0.389
+  },
+  {
+    "spike_id": "spk-fest-20260114-09",
+    "window_start": "2026-01-14T09:00:00",
+    "window_end": "2026-01-14T10:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 57,
+    "baseline_volume": 18.556,
+    "volume_change_ratio": 3.072,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0197,
+    "failure_rate": 0.0702,
+    "unique_accounts": 52,
+    "unique_devices": 52,
+    "unique_ip_subnets": 20,
+    "unique_pincodes": 29,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 8
+      },
+      {
+        "sku_id": "sku_1015",
+        "count": 5
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 4
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 3.833,
+    "coordination_score": 0.418
+  },
+  {
+    "spike_id": "spk-fest-20260114-10",
+    "window_start": "2026-01-14T10:00:00",
+    "window_end": "2026-01-14T11:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 52,
+    "baseline_volume": 21.556,
+    "volume_change_ratio": 2.412,
+    "fraud_rate": 0.0385,
+    "baseline_fraud_rate": 0.0197,
+    "failure_rate": 0.1346,
+    "unique_accounts": 46,
+    "unique_devices": 46,
+    "unique_ip_subnets": 20,
+    "unique_pincodes": 33,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 9
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 5
+      },
+      {
+        "sku_id": "sku_1003",
+        "count": 5
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 4.77,
+    "coordination_score": 0.82
+  },
+  {
+    "spike_id": "spk-fest-20260114-11",
+    "window_start": "2026-01-14T11:00:00",
+    "window_end": "2026-01-14T12:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 55,
+    "baseline_volume": 18.556,
+    "volume_change_ratio": 2.964,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0202,
+    "failure_rate": 0.0727,
+    "unique_accounts": 50,
+    "unique_devices": 52,
+    "unique_ip_subnets": 20,
+    "unique_pincodes": 33,
+    "top_skus": [
+      {
+        "sku_id": "sku_1005",
+        "count": 5
+      },
+      {
+        "sku_id": "sku_1001",
+        "count": 5
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 5
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 2.463,
+    "coordination_score": 0.3
+  },
+  {
+    "spike_id": "spk-fest-20260114-12",
+    "window_start": "2026-01-14T12:00:00",
+    "window_end": "2026-01-14T13:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 54,
+    "baseline_volume": 22.778,
+    "volume_change_ratio": 2.371,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0193,
+    "failure_rate": 0.037,
+    "unique_accounts": 53,
+    "unique_devices": 53,
+    "unique_ip_subnets": 22,
+    "unique_pincodes": 32,
+    "top_skus": [
+      {
+        "sku_id": "sku_1002",
+        "count": 7
+      },
+      {
+        "sku_id": "sku_1001",
+        "count": 4
+      },
+      {
+        "sku_id": "sku_1004",
+        "count": 4
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 2.19,
+    "coordination_score": 0.024
+  },
+  {
+    "spike_id": "spk-fest-20260114-16",
+    "window_start": "2026-01-14T16:00:00",
+    "window_end": "2026-01-14T17:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 64,
+    "baseline_volume": 19.889,
+    "volume_change_ratio": 3.218,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.019,
+    "failure_rate": 0.1406,
+    "unique_accounts": 62,
+    "unique_devices": 62,
+    "unique_ip_subnets": 22,
+    "unique_pincodes": 32,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 10
+      },
+      {
+        "sku_id": "sku_1003",
+        "count": 4
+      },
+      {
+        "sku_id": "sku_1011",
+        "count": 4
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 5.214,
+    "coordination_score": 0.418
+  },
+  {
+    "spike_id": "spk-fest-20260114-17",
+    "window_start": "2026-01-14T17:00:00",
+    "window_end": "2026-01-14T18:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 73,
+    "baseline_volume": 23.556,
+    "volume_change_ratio": 3.099,
+    "fraud_rate": 0.0411,
+    "baseline_fraud_rate": 0.019,
+    "failure_rate": 0.0685,
+    "unique_accounts": 65,
+    "unique_devices": 65,
+    "unique_ip_subnets": 22,
+    "unique_pincodes": 34,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 11
+      },
+      {
+        "sku_id": "sku_1004",
+        "count": 9
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 6
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 3.041,
+    "coordination_score": 0.57
+  },
+  {
+    "spike_id": "spk-fest-20260114-18",
+    "window_start": "2026-01-14T18:00:00",
+    "window_end": "2026-01-14T19:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 84,
+    "baseline_volume": 28.889,
+    "volume_change_ratio": 2.908,
+    "fraud_rate": 0.0238,
+    "baseline_fraud_rate": 0.0196,
+    "failure_rate": 0.0833,
+    "unique_accounts": 73,
+    "unique_devices": 74,
+    "unique_ip_subnets": 21,
+    "unique_pincodes": 40,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 15
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 7
+      },
+      {
+        "sku_id": "sku_1005",
+        "count": 6
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 4.494,
+    "coordination_score": 0.79
+  },
+  {
+    "spike_id": "spk-fest-20260114-19",
+    "window_start": "2026-01-14T19:00:00",
+    "window_end": "2026-01-14T20:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 80,
+    "baseline_volume": 33.889,
+    "volume_change_ratio": 2.361,
+    "fraud_rate": 0.0375,
+    "baseline_fraud_rate": 0.0194,
+    "failure_rate": 0.2,
+    "unique_accounts": 77,
+    "unique_devices": 77,
+    "unique_ip_subnets": 22,
+    "unique_pincodes": 38,
+    "top_skus": [
+      {
+        "sku_id": "sku_1002",
+        "count": 10
+      },
+      {
+        "sku_id": "sku_1001",
+        "count": 9
+      },
+      {
+        "sku_id": "sku_1003",
+        "count": 6
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 2.565,
+    "coordination_score": 0.706
+  },
+  {
+    "spike_id": "spk-fest-20260114-20",
+    "window_start": "2026-01-14T20:00:00",
+    "window_end": "2026-01-14T21:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 79,
+    "baseline_volume": 26.667,
+    "volume_change_ratio": 2.962,
+    "fraud_rate": 0.0127,
+    "baseline_fraud_rate": 0.0199,
+    "failure_rate": 0.0886,
+    "unique_accounts": 77,
+    "unique_devices": 77,
+    "unique_ip_subnets": 22,
+    "unique_pincodes": 37,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 10
+      },
+      {
+        "sku_id": "sku_1004",
+        "count": 6
+      },
+      {
+        "sku_id": "sku_1007",
+        "count": 5
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 3.427,
+    "coordination_score": 0.04
+  },
+  {
+    "spike_id": "spk-fest-20260114-21",
+    "window_start": "2026-01-14T21:00:00",
+    "window_end": "2026-01-14T22:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 49,
+    "baseline_volume": 23.778,
+    "volume_change_ratio": 2.061,
+    "fraud_rate": 0.0204,
+    "baseline_fraud_rate": 0.0201,
+    "failure_rate": 0.1633,
+    "unique_accounts": 46,
+    "unique_devices": 46,
+    "unique_ip_subnets": 21,
+    "unique_pincodes": 34,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 10
+      },
+      {
+        "sku_id": "sku_1003",
+        "count": 5
+      },
+      {
+        "sku_id": "sku_1005",
+        "count": 2
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 2.438,
+    "coordination_score": 0.585
+  },
+  {
+    "spike_id": "spk-fest-20260114-22",
+    "window_start": "2026-01-14T22:00:00",
+    "window_end": "2026-01-14T23:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 39,
+    "baseline_volume": 13.222,
+    "volume_change_ratio": 2.95,
+    "fraud_rate": 0.0256,
+    "baseline_fraud_rate": 0.0199,
+    "failure_rate": 0.0256,
+    "unique_accounts": 36,
+    "unique_devices": 36,
+    "unique_ip_subnets": 16,
+    "unique_pincodes": 26,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 6
+      },
+      {
+        "sku_id": "sku_1008",
+        "count": 4
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 3
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 2.933,
+    "coordination_score": 0.376
+  },
+  {
+    "spike_id": "spk-fest-20260114-23",
+    "window_start": "2026-01-14T23:00:00",
+    "window_end": "2026-01-15T00:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 24,
+    "baseline_volume": 6.0,
+    "volume_change_ratio": 4.0,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0203,
+    "failure_rate": 0.25,
+    "unique_accounts": 24,
+    "unique_devices": 24,
+    "unique_ip_subnets": 16,
+    "unique_pincodes": 21,
+    "top_skus": [
+      {
+        "sku_id": "sku_1011",
+        "count": 3
+      },
+      {
+        "sku_id": "sku_1008",
+        "count": 3
+      },
+      {
+        "sku_id": "sku_1001",
+        "count": 2
+      }
+    ],
+    "anomaly_reasons": [
+      "volume_increase_without_coordination"
+    ],
+    "anomaly_score": 2.84,
+    "coordination_score": 0.5
+  },
+  {
+    "spike_id": "spk-fest-20260115-07",
+    "window_start": "2026-01-15T07:00:00",
+    "window_end": "2026-01-15T08:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 35,
+    "baseline_volume": 13.0,
+    "volume_change_ratio": 2.692,
+    "fraud_rate": 0.0286,
+    "baseline_fraud_rate": 0.022,
+    "failure_rate": 0.0857,
+    "unique_accounts": 34,
+    "unique_devices": 34,
+    "unique_ip_subnets": 18,
+    "unique_pincodes": 24,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 4
+      },
+      {
+        "sku_id": "sku_1003",
+        "count": 3
+      },
+      {
+        "sku_id": "sku_1012",
+        "count": 2
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.067,
+    "coordination_score": 0.024
+  },
+  {
+    "spike_id": "spk-fest-20260115-08",
+    "window_start": "2026-01-15T08:00:00",
+    "window_end": "2026-01-15T09:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 36,
+    "baseline_volume": 16.1,
+    "volume_change_ratio": 2.236,
+    "fraud_rate": 0.0278,
+    "baseline_fraud_rate": 0.0224,
+    "failure_rate": 0.0833,
+    "unique_accounts": 35,
+    "unique_devices": 35,
+    "unique_ip_subnets": 18,
+    "unique_pincodes": 27,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 5
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 2
+      },
+      {
+        "sku_id": "sku_1010",
+        "count": 2
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 0.883,
+    "coordination_score": 0.17
+  },
+  {
+    "spike_id": "spk-fest-20260115-09",
+    "window_start": "2026-01-15T09:00:00",
+    "window_end": "2026-01-15T10:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 53,
+    "baseline_volume": 22.4,
+    "volume_change_ratio": 2.366,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0212,
+    "failure_rate": 0.1509,
+    "unique_accounts": 48,
+    "unique_devices": 49,
+    "unique_ip_subnets": 20,
+    "unique_pincodes": 29,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 6
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 5
+      },
+      {
+        "sku_id": "sku_1006",
+        "count": 5
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.31,
+    "coordination_score": 0.467
+  },
+  {
+    "spike_id": "spk-fest-20260115-10",
+    "window_start": "2026-01-15T10:00:00",
+    "window_end": "2026-01-15T11:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 69,
+    "baseline_volume": 24.6,
+    "volume_change_ratio": 2.805,
+    "fraud_rate": 0.029,
+    "baseline_fraud_rate": 0.0212,
+    "failure_rate": 0.0725,
+    "unique_accounts": 64,
+    "unique_devices": 64,
+    "unique_ip_subnets": 23,
+    "unique_pincodes": 35,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 12
+      },
+      {
+        "sku_id": "sku_1004",
+        "count": 5
+      },
+      {
+        "sku_id": "sku_1019",
+        "count": 4
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.81,
+    "coordination_score": 0.25
+  },
+  {
+    "spike_id": "spk-fest-20260115-11",
+    "window_start": "2026-01-15T11:00:00",
+    "window_end": "2026-01-15T12:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 56,
+    "baseline_volume": 22.2,
+    "volume_change_ratio": 2.523,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0211,
+    "failure_rate": 0.125,
+    "unique_accounts": 53,
+    "unique_devices": 53,
+    "unique_ip_subnets": 21,
+    "unique_pincodes": 28,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 7
+      },
+      {
+        "sku_id": "sku_1003",
+        "count": 5
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 5
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.463,
+    "coordination_score": 0.538
+  },
+  {
+    "spike_id": "spk-fest-20260115-12",
+    "window_start": "2026-01-15T12:00:00",
+    "window_end": "2026-01-15T13:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 79,
+    "baseline_volume": 25.9,
+    "volume_change_ratio": 3.05,
+    "fraud_rate": 0.0127,
+    "baseline_fraud_rate": 0.02,
+    "failure_rate": 0.0759,
+    "unique_accounts": 69,
+    "unique_devices": 69,
+    "unique_ip_subnets": 22,
+    "unique_pincodes": 38,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 10
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 6
+      },
+      {
+        "sku_id": "sku_1003",
+        "count": 6
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 2.36,
+    "coordination_score": 0.664
+  },
+  {
+    "spike_id": "spk-fest-20260115-17",
+    "window_start": "2026-01-15T17:00:00",
+    "window_end": "2026-01-15T18:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 68,
+    "baseline_volume": 28.5,
+    "volume_change_ratio": 2.386,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0201,
+    "failure_rate": 0.1765,
+    "unique_accounts": 59,
+    "unique_devices": 59,
+    "unique_ip_subnets": 22,
+    "unique_pincodes": 31,
+    "top_skus": [
+      {
+        "sku_id": "sku_1002",
+        "count": 6
+      },
+      {
+        "sku_id": "sku_1007",
+        "count": 6
+      },
+      {
+        "sku_id": "sku_1001",
+        "count": 6
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.7,
+    "coordination_score": 0.885
+  },
+  {
+    "spike_id": "spk-fest-20260115-18",
+    "window_start": "2026-01-15T18:00:00",
+    "window_end": "2026-01-15T19:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 81,
+    "baseline_volume": 34.4,
+    "volume_change_ratio": 2.355,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0201,
+    "failure_rate": 0.0617,
+    "unique_accounts": 74,
+    "unique_devices": 75,
+    "unique_ip_subnets": 22,
+    "unique_pincodes": 37,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 11
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 9
+      },
+      {
+        "sku_id": "sku_1004",
+        "count": 4
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.21,
+    "coordination_score": 0.309
+  },
+  {
+    "spike_id": "spk-fest-20260115-19",
+    "window_start": "2026-01-15T19:00:00",
+    "window_end": "2026-01-15T20:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 94,
+    "baseline_volume": 38.5,
+    "volume_change_ratio": 2.442,
+    "fraud_rate": 0.0106,
+    "baseline_fraud_rate": 0.0192,
+    "failure_rate": 0.1596,
+    "unique_accounts": 84,
+    "unique_devices": 84,
+    "unique_ip_subnets": 21,
+    "unique_pincodes": 37,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 10
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 9
+      },
+      {
+        "sku_id": "sku_1004",
+        "count": 5
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.981,
+    "coordination_score": 0.82
+  },
+  {
+    "spike_id": "spk-fest-20260115-20",
+    "window_start": "2026-01-15T20:00:00",
+    "window_end": "2026-01-15T21:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 77,
+    "baseline_volume": 31.9,
+    "volume_change_ratio": 2.414,
+    "fraud_rate": 0.013,
+    "baseline_fraud_rate": 0.0193,
+    "failure_rate": 0.0909,
+    "unique_accounts": 70,
+    "unique_devices": 71,
+    "unique_ip_subnets": 20,
+    "unique_pincodes": 36,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 10
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 9
+      },
+      {
+        "sku_id": "sku_1004",
+        "count": 6
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.325,
+    "coordination_score": 0.413
+  },
+  {
+    "spike_id": "spk-fest-20260115-21",
+    "window_start": "2026-01-15T21:00:00",
+    "window_end": "2026-01-15T22:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 51,
+    "baseline_volume": 26.3,
+    "volume_change_ratio": 1.939,
+    "fraud_rate": 0.0196,
+    "baseline_fraud_rate": 0.019,
+    "failure_rate": 0.1373,
+    "unique_accounts": 49,
+    "unique_devices": 50,
+    "unique_ip_subnets": 17,
+    "unique_pincodes": 29,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 12
+      },
+      {
+        "sku_id": "sku_1002",
+        "count": 6
+      },
+      {
+        "sku_id": "sku_1004",
+        "count": 3
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.177,
+    "coordination_score": 0.232
+  },
+  {
+    "spike_id": "spk-fest-20260115-22",
+    "window_start": "2026-01-15T22:00:00",
+    "window_end": "2026-01-15T23:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 40,
+    "baseline_volume": 15.8,
+    "volume_change_ratio": 2.532,
+    "fraud_rate": 0.0,
+    "baseline_fraud_rate": 0.0193,
+    "failure_rate": 0.125,
+    "unique_accounts": 40,
+    "unique_devices": 40,
+    "unique_ip_subnets": 20,
+    "unique_pincodes": 30,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 7
+      },
+      {
+        "sku_id": "sku_1007",
+        "count": 3
+      },
+      {
+        "sku_id": "sku_1003",
+        "count": 3
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 1.049,
+    "coordination_score": 0.087
+  },
+  {
+    "spike_id": "spk-fest-20260116-18",
+    "window_start": "2026-01-16T18:00:00",
+    "window_end": "2026-01-16T19:00:00",
+    "spike_type": "legitimate_festive_spike",
+    "severity": "info",
+    "volume": 89,
+    "baseline_volume": 40.6,
+    "volume_change_ratio": 2.192,
+    "fraud_rate": 0.0337,
+    "baseline_fraud_rate": 0.0126,
+    "failure_rate": 0.0562,
+    "unique_accounts": 85,
+    "unique_devices": 85,
+    "unique_ip_subnets": 23,
+    "unique_pincodes": 37,
+    "top_skus": [
+      {
+        "sku_id": "sku_1001",
+        "count": 12
+      },
+      {
+        "sku_id": "sku_1004",
+        "count": 7
+      },
+      {
+        "sku_id": "sku_1007",
+        "count": 7
+      }
+    ],
+    "anomaly_reasons": [
+      "high_volume_with_preserved_diversity"
+    ],
+    "anomaly_score": 0.78,
+    "coordination_score": 0.022
+  },
+  {
+    "spike_id": "spk-coord-20260118-02",
+    "window_start": "2026-01-18T02:00:00",
+    "window_end": "2026-01-18T03:00:00",
+    "spike_type": "suspicious_coordinated_spike",
+    "severity": "high",
+    "volume": 67,
+    "baseline_volume": 4.7,
+    "volume_change_ratio": 14.255,
+    "fraud_rate": 0.9254,
+    "baseline_fraud_rate": 0.0124,
+    "failure_rate": 0.8507,
+    "unique_accounts": 44,
+    "unique_devices": 10,
+    "unique_ip_subnets": 3,
+    "unique_pincodes": 4,
+    "top_skus": [
+      {
+        "sku_id": "sku_1050",
+        "count": 65
+      },
+      {
+        "sku_id": "sku_1017",
+        "count": 1
+      },
+      {
+        "sku_id": "sku_1006",
+        "count": 1
+      }
+    ],
+    "anomaly_reasons": [
+      "volume_above_baseline",
+      "failure_rate_above_baseline",
+      "many_accounts_per_device",
+      "high_device_reuse",
+      "ip_subnet_concentration",
+      "sku_concentration",
+      "elevated_device_velocity",
+      "high_absolute_failure_rate",
+      "shared_device_cluster",
+      "narrow_sku_targeting"
+    ],
+    "anomaly_score": 79.298,
+    "coordination_score": 71.896
+  },
+  {
+    "spike_id": "spk-coord-20260118-03",
+    "window_start": "2026-01-18T03:00:00",
+    "window_end": "2026-01-18T04:00:00",
+    "spike_type": "suspicious_coordinated_spike",
+    "severity": "high",
+    "volume": 55,
+    "baseline_volume": 3.2,
+    "volume_change_ratio": 17.188,
+    "fraud_rate": 0.8909,
+    "baseline_fraud_rate": 0.0253,
+    "failure_rate": 0.8182,
+    "unique_accounts": 40,
+    "unique_devices": 11,
+    "unique_ip_subnets": 4,
+    "unique_pincodes": 5,
+    "top_skus": [
+      {
+        "sku_id": "sku_1050",
+        "count": 52
+      },
+      {
+        "sku_id": "sku_1010",
+        "count": 1
+      },
+      {
+        "sku_id": "sku_1014",
+        "count": 1
+      }
+    ],
+    "anomaly_reasons": [
+      "volume_above_baseline",
+      "failure_rate_above_baseline",
+      "many_accounts_per_device",
+      "high_device_reuse",
+      "ip_subnet_concentration",
+      "sku_concentration",
+      "elevated_device_velocity",
+      "high_absolute_failure_rate",
+      "narrow_sku_targeting"
+    ],
+    "anomaly_score": 42.148,
+    "coordination_score": 34.264
+  },
+  {
+    "spike_id": "spk-coord-20260118-04",
+    "window_start": "2026-01-18T04:00:00",
+    "window_end": "2026-01-18T05:00:00",
+    "spike_type": "suspicious_coordinated_spike",
+    "severity": "high",
+    "volume": 49,
+    "baseline_volume": 3.75,
+    "volume_change_ratio": 13.067,
+    "fraud_rate": 0.898,
+    "baseline_fraud_rate": 0.0377,
+    "failure_rate": 0.8367,
+    "unique_accounts": 32,
+    "unique_devices": 11,
+    "unique_ip_subnets": 3,
+    "unique_pincodes": 5,
+    "top_skus": [
+      {
+        "sku_id": "sku_1050",
+        "count": 46
+      },
+      {
+        "sku_id": "sku_1036",
+        "count": 1
+      },
+      {
+        "sku_id": "sku_1011",
+        "count": 1
+      }
+    ],
+    "anomaly_reasons": [
+      "volume_above_baseline",
+      "failure_rate_above_baseline",
+      "many_accounts_per_device",
+      "high_device_reuse",
+      "ip_subnet_concentration",
+      "sku_concentration",
+      "elevated_device_velocity",
+      "high_absolute_failure_rate",
+      "narrow_sku_targeting"
+    ],
+    "anomaly_score": 30.697,
+    "coordination_score": 23.231
+  }
+]

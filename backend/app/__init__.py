@@ -5,21 +5,14 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-# Local packages (agent, tools, ...) live at the repository root.
-# Local uvicorn uses backend/app → parents[2].
-# Vercel hoists this package to /var/task/app → agent is at parents[1].
-_HERE = Path(__file__).resolve()
-_REPO_ROOT = next(
-    (
-        ancestor
-        for ancestor in (_HERE.parents[1], _HERE.parents[2])
-        if (ancestor / "agent" / "__init__.py").is_file()
-    ),
-    _HERE.parents[2],
-)
-_repo_root = str(_REPO_ROOT)
-if _repo_root not in sys.path:
-    sys.path.insert(0, _repo_root)
+# Vercel hoists this package to /var/task/app/main.py. Local packages vendored
+# beside this file are importable only if this directory is on sys.path.
+_APP_DIR = Path(__file__).resolve().parent
+for _candidate in (_APP_DIR.parents[1], _APP_DIR.parent, _APP_DIR):
+    if (_candidate / "agent" / "__init__.py").is_file():
+        _path = str(_candidate)
+        if _path not in sys.path:
+            sys.path.append(_path)
 
 # Static imports so the FastAPI function bundle includes local packages.
 import agent  # noqa: F401

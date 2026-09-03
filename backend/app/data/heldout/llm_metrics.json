@@ -1,0 +1,50 @@
+{
+  "evaluation_unit": "detected_spike",
+  "heldout_seed": 2027,
+  "provider": "llm",
+  "source": "not_produced",
+  "real_llm_evaluated": false,
+  "reason": "LLM_API_KEY is not configured",
+  "label": "REAL LLM METRICS WERE NOT PRODUCED",
+  "n_detected_spikes": 40,
+  "n_attempted": 0,
+  "n_valid": 0,
+  "n_evaluable_valid": 0,
+  "n_correct": 0,
+  "n_incorrect": 0,
+  "n_ambiguous": 0,
+  "failure_counts": {
+    "provider_failure": 0,
+    "malformed_response": 0,
+    "validation_failure": 0
+  },
+  "valid_response_rate": null,
+  "accuracy": null,
+  "per_class": {},
+  "grounding": {},
+  "safety": {},
+  "latency_benchmark": {
+    "label": "engineering benchmark, not model accuracy",
+    "n": 0,
+    "total_evaluation_seconds": null,
+    "mean_seconds": null,
+    "median_seconds": null,
+    "p95_seconds": null,
+    "max_seconds": null
+  },
+  "deterministic_comparison": {
+    "note": "No LLM verdicts were produced, so no comparison was computed."
+  },
+  "cases": [],
+  "limitations": [
+    "Real LLM evaluation requires LLM_API_KEY in the process environment.",
+    "This artifact does not fabricate model verdicts.",
+    "The normal test suite uses an injected fake client labeled MOCK."
+  ],
+  "not_calculated": [
+    "money_saved",
+    "loss_prevented",
+    "roi",
+    "intervention_effectiveness"
+  ]
+}

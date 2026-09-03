@@ -1,18 +1,18 @@
-"""Ensure the repository root is importable when uvicorn uses --app-dir backend."""
+"""Ensure local packages are importable for uvicorn and the Vercel hoist."""
 
 from __future__ import annotations
 
 import sys
 from pathlib import Path
 
-_HERE = Path(__file__).resolve()
+_APP_DIR = Path(__file__).resolve().parent
 REPO_ROOT = next(
     (
-        ancestor
-        for ancestor in (_HERE.parents[1], _HERE.parents[2])
-        if (ancestor / "agent" / "__init__.py").is_file()
+        candidate
+        for candidate in (_APP_DIR.parents[1], _APP_DIR.parent, _APP_DIR)
+        if (candidate / "agent" / "__init__.py").is_file()
     ),
-    _HERE.parents[2],
+    _APP_DIR.parents[1],
 )
 if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+    sys.path.append(str(REPO_ROOT))
