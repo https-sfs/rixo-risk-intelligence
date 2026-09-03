@@ -29,6 +29,14 @@ def test_backend_requirements_installs_local_project_without_parent_path() -> No
     assert "." in lines
 
 
+def test_backend_contains_vendored_local_packages() -> None:
+    for package in ("agent", "detection", "evaluation", "models", "tools"):
+        assert (ROOT / "backend" / package / "__init__.py").is_file()
+    assert (ROOT / "backend" / "agent" / "actions" / "errors.py").is_file()
+    assert (ROOT / "backend" / "tools" / "evidence.py").is_file()
+    assert (ROOT / "backend" / "vendor_packages.py").is_file()
+
+
 def test_backend_pyproject_installs_sibling_packages_as_app() -> None:
     pyproject = (ROOT / "backend" / "pyproject.toml").read_text(encoding="utf-8")
     assert 'name = "app"' in pyproject

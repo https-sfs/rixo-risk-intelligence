@@ -12,3 +12,6 @@ include = ["agent*", "data*", "detection*", "evaluation*", "models*", "tools*"]
 
 [tool.vercel]
 entrypoint = "main:app"
+
+[tool.vercel.scripts]
+build = "python backend/vendor_packages.py"
