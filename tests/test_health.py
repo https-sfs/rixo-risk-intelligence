@@ -31,3 +31,16 @@ def test_cors_allows_legacy_frontend_origin() -> None:
     response = client.get("/api/health", headers={"Origin": LEGACY_FRONTEND})
     assert response.status_code == 200
     assert response.headers.get("access-control-allow-origin") == LEGACY_FRONTEND
+
+
+def test_cors_exposes_governance_ticket_header() -> None:
+    report = client.get("/api/spikes/spk-coord-20260118-02/investigation").json()["report"]
+    response = client.post(
+        "/api/actions/propose",
+        json=report,
+        headers={"Origin": PRODUCTION_FRONTEND},
+    )
+    assert response.status_code == 200
+    exposed = (response.headers.get("access-control-expose-headers") or "").lower()
+    assert "x-governance-ticket" in exposed
+    assert response.headers.get("x-governance-ticket")

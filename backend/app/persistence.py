@@ -58,6 +58,12 @@ CREATE TABLE IF NOT EXISTS idempotency_keys (
     payload_json TEXT NOT NULL,
     PRIMARY KEY (world, idempotency_key)
 );
+CREATE TABLE IF NOT EXISTS sessions (
+    world TEXT NOT NULL,
+    session_id TEXT NOT NULL,
+    payload_json TEXT NOT NULL,
+    PRIMARY KEY (world, session_id)
+);
 """
 
 
@@ -233,15 +239,59 @@ class GovernanceDB:
             "idempotency": idempotency,
         }
 
+    def put_session(self, world: str, session_id: str, payload: dict[str, Any]) -> None:
+        """Persist session metadata only. Never store the BYOD CSV."""
+        with self.lock:
+            conn = self._connect()
+            try:
+                conn.execute(
+                    "INSERT OR REPLACE INTO sessions(world, session_id, payload_json) VALUES (?,?,?)",
+                    (world, session_id, _json(payload)),
+                )
+                conn.commit()
+            except Exception:
+                conn.rollback()
+                raise
+            finally:
+                conn.close()
+
+    def get_session(self, world: str, session_id: str) -> dict[str, Any] | None:
+        with self.lock:
+            conn = self._connect()
+            try:
+                row = conn.execute(
+                    "SELECT payload_json FROM sessions WHERE world=? AND session_id=?",
+                    (world, session_id),
+                ).fetchone()
+            finally:
+                conn.close()
+        if not row:
+            return None
+        payload = json.loads(row[0])
+        return payload if isinstance(payload, dict) else None
+
+
+_ACTIVE_DB: GovernanceDB | None = None
+
+
+def active_db() -> GovernanceDB | None:
+    return _ACTIVE_DB
+
 
 def attach_default_stores(path: str | None) -> GovernanceDB | None:
     """Bind the existing world stores to one SQLite file. Restore only."""
+    global _ACTIVE_DB
     if not path or not str(path).strip():
+        from evaluation.custom_data.governance import bind_db as bind_custom
+
+        bind_custom(None)
+        _ACTIVE_DB = None
         return None
     db = GovernanceDB(resolve_governance_sqlite_path(str(path).strip()))
     from agent.actions.service import bind_default_store
     from evaluation.real_data.governance import bind_store as bind_ieee
     from evaluation.recent_data.governance import bind_store as bind_january
+    from evaluation.custom_data.governance import bind_db as bind_custom
     from agent.actions.store import ActionStore
     from evaluation.real_data.governance import RealActionStore
     from evaluation.recent_data.governance import RecentActionStore
@@ -249,4 +299,6 @@ def attach_default_stores(path: str | None) -> GovernanceDB | None:
     bind_default_store(ActionStore(db=db))
     bind_ieee(RealActionStore(db=db))
     bind_january(RecentActionStore(db=db))
+    bind_custom(db)
+    _ACTIVE_DB = db
     return db

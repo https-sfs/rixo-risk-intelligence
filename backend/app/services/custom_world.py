@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 from collections.abc import AsyncIterator
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass, field, fields as dataclass_fields
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -120,8 +120,7 @@ def _session_store_path(session_id: str) -> Path:
     return byd_temp_dir() / f"{session_id}.session.json"
 
 
-def _persist_session(session: CustomSession) -> None:
-    _SESSIONS[session.session_id] = session
+def _compact_session_payload(session: CustomSession) -> dict[str, Any]:
     payload = asdict(session)
     scored = payload.get("scored")
     if isinstance(scored, dict):
@@ -130,10 +129,56 @@ def _persist_session(session: CustomSession) -> None:
             for key, value in scored.items()
             if key not in {"scores", "score_array", "label_array", "hours"}
         }
+    return payload
+
+
+def _persist_session(session: CustomSession) -> None:
+    _SESSIONS[session.session_id] = session
+    payload = _compact_session_payload(session)
     _session_store_path(session.session_id).write_text(
         json.dumps(payload, default=str),
         encoding="utf-8",
     )
+    try:
+        from app.persistence import active_db
+
+        db = active_db()
+        if db is not None:
+            db.put_session(WORLD, session.session_id, payload)
+    except Exception:
+        pass
+
+
+def _session_from_payload(payload: dict[str, Any]) -> CustomSession:
+    allowed = {item.name for item in dataclass_fields(CustomSession)}
+    return CustomSession(**{key: value for key, value in payload.items() if key in allowed})
+
+
+def _session_has_workflow_metadata(session: CustomSession) -> bool:
+    return bool(session.anomalies or session.mapping or session.inspection)
+
+
+def restore_session_snapshot(payload: dict[str, Any], persist_sidecar: bool = False) -> CustomSession | None:
+    session_id = str(payload.get("session_id") or "").strip()
+    if not session_id:
+        return None
+    existing = _SESSIONS.get(session_id)
+    if existing is not None and (Path(existing.csv_path).is_file() or existing.anomalies):
+        return existing
+    session = _session_from_payload(payload)
+    if not _session_has_workflow_metadata(session) and not Path(session.csv_path).is_file():
+        return None
+    _SESSIONS[session.session_id] = session
+    if persist_sidecar:
+        _persist_session(session)
+    return session
+
+
+def session_snapshot_for_ticket(session_id: str) -> dict[str, Any] | None:
+    session = _SESSIONS.get(session_id)
+    if session is None:
+        return None
+    return _compact_session_payload(session)
 
 
 def _forget_session_store(session_id: str) -> None:
@@ -168,10 +213,21 @@ def get_session(session_id: str) -> CustomSession:
     stored = _session_store_path(session_id)
     if stored.is_file():
         payload = json.loads(stored.read_text(encoding="utf-8"))
-        session = CustomSession(**payload)
-        if Path(session.csv_path).is_file():
+        session = _session_from_payload(payload)
+        if Path(session.csv_path).is_file() or _session_has_workflow_metadata(session):
             _SESSIONS[session.session_id] = session
             return session
+    try:
+        from app.persistence import active_db
+
+        db = active_db()
+        payload = db.get_session(WORLD, session_id) if db is not None else None
+        if payload:
+            session = restore_session_snapshot(payload, persist_sidecar=False)
+            if session is not None:
+                return session
+    except Exception:
+        pass
     raise CustomSessionError(
         "This Bring Your Data session is unknown or expired. Upload the CSV again. "
         "Uploads stay in an isolated temporary file and are not written to the benchmark datasets."

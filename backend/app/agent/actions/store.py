@@ -57,6 +57,10 @@ class ActionStore:
         return proposal
 
     def get_proposal(self, action_id: str) -> ActionProposal | None:
+        found = self.proposals.get(action_id)
+        if found is not None or self.db is None:
+            return found
+        self._load()
         return self.proposals.get(action_id)
 
     def put_approval(self, approval: Approval) -> Approval:
@@ -65,6 +69,10 @@ class ActionStore:
         return approval
 
     def get_approval(self, action_id: str) -> Approval | None:
+        found = self.approvals.get(action_id)
+        if found is not None or self.db is None:
+            return found
+        self._load()
         return self.approvals.get(action_id)
 
     def put_execution(self, result: ExecutionResult) -> ExecutionResult:

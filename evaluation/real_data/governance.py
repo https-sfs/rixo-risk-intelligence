@@ -89,6 +89,27 @@ class RealActionStore:
             idempotency=idempotency,
         )
 
+    def _reload(self) -> None:
+        if self.db is None:
+            return
+        snapshot = self.db.load_world(WORLD)
+        self.decisions.update(snapshot["decisions"])
+        self.proposals.update(snapshot["proposals"])
+        self.approvals.update(snapshot["approvals"])
+        self.executions.update(snapshot["executions"])
+        self.idempotency.update(snapshot["idempotency"])
+        known = {item.get("audit_event_id") for item in self.audit}
+        for event in snapshot["audit"]:
+            if event.get("audit_event_id") not in known:
+                self.audit.append(event)
+
+    def get_proposal(self, action_id: str) -> dict[str, Any] | None:
+        found = self.proposals.get(action_id)
+        if found is not None or self.db is None:
+            return found
+        self._reload()
+        return self.proposals.get(action_id)
+
 
 _STORE = RealActionStore()
 
@@ -366,7 +387,7 @@ def approve_action(
     store: RealActionStore | None = None,
 ) -> dict[str, Any]:
     state = store or default_store()
-    proposal = state.proposals.get(action_id)
+    proposal = state.get_proposal(action_id)
     if proposal is None:
         raise RealGovernanceError(f"Unknown IEEE action_id: {action_id}")
     if not approved_by.strip():
@@ -395,7 +416,7 @@ def approve_action(
 
 def simulate_action(action_id: str, store: RealActionStore | None = None) -> dict[str, Any]:
     state = store or default_store()
-    proposal = state.proposals.get(action_id)
+    proposal = state.get_proposal(action_id)
     if proposal is None:
         raise RealGovernanceError(f"Unknown IEEE action_id: {action_id}")
     approval = state.approvals.get(action_id)
@@ -468,7 +489,7 @@ def simulate_action(action_id: str, store: RealActionStore | None = None) -> dic
 
 def get_action(action_id: str, store: RealActionStore | None = None) -> dict[str, Any]:
     state = store or default_store()
-    proposal = state.proposals.get(action_id)
+    proposal = state.get_proposal(action_id)
     if proposal is None:
         raise RealGovernanceError(f"Unknown IEEE action_id: {action_id}")
     return {

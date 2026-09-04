@@ -1,9 +1,44 @@
 import { afterEach, expect, test, vi } from 'vitest'
-import { getApiBaseUrl, getInvestigation, listSpikes, uploadCustomCsv } from './client'
+import { getApiBaseUrl, getInvestigation, listSpikes, proposeAction, uploadCustomCsv } from './client'
 
 afterEach(() => {
   vi.unstubAllEnvs()
   vi.unstubAllGlobals()
+})
+
+test('API client sends and stores the governance ticket across requests', async () => {
+  vi.stubEnv('VITE_API_BASE_URL', 'http://api.test:9000')
+  sessionStorage.clear()
+  const fetchMock = vi.fn(() =>
+    Promise.resolve(
+      new Response(JSON.stringify({ action_id: 'act-1', status: 'proposed' }), {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Governance-Ticket': 'v1.ticket-from-server',
+        },
+      }),
+    ),
+  )
+  vi.stubGlobal('fetch', fetchMock)
+  sessionStorage.setItem('fsi.governanceTicket', 'v1.ticket-from-client')
+  await proposeAction({
+    spike_id: 'spk-1',
+    verdict: 'inconclusive',
+    recommended_action: { type: 'review', scope: 'window', reason: 'n/a' },
+    human_approval_required: true,
+    summary: 'n/a',
+    confidence: 0.4,
+    supporting_evidence: [],
+    contradicting_evidence: [],
+    key_entities: [],
+    reasoning: 'n/a',
+    limitations: [],
+    provider: 'deterministic_reasoner',
+  } as never)
+  const headers = new Headers(fetchMock.mock.calls.at(0)?.[1]?.headers as HeadersInit)
+  expect(headers.get('X-Governance-Ticket')).toBe('v1.ticket-from-client')
+  expect(sessionStorage.getItem('fsi.governanceTicket')).toBe('v1.ticket-from-server')
 })
 
 test('API client uses the configured base URL', async () => {

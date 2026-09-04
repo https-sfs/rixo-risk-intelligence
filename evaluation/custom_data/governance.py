@@ -46,21 +46,87 @@ class CustomGovernanceError(ValueError):
     """Bring Your Data governance contract violation."""
 
 
+def custom_world_key(session_id: str) -> str:
+    return f"{WORLD}:{session_id}"
+
+
+def parse_custom_world_key(world: str) -> str | None:
+    prefix = f"{WORLD}:"
+    if world.startswith(prefix) and world[len(prefix) :]:
+        return world[len(prefix) :]
+    return None
+
+
 class CustomActionStore:
-    def __init__(self) -> None:
+    def __init__(self, db: Any | None = None, session_id: str | None = None) -> None:
         self.decisions: dict[str, dict[str, Any]] = {}
         self.proposals: dict[str, dict[str, Any]] = {}
         self.approvals: dict[str, dict[str, Any]] = {}
         self.executions: dict[str, dict[str, Any]] = {}
         self.audit: list[dict[str, Any]] = []
+        self.db = db
+        self.session_id = session_id
+        if db is not None and session_id:
+            snapshot = db.load_world(custom_world_key(session_id))
+            self.decisions = snapshot["decisions"]
+            self.proposals = snapshot["proposals"]
+            self.approvals = snapshot["approvals"]
+            self.executions = snapshot["executions"]
+            self.audit = snapshot["audit"]
+
+    def persist(
+        self,
+        *,
+        decisions: list[dict[str, Any]] | None = None,
+        proposals: list[dict[str, Any]] | None = None,
+        approvals: list[dict[str, Any]] | None = None,
+        executions: list[dict[str, Any]] | None = None,
+        audits: list[dict[str, Any]] | None = None,
+    ) -> None:
+        if self.db is None or not self.session_id:
+            return
+        self.db.commit_bundle(
+            custom_world_key(self.session_id),
+            decisions=decisions,
+            proposals=proposals,
+            approvals=approvals,
+            executions=executions,
+            audits=audits,
+        )
+
+    def _reload(self) -> None:
+        if self.db is None or not self.session_id:
+            return
+        snapshot = self.db.load_world(custom_world_key(self.session_id))
+        self.decisions.update(snapshot["decisions"])
+        self.proposals.update(snapshot["proposals"])
+        self.approvals.update(snapshot["approvals"])
+        self.executions.update(snapshot["executions"])
+        known = {item.get("audit_event_id") for item in self.audit}
+        for event in snapshot["audit"]:
+            if event.get("audit_event_id") not in known:
+                self.audit.append(event)
+
+    def get_proposal(self, action_id: str) -> dict[str, Any] | None:
+        found = self.proposals.get(action_id)
+        if found is not None or self.db is None:
+            return found
+        self._reload()
+        return self.proposals.get(action_id)
 
 
 _STORES: dict[str, CustomActionStore] = {}
+_DB: Any | None = None
+
+
+def bind_db(db: Any | None) -> None:
+    global _DB
+    _DB = db
 
 
 def store_for(session_id: str) -> CustomActionStore:
     if session_id not in _STORES:
-        _STORES[session_id] = CustomActionStore()
+        _STORES[session_id] = CustomActionStore(db=_DB, session_id=session_id)
     return _STORES[session_id]
 
 
@@ -187,7 +253,7 @@ def record_decision(
         return existing
     payload = {**decision, "session_id": session_id, "recorded_at": _now()}
     state.decisions[anomaly_id] = payload
-    _audit(
+    event = _audit(
         state,
         "CUSTOM_DECISION_RECORDED",
         anomaly_id,
@@ -199,6 +265,7 @@ def record_decision(
         },
         session_id,
     )
+    state.persist(decisions=[payload], audits=[event])
     return payload
 
 
@@ -287,7 +354,7 @@ def propose_action(session_id: str, decision: dict[str, Any]) -> dict[str, Any]:
         "created_at": _now(),
     }
     state.proposals[action_id] = proposal
-    _audit(
+    event = _audit(
         state,
         "CUSTOM_ACTION_PROPOSED",
         anomaly_id,
@@ -295,6 +362,7 @@ def propose_action(session_id: str, decision: dict[str, Any]) -> dict[str, Any]:
         {"action_type": action_type, "simulation_only": True},
         session_id,
     )
+    state.persist(proposals=[proposal], audits=[event])
     return proposal
 
 
@@ -305,7 +373,7 @@ def approve_action(
     note: str | None = None,
 ) -> dict[str, Any]:
     state = store_for(session_id)
-    proposal = state.proposals.get(action_id)
+    proposal = state.get_proposal(action_id)
     if proposal is None:
         raise CustomGovernanceError(f"Unknown custom-data action_id: {action_id}")
     if not approved_by.strip():
@@ -321,7 +389,7 @@ def approve_action(
     }
     state.approvals[action_id] = approval
     proposal["status"] = "approved"
-    _audit(
+    event = _audit(
         state,
         "CUSTOM_ACTION_APPROVED",
         proposal["anomaly_id"],
@@ -329,12 +397,13 @@ def approve_action(
         {"approved_by": approval["approved_by"], "simulation_only": True},
         session_id,
     )
+    state.persist(proposals=[proposal], approvals=[approval], audits=[event])
     return approval
 
 
 def simulate_action(session_id: str, action_id: str) -> dict[str, Any]:
     state = store_for(session_id)
-    proposal = state.proposals.get(action_id)
+    proposal = state.get_proposal(action_id)
     if proposal is None:
         raise CustomGovernanceError(f"Unknown custom-data action_id: {action_id}")
     approval = state.approvals.get(action_id)
@@ -365,40 +434,48 @@ def simulate_action(session_id: str, action_id: str) -> dict[str, Any]:
     )
     attach_to_execution(execution, sandbox)
     state.executions[action_id] = execution
+    events: list[dict[str, Any]] = []
     if execution.get("simulated"):
         proposal["status"] = "simulated"
-        _audit(
-            state,
-            "CUSTOM_ACTION_SIMULATED",
-            proposal["anomaly_id"],
-            action_id,
-            {"action_type": proposal["action_type"], "simulation_only": True},
-            session_id,
-        )
-        if sandbox.get("status") == "completed":
+        events.append(
             _audit(
                 state,
-                "CUSTOM_RAZORPAY_TEST_SIMULATED",
+                "CUSTOM_ACTION_SIMULATED",
+                proposal["anomaly_id"],
+                action_id,
+                {"action_type": proposal["action_type"], "simulation_only": True},
+                session_id,
+            )
+        )
+        if sandbox.get("status") == "completed":
+            events.append(
+                _audit(
+                    state,
+                    "CUSTOM_RAZORPAY_TEST_SIMULATED",
+                    proposal["anomaly_id"],
+                    action_id,
+                    audit_details(sandbox),
+                    session_id,
+                )
+            )
+    else:
+        events.append(
+            _audit(
+                state,
+                "CUSTOM_RAZORPAY_TEST_FAILED",
                 proposal["anomaly_id"],
                 action_id,
                 audit_details(sandbox),
                 session_id,
             )
-    else:
-        _audit(
-            state,
-            "CUSTOM_RAZORPAY_TEST_FAILED",
-            proposal["anomaly_id"],
-            action_id,
-            audit_details(sandbox),
-            session_id,
         )
+    state.persist(proposals=[proposal], executions=[execution], audits=events)
     return execution
 
 
 def get_action(session_id: str, action_id: str) -> dict[str, Any]:
     state = store_for(session_id)
-    proposal = state.proposals.get(action_id)
+    proposal = state.get_proposal(action_id)
     if proposal is None:
         raise CustomGovernanceError(f"Unknown custom-data action_id: {action_id}")
     return {

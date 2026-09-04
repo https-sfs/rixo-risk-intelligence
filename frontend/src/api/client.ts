@@ -34,12 +34,48 @@ export function getApiBaseUrl(): string {
   return (configured ?? 'http://localhost:8000').replace(/\/$/, '')
 }
 
+const GOVERNANCE_TICKET_HEADER = 'X-Governance-Ticket'
+const GOVERNANCE_TICKET_STORAGE_KEY = 'fsi.governanceTicket'
+
+function readGovernanceTicket(): string | null {
+  try {
+    return sessionStorage.getItem(GOVERNANCE_TICKET_STORAGE_KEY)
+  } catch {
+    return null
+  }
+}
+
+function writeGovernanceTicket(ticket: string | null | undefined): void {
+  if (!ticket) return
+  try {
+    sessionStorage.setItem(GOVERNANCE_TICKET_STORAGE_KEY, ticket)
+  } catch {
+    // Ignore quota / private-mode failures; the next request will re-issue.
+  }
+}
+
+function rememberTicketFromHeaders(headers: Headers | { get(name: string): string | null }): void {
+  writeGovernanceTicket(headers.get(GOVERNANCE_TICKET_HEADER))
+}
+
+function rememberTicketFromBody(body: unknown): void {
+  if (!body || typeof body !== 'object') return
+  const ticket = (body as { governance_ticket?: unknown }).governance_ticket
+  if (typeof ticket === 'string') writeGovernanceTicket(ticket)
+}
+
+function governanceTicketHeaders(): Record<string, string> {
+  const ticket = readGovernanceTicket()
+  return ticket ? { [GOVERNANCE_TICKET_HEADER]: ticket } : {}
+}
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${getApiBaseUrl()}${path}`, {
     ...init,
     headers: {
       Accept: 'application/json',
       ...(init?.body ? { 'Content-Type': 'application/json' } : {}),
+      ...governanceTicketHeaders(),
       ...init?.headers,
     },
   })
@@ -47,7 +83,9 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   if (!response.ok) {
     let detail = `HTTP ${response.status}`
     try {
-      const body = (await response.json()) as { detail?: unknown }
+      const body = (await response.json()) as { detail?: unknown; governance_ticket?: unknown }
+      rememberTicketFromHeaders(response.headers)
+      rememberTicketFromBody(body)
       if (typeof body.detail === 'string') detail = body.detail
       else if (body.detail != null) detail = JSON.stringify(body.detail)
     } catch {
@@ -56,7 +94,10 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     throw new ApiError(detail, response.status)
   }
 
-  return (await response.json()) as T
+  rememberTicketFromHeaders(response.headers)
+  const payload = (await response.json()) as T
+  rememberTicketFromBody(payload)
+  return payload
 }
 
 export async function checkApiHealth(signal?: AbortSignal): Promise<HealthResponse> {
@@ -324,16 +365,23 @@ function postBinary(
     const xhr = new XMLHttpRequest()
     xhr.open('POST', `${getApiBaseUrl()}${path}`)
     xhr.setRequestHeader('Accept', 'application/json')
-    for (const [key, value] of Object.entries(headers)) {
+    for (const [key, value] of Object.entries({ ...governanceTicketHeaders(), ...headers })) {
       xhr.setRequestHeader(key, value)
     }
     xhr.upload.onprogress = (event) => {
       if (onProgress && event.lengthComputable) onProgress(event.loaded, event.total)
     }
     xhr.onload = () => {
+      writeGovernanceTicket(
+        typeof xhr.getResponseHeader === 'function'
+          ? xhr.getResponseHeader(GOVERNANCE_TICKET_HEADER)
+          : null,
+      )
       if (xhr.status >= 200 && xhr.status < 300) {
         try {
-          resolve(JSON.parse(xhr.responseText) as Record<string, unknown>)
+          const payload = JSON.parse(xhr.responseText) as Record<string, unknown>
+          rememberTicketFromBody(payload)
+          resolve(payload)
         } catch {
           resolve({})
         }

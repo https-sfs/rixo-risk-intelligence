@@ -7,6 +7,8 @@ DEFAULT_GOVERNANCE_SQLITE_PATH = "data/governance.sqlite"
 SERVERLESS_GOVERNANCE_SQLITE_PATH = "/tmp/rixo-governance.sqlite"
 VERCEL_FUNCTION_BODY_LIMIT_BYTES = int(4.5 * 1024 * 1024)
 SAFE_UPLOAD_CHUNK_BYTES = 3 * 1024 * 1024
+GOVERNANCE_TICKET_HEADER = "X-Governance-Ticket"
+DEFAULT_GOVERNANCE_TICKET_TTL_SECONDS = 12 * 60 * 60
 
 
 def is_serverless_runtime() -> bool:
@@ -51,6 +53,8 @@ class Settings(BaseSettings):
     razorpay_key_secret: str = ""
     razorpay_mode: str = "test"
     governance_sqlite_path: str = DEFAULT_GOVERNANCE_SQLITE_PATH
+    governance_signing_key: str = "rixo-governance-ticket-v1"
+    governance_ticket_ttl_seconds: int = DEFAULT_GOVERNANCE_TICKET_TTL_SECONDS
 
     @property
     def cors_origin_list(self) -> list[str]:
