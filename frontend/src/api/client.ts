@@ -36,49 +36,72 @@ export function getApiBaseUrl(): string {
 
 const GOVERNANCE_TICKET_HEADER = 'X-Governance-Ticket'
 const GOVERNANCE_TICKET_STORAGE_KEY = 'fsi.governanceTicket'
+const MAX_GOVERNANCE_TICKET_CHARS = 6000
 
-function readGovernanceTicket(): string | null {
+function customSessionIdFrom(path: string, body?: unknown): string | null {
+  const fromPath = path.match(/\/api\/custom\/sessions\/([^/?]+)/)
+  if (fromPath) return decodeURIComponent(fromPath[1])
+  if (body && typeof body === 'object') {
+    const sessionId = (body as { session_id?: unknown }).session_id
+    if (typeof sessionId === 'string' && sessionId.trim()) return sessionId.trim()
+  }
+  return null
+}
+
+function scopedTicketKey(sessionId: string): string {
+  return `${GOVERNANCE_TICKET_STORAGE_KEY}.${sessionId}`
+}
+
+function readGovernanceTicket(sessionId?: string | null): string | null {
   try {
+    if (sessionId) {
+      const scoped = sessionStorage.getItem(scopedTicketKey(sessionId))
+      if (scoped) return scoped
+    }
     return sessionStorage.getItem(GOVERNANCE_TICKET_STORAGE_KEY)
   } catch {
     return null
   }
 }
 
-function writeGovernanceTicket(ticket: string | null | undefined): void {
-  if (!ticket) return
+function writeGovernanceTicket(ticket: string | null | undefined, sessionId?: string | null): void {
+  if (!ticket || ticket.length > MAX_GOVERNANCE_TICKET_CHARS) return
   try {
     sessionStorage.setItem(GOVERNANCE_TICKET_STORAGE_KEY, ticket)
+    if (sessionId) sessionStorage.setItem(scopedTicketKey(sessionId), ticket)
   } catch {
     // Ignore quota / private-mode failures; the next request will re-issue.
   }
 }
 
-function rememberTicketFromHeaders(headers: Headers | { get(name: string): string | null }): void {
-  writeGovernanceTicket(headers.get(GOVERNANCE_TICKET_HEADER))
+function rememberTicketFromHeaders(
+  headers: Headers | { get(name: string): string | null },
+  sessionId?: string | null,
+): void {
+  writeGovernanceTicket(headers.get(GOVERNANCE_TICKET_HEADER), sessionId)
 }
 
-function rememberTicketFromBody(body: unknown): void {
+function rememberTicketFromBody(body: unknown, sessionId?: string | null): void {
   if (!body || typeof body !== 'object') return
   const ticket = (body as { governance_ticket?: unknown }).governance_ticket
-  if (typeof ticket === 'string') writeGovernanceTicket(ticket)
+  const scoped = sessionId || customSessionIdFrom('', body)
+  if (typeof ticket === 'string') writeGovernanceTicket(ticket, scoped)
 }
 
-const MAX_GOVERNANCE_TICKET_CHARS = 6000
-
-function governanceTicketHeaders(): Record<string, string> {
-  const ticket = readGovernanceTicket()
+function governanceTicketHeaders(sessionId?: string | null): Record<string, string> {
+  const ticket = readGovernanceTicket(sessionId)
   if (!ticket || ticket.length > MAX_GOVERNANCE_TICKET_CHARS) return {}
   return { [GOVERNANCE_TICKET_HEADER]: ticket }
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
+  const sessionId = customSessionIdFrom(path)
   const response = await fetch(`${getApiBaseUrl()}${path}`, {
     ...init,
     headers: {
       Accept: 'application/json',
       ...(init?.body ? { 'Content-Type': 'application/json' } : {}),
-      ...governanceTicketHeaders(),
+      ...governanceTicketHeaders(sessionId),
       ...init?.headers,
     },
   })
@@ -86,9 +109,10 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   if (!response.ok) {
     let detail = `HTTP ${response.status}`
     try {
-      const body = (await response.json()) as { detail?: unknown; governance_ticket?: unknown }
-      rememberTicketFromHeaders(response.headers)
-      rememberTicketFromBody(body)
+      const body = (await response.json()) as { detail?: unknown; governance_ticket?: unknown; session_id?: unknown }
+      const scoped = sessionId || customSessionIdFrom(path, body)
+      rememberTicketFromHeaders(response.headers, scoped)
+      rememberTicketFromBody(body, scoped)
       if (typeof body.detail === 'string') detail = body.detail
       else if (body.detail != null) detail = JSON.stringify(body.detail)
     } catch {
@@ -97,9 +121,9 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     throw new ApiError(detail, response.status)
   }
 
-  rememberTicketFromHeaders(response.headers)
+  rememberTicketFromHeaders(response.headers, sessionId)
   const payload = (await response.json()) as T
-  rememberTicketFromBody(payload)
+  rememberTicketFromBody(payload, sessionId || customSessionIdFrom(path, payload))
   return payload
 }
 
@@ -368,7 +392,7 @@ function postBinary(
     const xhr = new XMLHttpRequest()
     xhr.open('POST', `${getApiBaseUrl()}${path}`)
     xhr.setRequestHeader('Accept', 'application/json')
-    for (const [key, value] of Object.entries({ ...governanceTicketHeaders(), ...headers })) {
+    for (const [key, value] of Object.entries({ ...governanceTicketHeaders(customSessionIdFrom(path)), ...headers })) {
       xhr.setRequestHeader(key, value)
     }
     xhr.upload.onprogress = (event) => {
@@ -379,11 +403,12 @@ function postBinary(
         typeof xhr.getResponseHeader === 'function'
           ? xhr.getResponseHeader(GOVERNANCE_TICKET_HEADER)
           : null,
+        customSessionIdFrom(path),
       )
       if (xhr.status >= 200 && xhr.status < 300) {
         try {
           const payload = JSON.parse(xhr.responseText) as Record<string, unknown>
-          rememberTicketFromBody(payload)
+          rememberTicketFromBody(payload, customSessionIdFrom(path, payload))
           resolve(payload)
         } catch {
           resolve({})

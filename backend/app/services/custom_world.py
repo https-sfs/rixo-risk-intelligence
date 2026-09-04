@@ -178,18 +178,13 @@ _TICKET_ANOMALY_KEYS = (
     "anomaly_id",
     "kind",
     "kinds",
-    "world",
     "hour_start",
     "time_kind",
     "time_display",
     "transactions",
     "amount",
-    "amount_usd",
     "live_score",
     "signals",
-    "signal_details",
-    "detection_inputs",
-    "not_claimed",
 )
 
 
@@ -198,43 +193,32 @@ def session_snapshot_for_ticket(session_id: str) -> dict[str, Any] | None:
     session = _SESSIONS.get(session_id)
     if session is None:
         return None
-    scored = None
-    if isinstance(session.scored, dict):
-        scored = {
-            key: value
-            for key, value in session.scored.items()
-            if key not in {"scores", "score_array", "label_array", "hours", "hourly"}
-        }
-    summary = None
-    if isinstance(session.summary, dict):
-        summary = {
-            key: value
-            for key, value in session.summary.items()
-            if key != "hourly_context"
-        }
-    inspection = session.inspection if isinstance(session.inspection, dict) else {}
+    anomalies = [
+        {key: item.get(key) for key in _TICKET_ANOMALY_KEYS if key in item}
+        for item in session.anomalies
+        if isinstance(item, dict)
+    ]
+    hours = {str(item.get("hour_start") or "") for item in anomalies}
+    labels = {
+        key: value
+        for key, value in (session.label_hours or {}).items()
+        if key in hours
+    }
     return {
         "session_id": session.session_id,
         "filename": session.filename,
         "csv_path": "",
         "file_bytes": session.file_bytes,
-        "columns": list(session.columns or []),
-        "inspection": {
-            "column_count": inspection.get("column_count") or len(session.columns or []),
-            "schema_only": inspection.get("schema_only"),
-        },
+        "columns": [],
+        "inspection": {"column_count": len(session.columns or [])},
         "mapping_proposals": [],
         "mapping": session.mapping,
         "compatibility": session.compatibility,
-        "anomalies": [
-            {key: item.get(key) for key in _TICKET_ANOMALY_KEYS if key in item}
-            for item in session.anomalies
-            if isinstance(item, dict)
-        ],
-        "label_hours": session.label_hours,
-        "summary": summary,
+        "anomalies": anomalies,
+        "label_hours": labels,
+        "summary": None,
         "evaluation": None,
-        "scored": scored,
+        "scored": None,
         "hourly": [],
         "created_at": session.created_at,
     }

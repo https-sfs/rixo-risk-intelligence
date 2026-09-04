@@ -402,6 +402,111 @@ def test_byod_anomaly_investigation_survives_fresh_invocation_for_multiple_anoma
     assert "CUSTOM_ACTION_SIMULATED" in kinds
 
 
+def test_byod_ticket_never_drops_session_when_metadata_is_large() -> None:
+    from app.config import MAX_GOVERNANCE_TICKET_CHARS
+    from app.governance_ticket import _fit_ticket, read_ticket
+
+    anomalies = [
+        {
+            "anomaly_id": f"cda-20260302-{index:02d}",
+            "kind": "Amount concentration",
+            "hour_start": f"2026-03-02 {index:02d}:00:00",
+            "transactions": 80,
+            "amount": 400,
+            "signals": ["elevated transaction amount", "hour volume"],
+            "signal_details": [{"name": "amount", "detail": "x" * 400}],
+        }
+        for index in range(25)
+    ]
+    snapshot = {
+        "session_id": "cxs-fat-keep",
+        "filename": "fat.csv",
+        "csv_path": "/tmp/gone.csv",
+        "file_bytes": 20_000_000,
+        "columns": [f"col_{index}" for index in range(400)],
+        "inspection": {"column_count": 400, "sample_rows": [["x"] * 50 for _ in range(20)]},
+        "mapping_proposals": [{"field": "amount", "column": "amount"}],
+        "mapping": {"transaction_id": "transaction_id", "amount": "amount", "timestamp": "timestamp"},
+        "compatibility": {"status": "partial"},
+        "anomalies": anomalies,
+        "label_hours": {item["hour_start"]: {"fraud_count": 2} for item in anomalies},
+        "hourly": [{"hour_start": f"h-{index}", "transaction_count": 12} for index in range(800)],
+        "summary": {"hourly_context": [{"hour_start": f"h-{index}"} for index in range(800)]},
+        "created_at": "2026-09-04T00:00:00+00:00",
+    }
+    token = _fit_ticket({}, {"cxs-fat-keep": snapshot})
+    assert len(token) <= MAX_GOVERNANCE_TICKET_CHARS
+    payload = read_ticket(token)
+    assert payload is not None
+    assert "cxs-fat-keep" in payload["sessions"]
+    restored = payload["sessions"]["cxs-fat-keep"]
+    assert len(restored["anomalies"]) == 25
+    assert restored["hourly"] == []
+
+
+def test_byod_investigation_survives_process_reset_from_ticket_only() -> None:
+    from app.governance_ticket import issue_ticket
+    from app.services.custom_world import CustomSession, _SESSIONS
+
+    client = _client()
+    _fresh_invocation()
+    session_id = "cxs-ticket-only"
+    anomalies = [
+        {
+            "anomaly_id": "cda-20260302-03",
+            "kind": "Amount concentration",
+            "hour_start": "2026-03-02 03:00:00",
+            "transactions": 80,
+            "amount": 400,
+            "signals": ["elevated transaction amount"],
+        },
+        {
+            "anomaly_id": "cda-20260302-04",
+            "kind": "Amount concentration",
+            "hour_start": "2026-03-02 04:00:00",
+            "transactions": 90,
+            "amount": 500,
+            "signals": ["elevated transaction amount"],
+        },
+    ]
+    _SESSIONS[session_id] = CustomSession(
+        session_id=session_id,
+        filename="ticket-only.csv",
+        csv_path="",
+        file_bytes=1024,
+        columns=["transaction_id", "amount", "timestamp"],
+        inspection={"column_count": 3},
+        mapping_proposals=[],
+        mapping={"transaction_id": "transaction_id", "amount": "amount", "timestamp": "timestamp"},
+        compatibility={"status": "partial"},
+        anomalies=anomalies,
+    )
+    from app.services.custom_world import session_snapshot_for_ticket
+
+    ticket = issue_ticket({"sessions": {session_id: session_snapshot_for_ticket(session_id)}})
+    _fresh_invocation()
+    missing = client.get(f"/api/custom/sessions/{session_id}/anomalies/cda-20260302-03")
+    assert missing.status_code == 404
+    assert "unknown or expired" in missing.json()["detail"]
+
+    for anomaly_id in ("cda-20260302-03", "cda-20260302-04"):
+        _fresh_invocation()
+        detail = client.get(
+            f"/api/custom/sessions/{session_id}/anomalies/{anomaly_id}",
+            headers=_headers(ticket),
+        )
+        assert detail.status_code == 200, detail.text
+        assert detail.json()["anomaly"]["anomaly_id"] == anomaly_id
+        ticket = _ticket(detail) or ticket
+        _fresh_invocation()
+        investigation = client.get(
+            f"/api/custom/sessions/{session_id}/anomalies/{anomaly_id}/investigation?provider=auto",
+            headers=_headers(ticket),
+        )
+        assert investigation.status_code == 200, investigation.text
+        assert "unknown or expired" not in (investigation.text or "")
+
+
 def test_byod_ticket_omits_hourly_context_so_headers_stay_small() -> None:
     from app.config import MAX_GOVERNANCE_TICKET_CHARS
     from app.governance_ticket import issue_ticket

@@ -404,29 +404,95 @@ def issue_ticket_after_response(
 
     if not actions and not sessions:
         return inbound_token if inbound_token and len(inbound_token) <= MAX_GOVERNANCE_TICKET_CHARS else None
+    return _fit_ticket(actions, sessions)
+
+
+def _minimal_session_snapshot(snapshot: dict[str, Any]) -> dict[str, Any]:
+    anomalies = []
+    for item in snapshot.get("anomalies") or []:
+        if not isinstance(item, dict):
+            continue
+        anomalies.append(
+            {
+                key: item.get(key)
+                for key in (
+                    "anomaly_id",
+                    "kind",
+                    "kinds",
+                    "hour_start",
+                    "time_kind",
+                    "time_display",
+                    "transactions",
+                    "amount",
+                    "live_score",
+                    "signals",
+                )
+                if key in item
+            }
+        )
+    hours = {str(item.get("hour_start") or "") for item in anomalies}
+    labels = snapshot.get("label_hours") or {}
+    if isinstance(labels, dict):
+        labels = {key: value for key, value in labels.items() if key in hours}
+    else:
+        labels = {}
+    return {
+        "session_id": snapshot.get("session_id"),
+        "filename": snapshot.get("filename"),
+        "csv_path": "",
+        "file_bytes": snapshot.get("file_bytes") or 0,
+        "columns": [],
+        "inspection": {"column_count": 0},
+        "mapping_proposals": [],
+        "mapping": snapshot.get("mapping"),
+        "compatibility": snapshot.get("compatibility"),
+        "anomalies": anomalies,
+        "label_hours": labels,
+        "summary": None,
+        "evaluation": None,
+        "scored": None,
+        "hourly": [],
+        "created_at": snapshot.get("created_at"),
+    }
+
+
+def _fit_ticket(actions: dict[str, Any], sessions: dict[str, Any]) -> str:
+    """Keep signed BYOD session metadata in the ticket. Never drop it to fit a header."""
     token = issue_ticket({"actions": actions, "sessions": sessions})
     if len(token) <= MAX_GOVERNANCE_TICKET_CHARS:
         return token
-    compact_sessions = {
-        session_id: {
-            **snapshot,
-            "hourly": [],
-            "evaluation": None,
-            "mapping_proposals": [],
-            "inspection": {"column_count": (snapshot.get("inspection") or {}).get("column_count")},
-            "summary": (
-                {key: value for key, value in snapshot["summary"].items() if key != "hourly_context"}
-                if isinstance(snapshot.get("summary"), dict)
-                else snapshot.get("summary")
-            ),
-        }
+    compact = {
+        session_id: _minimal_session_snapshot(snapshot)
         for session_id, snapshot in sessions.items()
         if isinstance(snapshot, dict)
     }
-    token = issue_ticket({"actions": actions, "sessions": compact_sessions})
+    token = issue_ticket({"actions": actions, "sessions": compact})
     if len(token) <= MAX_GOVERNANCE_TICKET_CHARS:
         return token
-    return issue_ticket({"actions": actions, "sessions": {}})
+    token = issue_ticket({"actions": {}, "sessions": compact})
+    if len(token) <= MAX_GOVERNANCE_TICKET_CHARS:
+        return token
+    skeletal = {
+        session_id: {
+            **_minimal_session_snapshot(snapshot),
+            "compatibility": None,
+            "label_hours": {},
+            "anomalies": [
+                {
+                    "anomaly_id": item.get("anomaly_id"),
+                    "kind": item.get("kind"),
+                    "hour_start": item.get("hour_start"),
+                    "transactions": item.get("transactions"),
+                    "amount": item.get("amount"),
+                    "signals": item.get("signals") if isinstance(item.get("signals"), list) else [],
+                }
+                for item in (_minimal_session_snapshot(snapshot).get("anomalies") or [])
+                if isinstance(item, dict)
+            ],
+        }
+        for session_id, snapshot in compact.items()
+    }
+    return issue_ticket({"actions": {}, "sessions": skeletal})
 
 
 def _inject_ticket_json(body: bytes, ticket: str) -> bytes:

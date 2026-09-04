@@ -1,5 +1,5 @@
 import { afterEach, expect, test, vi } from 'vitest'
-import { getApiBaseUrl, getInvestigation, listSpikes, proposeAction, uploadCustomCsv } from './client'
+import { getApiBaseUrl, getCustomAnomaly, getInvestigation, listSpikes, proposeAction, uploadCustomCsv } from './client'
 
 afterEach(() => {
   vi.unstubAllEnvs()
@@ -57,6 +57,34 @@ test('API client sends and stores the governance ticket across requests', async 
   const headers = new Headers(fetchMock.mock.calls.at(0)?.[1]?.headers as HeadersInit)
   expect(headers.get('X-Governance-Ticket')).toBe('v1.ticket-from-client')
   expect(sessionStorage.getItem('fsi.governanceTicket')).toBe('v1.ticket-from-server')
+})
+
+test('BYOD requests prefer the session-scoped governance ticket', async () => {
+  vi.stubEnv('VITE_API_BASE_URL', 'http://api.test:9000')
+  sessionStorage.clear()
+  sessionStorage.setItem('fsi.governanceTicket', 'v1.global-other-world')
+  sessionStorage.setItem('fsi.governanceTicket.cxs-keep', 'v1.scoped-byod')
+  const fetchMock = vi.fn(() =>
+    Promise.resolve(
+      new Response(
+        JSON.stringify({
+          anomaly: { anomaly_id: 'cda-1' },
+          evidence: {},
+          session_id: 'cxs-keep',
+          governance_ticket: 'v1.scoped-next',
+        }),
+        {
+          status: 200,
+          headers: { 'Content-Type': 'application/json', 'X-Governance-Ticket': 'v1.scoped-next' },
+        },
+      ),
+    ),
+  )
+  vi.stubGlobal('fetch', fetchMock)
+  await getCustomAnomaly('cxs-keep', 'cda-1')
+  const headers = new Headers(fetchMock.mock.calls.at(0)?.[1]?.headers as HeadersInit)
+  expect(headers.get('X-Governance-Ticket')).toBe('v1.scoped-byod')
+  expect(sessionStorage.getItem('fsi.governanceTicket.cxs-keep')).toBe('v1.scoped-next')
 })
 
 test('API client uses the configured base URL', async () => {
