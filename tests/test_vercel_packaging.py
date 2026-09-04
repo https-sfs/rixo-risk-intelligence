@@ -22,7 +22,7 @@ def test_agent_package_is_present_and_importable() -> None:
 
 def test_frontend_production_env_uses_backend_alias() -> None:
     production_env = (ROOT / "frontend" / ".env.production").read_text(encoding="utf-8")
-    assert "VITE_API_BASE_URL=https://rixo-risk-intelligence.vercel.app" in production_env
+    assert "VITE_API_BASE_URL=https://rixo-risk-intelligence-api.vercel.app" in production_env
 
 
 def test_frontend_vercel_rewrites_spa_routes_to_index() -> None:
