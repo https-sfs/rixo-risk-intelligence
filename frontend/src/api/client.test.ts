@@ -6,6 +6,24 @@ afterEach(() => {
   vi.unstubAllGlobals()
 })
 
+test('API client does not send an oversized governance ticket header', async () => {
+  vi.stubEnv('VITE_API_BASE_URL', 'http://api.test:9000')
+  sessionStorage.clear()
+  sessionStorage.setItem('fsi.governanceTicket', `v1.${'x'.repeat(7000)}`)
+  const fetchMock = vi.fn(() =>
+    Promise.resolve(
+      new Response(JSON.stringify({ spikes: [], count: 0 }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      }),
+    ),
+  )
+  vi.stubGlobal('fetch', fetchMock)
+  await listSpikes()
+  const headers = new Headers(fetchMock.mock.calls.at(0)?.[1]?.headers as HeadersInit)
+  expect(headers.get('X-Governance-Ticket')).toBeNull()
+})
+
 test('API client sends and stores the governance ticket across requests', async () => {
   vi.stubEnv('VITE_API_BASE_URL', 'http://api.test:9000')
   sessionStorage.clear()

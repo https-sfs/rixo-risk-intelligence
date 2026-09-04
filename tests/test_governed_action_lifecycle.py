@@ -304,6 +304,145 @@ def test_byod_lifecycle_survives_fresh_vercel_instance() -> None:
     assert "CUSTOM_ACTION_SIMULATED" in kinds
 
 
+def _csv_with_two_spikes() -> str:
+    rows = ["transaction_id,amount,timestamp"]
+    for day in range(1, 4):
+        for hour in range(8):
+            count = 80 if day == 2 and hour in {3, 4} else 12
+            amount = 400 if day == 2 and hour in {3, 4} else 20
+            for index in range(count):
+                rows.append(f"txn-{day}-{hour}-{index},{amount},2026-03-{day:02d} {hour:02d}:15:00")
+    return "\n".join(rows) + "\n"
+
+
+def test_byod_anomaly_investigation_survives_fresh_invocation_for_multiple_anomalies() -> None:
+    from app.config import MAX_GOVERNANCE_TICKET_CHARS
+
+    client = _client()
+    _fresh_invocation()
+    uploaded = client.post(
+        "/api/custom/upload",
+        content=_csv_with_two_spikes().encode("utf-8"),
+        headers={"X-Filename": "two-spikes.csv"},
+    )
+    assert uploaded.status_code == 200
+    session_id = uploaded.json()["session_id"]
+    ticket = _ticket(uploaded)
+    mapped = client.post(
+        f"/api/custom/sessions/{session_id}/mapping",
+        json={"mapping": {"transaction_id": "transaction_id", "amount": "amount", "timestamp": "timestamp"}},
+        headers=_headers(ticket),
+    )
+    assert mapped.status_code == 200
+    ticket = _ticket(mapped) or ticket
+    analyzed = client.post(
+        f"/api/custom/sessions/{session_id}/analyze",
+        headers=_headers(ticket),
+    )
+    assert analyzed.status_code == 200, analyzed.text
+    ticket = _ticket(analyzed)
+    assert ticket
+    assert len(ticket) <= MAX_GOVERNANCE_TICKET_CHARS
+    anomalies = analyzed.json()["anomalies"]
+    assert len(anomalies) >= 2
+    ids = [str(item["anomaly_id"]) for item in anomalies[:2]]
+
+    for anomaly_id in ids:
+        _fresh_invocation()
+        detail = client.get(
+            f"/api/custom/sessions/{session_id}/anomalies/{anomaly_id}",
+            headers=_headers(ticket),
+        )
+        assert detail.status_code == 200, detail.text
+        assert detail.json()["anomaly"]["anomaly_id"] == anomaly_id
+        assert detail.json()["evidence"]
+        ticket = _ticket(detail) or ticket
+        assert "Failed to fetch" not in (detail.text or "")
+
+        _fresh_invocation()
+        investigation = client.get(
+            f"/api/custom/sessions/{session_id}/anomalies/{anomaly_id}/investigation?provider=auto",
+            headers=_headers(ticket),
+        )
+        assert investigation.status_code == 200, investigation.text
+        assert investigation.json().get("summary") or investigation.json().get("provider")
+        ticket = _ticket(investigation) or ticket
+
+    first = ids[0]
+    _fresh_invocation()
+    proposed = client.post(
+        f"/api/custom/sessions/{session_id}/actions/propose",
+        json={"anomaly_id": first},
+        headers=_headers(ticket),
+    )
+    assert proposed.status_code == 200, proposed.text
+    action_id = proposed.json()["action_id"]
+    ticket = _ticket(proposed) or ticket
+    _fresh_invocation()
+    approved = client.post(
+        f"/api/custom/sessions/{session_id}/actions/{action_id}/approve",
+        json={"approved_by": "analyst"},
+        headers=_headers(ticket),
+    )
+    assert approved.status_code == 200
+    ticket = _ticket(approved) or ticket
+    _fresh_invocation()
+    simulated = client.post(
+        f"/api/custom/sessions/{session_id}/actions/{action_id}/simulate",
+        headers=_headers(ticket),
+    )
+    assert simulated.status_code == 200
+    ticket = _ticket(simulated) or ticket
+    _fresh_invocation()
+    trail = client.get(
+        f"/api/custom/sessions/{session_id}/audit?anomaly_id={first}",
+        headers=_headers(ticket),
+    )
+    kinds = {event["kind"] for event in trail.json()["events"]}
+    assert "CUSTOM_ACTION_SIMULATED" in kinds
+
+
+def test_byod_ticket_omits_hourly_context_so_headers_stay_small() -> None:
+    from app.config import MAX_GOVERNANCE_TICKET_CHARS
+    from app.governance_ticket import issue_ticket
+    from app.services.custom_world import CustomSession, _SESSIONS, session_snapshot_for_ticket
+
+    session = CustomSession(
+        session_id="cxs-fat-hourly",
+        filename="fat.csv",
+        csv_path="",
+        file_bytes=20_000_000,
+        columns=["transaction_id", "amount", "timestamp"],
+        inspection={"column_count": 3, "sample_rows": [["x"] * 50 for _ in range(20)]},
+        mapping_proposals=[{"field": "amount", "column": "amount"}],
+        mapping={"transaction_id": "transaction_id", "amount": "amount", "timestamp": "timestamp"},
+        compatibility={"status": "partial"},
+        anomalies=[
+            {
+                "anomaly_id": "cda-20260302-04",
+                "kind": "Amount concentration",
+                "hour_start": "2026-03-02 04:00:00",
+                "transactions": 80,
+                "amount": 400,
+                "signals": ["elevated transaction amount"],
+            }
+        ],
+        hourly=[{"hour_start": f"h-{index}", "transaction_count": 12} for index in range(800)],
+        summary={
+            "transactions_analyzed": 20000,
+            "hourly_context": [{"hour_start": f"h-{index}", "transaction_count": 12} for index in range(800)],
+        },
+    )
+    _SESSIONS[session.session_id] = session
+    snapshot = session_snapshot_for_ticket(session.session_id)
+    assert snapshot is not None
+    assert snapshot["hourly"] == []
+    assert "hourly_context" not in (snapshot.get("summary") or {})
+    token = issue_ticket({"sessions": {session.session_id: snapshot}})
+    assert len(token) <= MAX_GOVERNANCE_TICKET_CHARS
+    _SESSIONS.pop(session.session_id, None)
+
+
 def test_worlds_stay_isolated_across_tickets() -> None:
     client = _client()
     _fresh_invocation()

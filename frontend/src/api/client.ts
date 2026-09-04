@@ -64,9 +64,12 @@ function rememberTicketFromBody(body: unknown): void {
   if (typeof ticket === 'string') writeGovernanceTicket(ticket)
 }
 
+const MAX_GOVERNANCE_TICKET_CHARS = 6000
+
 function governanceTicketHeaders(): Record<string, string> {
   const ticket = readGovernanceTicket()
-  return ticket ? { [GOVERNANCE_TICKET_HEADER]: ticket } : {}
+  if (!ticket || ticket.length > MAX_GOVERNANCE_TICKET_CHARS) return {}
+  return { [GOVERNANCE_TICKET_HEADER]: ticket }
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {

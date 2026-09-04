@@ -26,7 +26,7 @@ from starlette.responses import Response
 
 from agent.actions.models import ActionProposal, Approval, AuditEvent, ExecutionResult
 from agent.actions.store import SYNTHETIC_WORLD
-from app.config import GOVERNANCE_TICKET_HEADER, settings
+from app.config import GOVERNANCE_TICKET_HEADER, MAX_GOVERNANCE_TICKET_CHARS, settings
 from evaluation.custom_data.governance import (
     custom_world_key,
     parse_custom_world_key,
@@ -403,8 +403,30 @@ def issue_ticket_after_response(
                 sessions[session_id] = snapshot
 
     if not actions and not sessions:
-        return inbound_token if inbound_token else None
-    return issue_ticket({"actions": actions, "sessions": sessions})
+        return inbound_token if inbound_token and len(inbound_token) <= MAX_GOVERNANCE_TICKET_CHARS else None
+    token = issue_ticket({"actions": actions, "sessions": sessions})
+    if len(token) <= MAX_GOVERNANCE_TICKET_CHARS:
+        return token
+    compact_sessions = {
+        session_id: {
+            **snapshot,
+            "hourly": [],
+            "evaluation": None,
+            "mapping_proposals": [],
+            "inspection": {"column_count": (snapshot.get("inspection") or {}).get("column_count")},
+            "summary": (
+                {key: value for key, value in snapshot["summary"].items() if key != "hourly_context"}
+                if isinstance(snapshot.get("summary"), dict)
+                else snapshot.get("summary")
+            ),
+        }
+        for session_id, snapshot in sessions.items()
+        if isinstance(snapshot, dict)
+    }
+    token = issue_ticket({"actions": actions, "sessions": compact_sessions})
+    if len(token) <= MAX_GOVERNANCE_TICKET_CHARS:
+        return token
+    return issue_ticket({"actions": actions, "sessions": {}})
 
 
 def _inject_ticket_json(body: bytes, ticket: str) -> bytes:
@@ -423,25 +445,31 @@ class GovernanceTicketMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
         inbound = request.headers.get(TICKET_HEADER)
         if inbound:
-            hydrate_ticket(inbound)
+            try:
+                hydrate_ticket(inbound)
+            except Exception:
+                inbound = None
         response = await call_next(request)
         if not is_governance_path(request.url.path):
             return response
-        body = b""
-        async for chunk in response.body_iterator:
-            body += chunk
-        ticket = issue_ticket_after_response(inbound, request.url.path, body)
-        headers = {
-            key: value
-            for key, value in response.headers.items()
-            if key.lower() != "content-length"
-        }
-        if ticket:
-            headers[TICKET_HEADER] = ticket
-            body = _inject_ticket_json(body, ticket)
-        return Response(
-            content=body,
-            status_code=response.status_code,
-            headers=headers,
-            media_type=response.media_type,
-        )
+        try:
+            body = b""
+            async for chunk in response.body_iterator:
+                body += chunk
+            ticket = issue_ticket_after_response(inbound, request.url.path, body)
+            headers = {
+                key: value
+                for key, value in response.headers.items()
+                if key.lower() != "content-length"
+            }
+            if ticket and len(ticket) <= MAX_GOVERNANCE_TICKET_CHARS:
+                headers[TICKET_HEADER] = ticket
+                body = _inject_ticket_json(body, ticket)
+            return Response(
+                content=body,
+                status_code=response.status_code,
+                headers=headers,
+                media_type=response.media_type,
+            )
+        except Exception:
+            return response
